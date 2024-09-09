@@ -16,5 +16,68 @@ namespace PROG_3B_POE
         {
             InitializeComponent();
         }
+
+        bool sidebartoggle = true;
+        bool menuExpand = false;
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLocalEventsAndAnnouncements_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnServiceRequestService_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnRepoertIssue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        bool sidebarExpand = true;
+
+        private void sideBarTransiction_Tick(object sender, EventArgs e)
+        {
+            if (sidebarExpand)
+            {
+                sidebarContainer.Width -= 10;
+                if (sidebarContainer.Width <= 60)
+                {
+                    sidebarExpand = false;
+                    sideBarTransiction.Stop();
+                }
+            }
+            else
+            {
+                sidebarContainer.Width += 10;
+                if (sidebarContainer.Width >= 220)
+                {
+                    sidebarExpand = true;
+                    sideBarTransiction.Stop();
+                }
+            }
+        }
+
+        private void btnHambugerButton_Click(object sender, EventArgs e)
+        {
+           sideBarTransiction.Start();
+        }
     }
 }
