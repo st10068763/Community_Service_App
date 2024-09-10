@@ -16,7 +16,15 @@ namespace PROG_3B_POE
         {
             InitializeComponent();
         }
-        ReportIssueForm reportIssueForm = new ReportIssueForm();
+
+        /// <summary>
+        /// Declaring the forms that will be used in the application
+        /// </summary>
+        ReportIssueForm reportForm;
+        LocalEventsAnnouncementsForm localEventsForm;
+        ServiceRequestForm serviceRequestForm;
+        DashboardForm dashboardForm;
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -38,71 +46,94 @@ namespace PROG_3B_POE
 
         }
 
+        /// <summary>
+        /// Button to open the report issue form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnRepoertIssue_Click(object sender, EventArgs e)
         {
-            if (reportIssueForm == null)
+            if (reportForm == null)
             {
-                reportIssueForm = new ReportIssueForm();
-                reportIssueForm.FormClosed += ReportIssueForm_FormClosed;
-                reportIssueForm.MdiParent = this;
-                reportIssueForm.Show();
+                reportForm = new ReportIssueForm();
+                reportForm.FormClosed += ReportForm_FormClosed;
+               
+                reportForm.MdiParent = this;                
+                
+                reportForm.Dock = DockStyle.Fill;
+                reportForm.Show();
             }
             else
             {
-                reportIssueForm.Activate();
+                reportForm.Activate();
             }
 
         }
-
-        private void ReportIssueForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            reportIssueForm = null;
-        }
+        /// <summary>
+        /// This method is used to close the report issue form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReportForm_FormClosed(object sender, FormClosedEventArgs e)
+       {
+            reportForm = null;
+       }
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
 
         }
 
-        bool sidebarExpand = true;
+        bool sidebarExpand = true; // Indicates whether the sidebar is expanded or not
+
+        private void btnHambugerButton_Click(object sender, EventArgs e)
+        {
+            // Toggle the sidebar visibility by starting the timer
+            sideBarTransiction.Start();
+        }
 
         private void sideBarTransiction_Tick(object sender, EventArgs e)
         {
+            // Check whether to expand or collapse the sidebar
             if (sidebarExpand)
             {
-                sidebarContainer.Width -= 10;
-                if (sidebarContainer.Width <= 60)
+                sidebarContainer.Width -= 10; // Shrink the sidebar width
+
+                if (sidebarContainer.Width <= 60) // Sidebar fully collapsed
                 {
-                    sidebarExpand = false;
-                    sideBarTransiction.Stop();
-                    // this will make the buttons in the sidebar to be the same width as the sidebar
-                    BtnDashboard.Width = sidebarContainer.Width;
-                    btnLocalEventsAndAnnouncements.Width = sidebarContainer.Width;
-                    BtnServiceRequestService.Width = sidebarContainer.Width;
-                    BtnRepoertIssue.Width = sidebarContainer.Width;
-                    BtnLogout.Width = sidebarContainer.Width;
+                    sidebarExpand = false; // Set to collapsed state
+                    sideBarTransiction.Stop(); // Stop the timer once it's fully collapsed
+
+                    // Adjust button widths to match the sidebar's new width
+                    AdjustButtonWidths(sidebarContainer.Width);
                 }
             }
             else
             {
-                sidebarContainer.Width += 5;
-                if (sidebarContainer.Width >= 251)
+                sidebarContainer.Width += 10; // Expand the sidebar width
+
+                if (sidebarContainer.Width >= 251) // Sidebar fully expanded
                 {
-                    sidebarExpand = true;
-                    sideBarTransiction.Stop();
-                    // this is to make the buttons in the sidebar to be the same width as the sidebar
-                    BtnDashboard.Width = sidebarContainer.Width;
-                    btnLocalEventsAndAnnouncements.Width = sidebarContainer.Width;
-                    BtnServiceRequestService.Width = sidebarContainer.Width;
-                    BtnRepoertIssue.Width = sidebarContainer.Width;
-                    BtnLogout.Width = sidebarContainer.Width;
+                    sidebarExpand = true; // Set to expanded state
+                    sideBarTransiction.Stop(); // Stop the timer once it's fully expanded
+
+                    // Adjust button widths to match the sidebar's new width
+                    AdjustButtonWidths(sidebarContainer.Width);
                 }
             }
         }
 
-        private void btnHambugerButton_Click(object sender, EventArgs e)
+        private void AdjustButtonWidths(int width)
         {
-           sideBarTransiction.Start();
+            // Adjust the buttons' width based on the current width of the sidebar
+            BtnDashboard.Width = width;
+            btnLocalEventsAndAnnouncements.Width = width;
+            BtnServiceRequestService.Width = width;
+            BtnRepoertIssue.Width = width;
+            BtnLogout.Width = width;
         }
+
+
+
     }
 }
