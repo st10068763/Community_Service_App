@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Report = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@
             this.btnAddFile = new System.Windows.Forms.Button();
             this.AttachedPictureBox = new System.Windows.Forms.PictureBox();
             this.txtFilePath = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AttachedPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +52,7 @@
             // 
             this.Report.AutoSize = true;
             this.Report.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Report.Location = new System.Drawing.Point(199, 9);
+            this.Report.Location = new System.Drawing.Point(197, 42);
             this.Report.Name = "Report";
             this.Report.Size = new System.Drawing.Size(792, 58);
             this.Report.TabIndex = 0;
@@ -170,9 +173,10 @@
             // 
             // AttachedPictureBox
             // 
-            this.AttachedPictureBox.Location = new System.Drawing.Point(704, 443);
+            this.AttachedPictureBox.Location = new System.Drawing.Point(704, 445);
             this.AttachedPictureBox.Name = "AttachedPictureBox";
             this.AttachedPictureBox.Size = new System.Drawing.Size(287, 172);
+            this.AttachedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.AttachedPictureBox.TabIndex = 12;
             this.AttachedPictureBox.TabStop = false;
             // 
@@ -186,12 +190,25 @@
             this.txtFilePath.TabIndex = 13;
             this.txtFilePath.Text = "file path";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(207, 2);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(784, 37);
+            this.progressBar1.TabIndex = 14;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 50;
+            this.timer1.Tick += new System.EventHandler(this.ProgressTimer);
+            // 
             // ReportIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1232, 703);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txtFilePath);
             this.Controls.Add(this.AttachedPictureBox);
             this.Controls.Add(this.btnAddFile);
@@ -231,5 +248,7 @@
         private System.Windows.Forms.Button btnAddFile;
         private System.Windows.Forms.PictureBox AttachedPictureBox;
         private System.Windows.Forms.Label txtFilePath;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

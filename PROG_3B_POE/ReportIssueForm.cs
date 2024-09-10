@@ -19,7 +19,7 @@ namespace PROG_3B_POE
 
         private void ReportIssueForm_Load(object sender, EventArgs e)
         {
-            
+            timer1.Start();
         }
 
         private void btnAddFile_Click(object sender, EventArgs e)
@@ -51,6 +51,20 @@ namespace PROG_3B_POE
                     // Display image in a PictureBox (if you have one)
                     AttachedPictureBox.Image = Image.FromFile(filePath); // Assuming you have a PictureBox named pictureBox1
                 }
+            }
+        }
+
+        private void ProgressTimer(object sender, EventArgs e)
+        {
+            if (progressBar1.Value < 100)
+            {
+                progressBar1.Value += 10;
+            }
+            else
+            {
+                timer1.Stop();
+                MessageBox.Show("Issue reported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
         }
     }
