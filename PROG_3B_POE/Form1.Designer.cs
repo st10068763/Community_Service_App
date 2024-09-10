@@ -59,7 +59,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnHambugerButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -92,7 +92,7 @@
             // 
             // sidebarContainer
             // 
-            this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.sidebarContainer.Controls.Add(this.flowLayoutPanel2);
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 67);
@@ -102,7 +102,7 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.flowLayoutPanel2.Controls.Add(this.panel6);
             this.flowLayoutPanel2.Controls.Add(this.panel4);
             this.flowLayoutPanel2.Controls.Add(this.panel2);
@@ -127,11 +127,12 @@
             // 
             // BtnDashboard
             // 
-            this.BtnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.BtnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.BtnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDashboard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("BtnDashboard.Image")));
             this.BtnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDashboard.Location = new System.Drawing.Point(-5, 0);
+            this.BtnDashboard.Location = new System.Drawing.Point(0, 0);
             this.BtnDashboard.Name = "BtnDashboard";
             this.BtnDashboard.Size = new System.Drawing.Size(281, 63);
             this.BtnDashboard.TabIndex = 2;
@@ -152,9 +153,10 @@
             // 
             // btnLocalEventsAndAnnouncements
             // 
-            this.btnLocalEventsAndAnnouncements.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.btnLocalEventsAndAnnouncements.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.btnLocalEventsAndAnnouncements.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLocalEventsAndAnnouncements.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLocalEventsAndAnnouncements.Image = ((System.Drawing.Image)(resources.GetObject("btnLocalEventsAndAnnouncements.Image")));
             this.btnLocalEventsAndAnnouncements.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLocalEventsAndAnnouncements.Location = new System.Drawing.Point(-1, 4);
             this.btnLocalEventsAndAnnouncements.Name = "btnLocalEventsAndAnnouncements";
@@ -177,15 +179,16 @@
             // 
             // BtnServiceRequestService
             // 
-            this.BtnServiceRequestService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.BtnServiceRequestService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.BtnServiceRequestService.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnServiceRequestService.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnServiceRequestService.Image = ((System.Drawing.Image)(resources.GetObject("BtnServiceRequestService.Image")));
             this.BtnServiceRequestService.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnServiceRequestService.Location = new System.Drawing.Point(0, 0);
             this.BtnServiceRequestService.Name = "BtnServiceRequestService";
             this.BtnServiceRequestService.Size = new System.Drawing.Size(264, 62);
             this.BtnServiceRequestService.TabIndex = 2;
-            this.BtnServiceRequestService.Text = "Service Request Service";
+            this.BtnServiceRequestService.Text = "      Service Request Service";
             this.BtnServiceRequestService.UseVisualStyleBackColor = false;
             this.BtnServiceRequestService.UseWaitCursor = true;
             this.BtnServiceRequestService.Click += new System.EventHandler(this.BtnServiceRequestService_Click);
@@ -202,9 +205,10 @@
             // 
             // BtnRepoertIssue
             // 
-            this.BtnRepoertIssue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.BtnRepoertIssue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.BtnRepoertIssue.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRepoertIssue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnRepoertIssue.Image = ((System.Drawing.Image)(resources.GetObject("BtnRepoertIssue.Image")));
             this.BtnRepoertIssue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRepoertIssue.Location = new System.Drawing.Point(-3, 0);
             this.BtnRepoertIssue.Name = "BtnRepoertIssue";
@@ -227,9 +231,10 @@
             // 
             // BtnLogout
             // 
-            this.BtnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
+            this.BtnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.BtnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnLogout.Image = ((System.Drawing.Image)(resources.GetObject("BtnLogout.Image")));
             this.BtnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnLogout.Location = new System.Drawing.Point(0, 0);
             this.BtnLogout.Name = "BtnLogout";
