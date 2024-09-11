@@ -81,6 +81,7 @@
             // 
             // btnHambugerButton
             // 
+            this.btnHambugerButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHambugerButton.Image = ((System.Drawing.Image)(resources.GetObject("btnHambugerButton.Image")));
             this.btnHambugerButton.Location = new System.Drawing.Point(-15, 0);
             this.btnHambugerButton.Name = "btnHambugerButton";
@@ -94,6 +95,7 @@
             // 
             this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.sidebarContainer.Controls.Add(this.flowLayoutPanel2);
+            this.sidebarContainer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 67);
             this.sidebarContainer.Name = "sidebarContainer";
@@ -108,10 +110,11 @@
             this.flowLayoutPanel2.Controls.Add(this.panel2);
             this.flowLayoutPanel2.Controls.Add(this.panel3);
             this.flowLayoutPanel2.Controls.Add(this.panel5);
+            this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(272, 388);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(278, 388);
             this.flowLayoutPanel2.TabIndex = 5;
             this.flowLayoutPanel2.UseWaitCursor = true;
             // 
@@ -128,13 +131,14 @@
             // BtnDashboard
             // 
             this.BtnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.BtnDashboard.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.BtnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDashboard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("BtnDashboard.Image")));
             this.BtnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDashboard.Location = new System.Drawing.Point(0, 0);
             this.BtnDashboard.Name = "BtnDashboard";
-            this.BtnDashboard.Size = new System.Drawing.Size(281, 63);
+            this.BtnDashboard.Size = new System.Drawing.Size(267, 63);
             this.BtnDashboard.TabIndex = 2;
             this.BtnDashboard.Text = "Dashboard";
             this.BtnDashboard.UseVisualStyleBackColor = false;
@@ -160,7 +164,7 @@
             this.btnLocalEventsAndAnnouncements.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLocalEventsAndAnnouncements.Location = new System.Drawing.Point(-1, 4);
             this.btnLocalEventsAndAnnouncements.Name = "btnLocalEventsAndAnnouncements";
-            this.btnLocalEventsAndAnnouncements.Size = new System.Drawing.Size(270, 59);
+            this.btnLocalEventsAndAnnouncements.Size = new System.Drawing.Size(268, 59);
             this.btnLocalEventsAndAnnouncements.TabIndex = 2;
             this.btnLocalEventsAndAnnouncements.Text = "Local events and announcements";
             this.btnLocalEventsAndAnnouncements.UseVisualStyleBackColor = false;
@@ -186,7 +190,7 @@
             this.BtnServiceRequestService.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnServiceRequestService.Location = new System.Drawing.Point(0, 0);
             this.BtnServiceRequestService.Name = "BtnServiceRequestService";
-            this.BtnServiceRequestService.Size = new System.Drawing.Size(264, 62);
+            this.BtnServiceRequestService.Size = new System.Drawing.Size(270, 62);
             this.BtnServiceRequestService.TabIndex = 2;
             this.BtnServiceRequestService.Text = "      Service Request Service";
             this.BtnServiceRequestService.UseVisualStyleBackColor = false;
@@ -232,13 +236,14 @@
             // BtnLogout
             // 
             this.BtnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.BtnLogout.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.BtnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnLogout.Image = ((System.Drawing.Image)(resources.GetObject("BtnLogout.Image")));
             this.BtnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnLogout.Location = new System.Drawing.Point(0, 0);
             this.BtnLogout.Name = "BtnLogout";
-            this.BtnLogout.Size = new System.Drawing.Size(264, 62);
+            this.BtnLogout.Size = new System.Drawing.Size(270, 62);
             this.BtnLogout.TabIndex = 2;
             this.BtnLogout.Text = "Logout";
             this.BtnLogout.UseVisualStyleBackColor = false;

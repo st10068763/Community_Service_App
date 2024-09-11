@@ -79,6 +79,9 @@
     <Compile Include="ServiceRequestForm.Designer.cs">
       <DependentUpon>ServiceRequestForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +100,9 @@
     </Compile>
     <EmbeddedResource Include="ReportIssueForm.resx">
       <DependentUpon>ReportIssueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServiceRequestForm.resx">
+      <DependentUpon>ServiceRequestForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -33,17 +33,71 @@ namespace PROG_3B_POE
 
         private void btnLocalEventsAndAnnouncements_Click(object sender, EventArgs e)
         {
+            if (localEventsForm == null)
+            {
+                localEventsForm = new LocalEventsAnnouncementsForm();
+                localEventsForm.FormClosed += LocalEventsForm_FormClosed;
 
+                localEventsForm.MdiParent = this;
+
+                localEventsForm.Dock = DockStyle.Fill;
+                localEventsForm.Show();
+            }
+            else
+            {
+                localEventsForm.Activate();
+            }
+        }
+
+        private void LocalEventsForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            localEventsForm = null;
         }
 
         private void BtnDashboard_Click(object sender, EventArgs e)
         {
+            if (dashboardForm == null)
+            {
+                dashboardForm = new DashboardForm();
+                dashboardForm.FormClosed += DashboardForm_FormClosed;
 
+                dashboardForm.MdiParent = this;
+
+                dashboardForm.Dock = DockStyle.Fill;
+                dashboardForm.Show();
+            }
+            else
+            {
+                dashboardForm.Activate();
+            }
+        }
+
+        private void DashboardForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            dashboardForm = null;
         }
 
         private void BtnServiceRequestService_Click(object sender, EventArgs e)
         {
+            if (serviceRequestForm == null)
+            {
+                serviceRequestForm = new ServiceRequestForm();
+                serviceRequestForm.FormClosed += ServiceRequestForm_FormClosed;
 
+                serviceRequestForm.MdiParent = this;
+
+                serviceRequestForm.Dock = DockStyle.Fill;
+                serviceRequestForm.Show();
+            }
+            else
+            {
+                serviceRequestForm.Activate();
+            }
+        }
+
+        private void ServiceRequestForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            serviceRequestForm = null;
         }
 
         /// <summary>
@@ -92,6 +146,11 @@ namespace PROG_3B_POE
             sideBarTransiction.Start();
         }
 
+        /// <summary>
+        /// Method to handle the sidebar transition
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sideBarTransiction_Tick(object sender, EventArgs e)
         {
             // Check whether to expand or collapse the sidebar
@@ -132,8 +191,5 @@ namespace PROG_3B_POE
             BtnRepoertIssue.Width = width;
             BtnLogout.Width = width;
         }
-
-
-
     }
 }
