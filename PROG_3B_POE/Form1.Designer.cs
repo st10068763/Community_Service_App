@@ -46,6 +46,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.BtnLogout = new System.Windows.Forms.Button();
             this.sideBarTransiction = new System.Windows.Forms.Timer(this.components);
+            this.MessageTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHambugerButton)).BeginInit();
             this.sidebarContainer.SuspendLayout();
@@ -99,7 +100,7 @@
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 67);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(282, 625);
+            this.sidebarContainer.Size = new System.Drawing.Size(283, 625);
             this.sidebarContainer.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -138,7 +139,7 @@
             this.BtnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDashboard.Location = new System.Drawing.Point(0, 0);
             this.BtnDashboard.Name = "BtnDashboard";
-            this.BtnDashboard.Size = new System.Drawing.Size(267, 63);
+            this.BtnDashboard.Size = new System.Drawing.Size(284, 63);
             this.BtnDashboard.TabIndex = 2;
             this.BtnDashboard.Text = "Dashboard";
             this.BtnDashboard.UseVisualStyleBackColor = false;
@@ -164,7 +165,7 @@
             this.btnLocalEventsAndAnnouncements.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLocalEventsAndAnnouncements.Location = new System.Drawing.Point(-1, 4);
             this.btnLocalEventsAndAnnouncements.Name = "btnLocalEventsAndAnnouncements";
-            this.btnLocalEventsAndAnnouncements.Size = new System.Drawing.Size(268, 59);
+            this.btnLocalEventsAndAnnouncements.Size = new System.Drawing.Size(285, 71);
             this.btnLocalEventsAndAnnouncements.TabIndex = 2;
             this.btnLocalEventsAndAnnouncements.Text = "Local events and announcements";
             this.btnLocalEventsAndAnnouncements.UseVisualStyleBackColor = false;
@@ -190,7 +191,7 @@
             this.BtnServiceRequestService.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnServiceRequestService.Location = new System.Drawing.Point(0, 0);
             this.BtnServiceRequestService.Name = "BtnServiceRequestService";
-            this.BtnServiceRequestService.Size = new System.Drawing.Size(270, 62);
+            this.BtnServiceRequestService.Size = new System.Drawing.Size(275, 63);
             this.BtnServiceRequestService.TabIndex = 2;
             this.BtnServiceRequestService.Text = "      Service Request Service";
             this.BtnServiceRequestService.UseVisualStyleBackColor = false;
@@ -216,7 +217,7 @@
             this.BtnRepoertIssue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRepoertIssue.Location = new System.Drawing.Point(-3, 0);
             this.BtnRepoertIssue.Name = "BtnRepoertIssue";
-            this.BtnRepoertIssue.Size = new System.Drawing.Size(270, 62);
+            this.BtnRepoertIssue.Size = new System.Drawing.Size(279, 62);
             this.BtnRepoertIssue.TabIndex = 2;
             this.BtnRepoertIssue.Text = "Report Issue";
             this.BtnRepoertIssue.UseVisualStyleBackColor = false;
@@ -243,7 +244,7 @@
             this.BtnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnLogout.Location = new System.Drawing.Point(0, 0);
             this.BtnLogout.Name = "BtnLogout";
-            this.BtnLogout.Size = new System.Drawing.Size(270, 62);
+            this.BtnLogout.Size = new System.Drawing.Size(276, 62);
             this.BtnLogout.TabIndex = 2;
             this.BtnLogout.Text = "Logout";
             this.BtnLogout.UseVisualStyleBackColor = false;
@@ -258,9 +259,12 @@
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(4)))), ((int)(((byte)(4)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1242, 692);
             this.Controls.Add(this.sidebarContainer);
             this.Controls.Add(this.panel1);
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.IsMdiContainer = true;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -297,5 +301,6 @@
         private System.Windows.Forms.Button BtnDashboard;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Timer sideBarTransiction;
+        private System.Windows.Forms.Timer MessageTimer;
     }
 }

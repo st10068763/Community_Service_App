@@ -15,6 +15,10 @@ namespace PROG_3B_POE
         public Form1()
         {
             InitializeComponent();
+            //InitializeDashboard();
+            MessageTimer.Start();
+            MessageTimer = new Timer();
+            MessageTimer.Interval = 10000; // Set to 10 seconds
         }
 
         /// <summary>
@@ -25,9 +29,40 @@ namespace PROG_3B_POE
         ServiceRequestForm serviceRequestForm;
         DashboardForm dashboardForm;
 
+               
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
+        }
+
+        //private void InitializeDashboard()
+        //{
+          
+        //        // Initialize the timer
+        //        MessageTimer = new Timer();
+        //        MessageTimer.Interval = 10000; // Set to 10 seconds
+        //        MessageTimer.Start();
+        //       // MessageTimer.Tick += new EventHandler(MessageTimer_Tick);
+        //        MessageBox.Show("Welcome to the Service Request Management System\n" +
+        //            "\nThis application is designed to help you manage your service requests\n" +
+        //            "\nPlease use the buttons on the left to navigate through the application\n" +
+        //            "\nHave a nice day", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        MessageTimer.Stop();
+          
+        //}
+            
+        private void MessageTimer_Tick(object sender, EventArgs e)
+        {
+            // Initialize the timer
+            
+            
+            // MessageTimer.Tick += new EventHandler(MessageTimer_Tick);
+            MessageBox.Show("Welcome to the Service Request Management System\n" +
+                "\nThis application is designed to help you manage your service requests\n" +
+                "\nPlease use the buttons on the left to navigate through the application\n" +
+                "\nHave a nice day", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageTimer.Stop();
 
         }
 
@@ -158,7 +193,7 @@ namespace PROG_3B_POE
             {
                 sidebarContainer.Width -= 10; // Shrink the sidebar width
 
-                if (sidebarContainer.Width <= 60) // Sidebar fully collapsed
+                if (sidebarContainer.Width <= 73) // Sidebar fully collapsed
                 {
                     sidebarExpand = false; // Set to collapsed state
                     sideBarTransiction.Stop(); // Stop the timer once it's fully collapsed
@@ -171,7 +206,7 @@ namespace PROG_3B_POE
             {
                 sidebarContainer.Width += 10; // Expand the sidebar width
 
-                if (sidebarContainer.Width >= 251) // Sidebar fully expanded
+                if (sidebarContainer.Width >= 283) // Sidebar fully expanded
                 {
                     sidebarExpand = true; // Set to expanded state
                     sideBarTransiction.Stop(); // Stop the timer once it's fully expanded

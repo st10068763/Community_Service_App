@@ -17,6 +17,19 @@ namespace PROG_3B_POE
             InitializeComponent();
         }
 
+        List<IssueReport> issues = new List<IssueReport>();
+
+        /// <summary>
+        /// Class to store the issue details
+        /// </summary>
+        public class IssueReport
+        {
+            public string Location { get; set; }
+            public string Category { get; set; }
+            public string Description { get; set; }
+            public Image Attachment { get; set; }
+        }
+
         private void ReportIssueForm_Load(object sender, EventArgs e)
         {
             progressBar.Value = 0;
@@ -56,7 +69,12 @@ namespace PROG_3B_POE
             }           
         }
 
-        // Method to track user form field input
+        //--------------------------------------USER INPUT TRACKER/ PROGRESS BAR------------------------------------------
+        /// <summary>
+        /// method to track user form field input
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
             UpdateProgress();
@@ -66,13 +84,11 @@ namespace PROG_3B_POE
         {
             UpdateProgress();
         }
-           
 
         private void CategoryListBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateProgress();
-        }
-           
+        }           
 
         // Method to calculate and update progress bar based on filled fields
         private void UpdateProgress()
@@ -97,29 +113,48 @@ namespace PROG_3B_POE
             // Update progress bar value
             progressBar.Value = progressPercentage;
         }
-
+        //----------------------------------------------------------------------------------------------------------------
         /// <summary>
-        /// Button to submit the report
+        /// Button to submit the report and display the report in the grid view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSubmitReport_Click(object sender, EventArgs e)
         {
-            // checking if all the fields are filled
+            // Checking if all the fields are filled
             if (txtDescription.Text == "" || textLocation.Text == "" || CategoryListBx.Text == "")
             {
                 MessageBox.Show("Please fill in all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show("Issue reported successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Return early to prevent further execution
             }
 
-            // Clear all the fields
+            // Success message
+            MessageBox.Show("Your " + CategoryListBx.Text + " issue has been reported.\n" +
+                " Thank you for your feedback.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Create a new IssueReport object and populate it with user input
+            IssueReport issue = new IssueReport
+            {
+                Description = txtDescription.Text,
+                Location = textLocation.Text,
+                Category = CategoryListBx.Text,
+                Attachment = AttachedPictureBox.Image
+            };
+
+            // Add the issue to the list of issues
+            issues.Add(issue);
+
+            //Passes the data to the grid view
+            ReportDataGrid.DataSource = issues;
+
+            // Clear the input fields after submission
             txtDescription.Text = "";
             textLocation.Text = "";
-            CategoryListBx.SelectedIndex = 0;
+            CategoryListBx.SelectedIndex = -1; // Reset selection
             AttachedPictureBox.Image = null;
+
+            // Reset the progress bar after submission
+            progressBar.Value = 0;
         }
 
         private void AttachedPictureBox_Click(object sender, EventArgs e)
