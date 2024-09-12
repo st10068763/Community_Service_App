@@ -12,6 +12,8 @@ namespace PROG_3B_POE
 {
     public partial class ReportIssueForm : Form
     {
+        private bool firstTime = true;
+
         public ReportIssueForm()
         {
             InitializeComponent();
@@ -121,6 +123,14 @@ namespace PROG_3B_POE
         /// <param name="e"></param>
         private void btnSubmitReport_Click(object sender, EventArgs e)
         {
+            if (firstTime)
+            {
+                //creating a new instance of rating from 
+                RatingForm ratingForm = new RatingForm();
+                ratingForm.ShowDialog();
+                firstTime = false;
+            }
+           
             // Checking if all the fields are filled
             if (txtDescription.Text == "" || textLocation.Text == "" || CategoryListBx.Text == "")
             {
@@ -157,6 +167,7 @@ namespace PROG_3B_POE
             progressBar.Value = 0;
         }
 
+       
         private void AttachedPictureBox_Click(object sender, EventArgs e)
         {
 
