@@ -19,7 +19,12 @@ namespace PROG_3B_POE
             InitializeComponent();
         }
 
-        List<IssueReport> issues = new List<IssueReport>();
+        //List<IssueReport> issues = new List<IssueReport>();
+
+        /// <summary>
+        /// Using a binding list to store the issue reports
+        /// </summary>
+        BindingList<IssueReport> issues = new BindingList<IssueReport>();
 
         /// <summary>
         /// Class to store the issue details
@@ -35,9 +40,13 @@ namespace PROG_3B_POE
         private void ReportIssueForm_Load(object sender, EventArgs e)
         {
             progressBar.Value = 0;
+            // Add event handlers for user input fields
             txtDescription.TextChanged += txtDescription_TextChanged;
             textLocation.TextChanged += textLocation_TextChanged;
             CategoryListBx.SelectedIndexChanged += CategoryListBx_SelectedIndexChanged;
+
+            // Bind the BindingList to the DataGridView
+            ReportDataGrid.DataSource = issues;
         }
 
         private void btnAddFile_Click(object sender, EventArgs e)

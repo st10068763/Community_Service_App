@@ -13,12 +13,13 @@ namespace PROG_3B_POE
     public partial class Form1 : Form
     {
         private int tourStep = 0;
+        // Indicates whether the sidebar is expanded or not
+        bool sidebarExpand = true;
 
         public Form1()
         {
             InitializeComponent();
             
-            ShowAppTour();
         }
 
         /// <summary>
@@ -31,48 +32,7 @@ namespace PROG_3B_POE
         /// <summary>
         /// Declaring the tool tip that will be used for the app tour
         /// </summary>
-        ToolTip toolTip = new ToolTip();
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void ShowAppTour()
-        {
-            // this will hide any previous tooltips
-            toolTip.Hide(this);
-           
-            switch (tourStep)
-            {
-                case 0:
-                    toolTip.Show("Welcome to the app! Click here to view the dashboard", BtnDashboard, 0, 0, 2000);
-                    break;
-                case 1:
-                    toolTip.Show("Click here to view local events and announcements", btnLocalEventsAndAnnouncements, 0, 0, 2000);
-                    break;
-                case 2:
-                    toolTip.Show("Click here to request a service", BtnServiceRequestService, 0, 0, 2000);
-                    break;
-                case 3:
-                    toolTip.Show("Click here to report an issue", BtnRepoertIssue, 0, 0, 2000);
-                    break;
-                case 4:
-                    toolTip.Show("Click here to logout", BtnLogout, 0, 0, 2000);
-                    break;
-                default:
-                    MessageBox.Show("App tour completed");
-                    break;
-            }            
-            tourStep++;
-        }
-
-        private void btnNextTourStep_Click(object sender, EventArgs e)
-        {
-            ShowAppTour();
-        }
-
+       
         private void btnLocalEventsAndAnnouncements_Click(object sender, EventArgs e)
         {
             if (localEventsForm == null)
@@ -170,23 +130,20 @@ namespace PROG_3B_POE
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ReportForm_FormClosed(object sender, FormClosedEventArgs e)
-       {
+        {
             reportForm = null;
-       }
+        }
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // Indicates whether the sidebar is expanded or not
-        bool sidebarExpand = true; 
-
+       
         private void btnHambugerButton_Click(object sender, EventArgs e)
         {
             // Toggle the sidebar visibility by starting the timer
-            sideBarTransiction.Start();
-            ShowAppTour();
+            sideBarTransiction.Start();           
         }
 
         /// <summary>
@@ -201,38 +158,23 @@ namespace PROG_3B_POE
             {
                 sidebarContainer.Width -= 10; // Shrink the sidebar width
 
-                if (sidebarContainer.Width <= 85) // Sidebar fully collapsed
+                if (sidebarContainer.Width <= 103) // Sidebar fully collapsed
                 {
                     sidebarExpand = false; // Set to collapsed state
                     sideBarTransiction.Stop(); // Stop the timer once it's fully collapsed
 
-                    // Adjust button widths to match the sidebar's new width
-                    AdjustButtonWidths(sidebarContainer.Width);
                 }
             }
             else
             {
                 sidebarContainer.Width += 10; // Expand the sidebar width
 
-                if (sidebarContainer.Width >= 284) // Sidebar fully expanded
+                if (sidebarContainer.Width >= 303) // Sidebar fully expanded
                 {
                     sidebarExpand = true; // Set to expanded state
                     sideBarTransiction.Stop(); // Stop the timer once it's fully expanded
-
-                    // Adjust button widths to match the sidebar's new width
-                    AdjustButtonWidths(sidebarContainer.Width);
                 }
             }
-        }
-
-        private void AdjustButtonWidths(int width)
-        {
-            // Adjust the buttons' width based on the current width of the sidebar
-            BtnDashboard.Width = width;
-            btnLocalEventsAndAnnouncements.Width = width;
-            BtnServiceRequestService.Width = width;
-            BtnRepoertIssue.Width = width;
-            BtnLogout.Width = width;
         }
     }
 }

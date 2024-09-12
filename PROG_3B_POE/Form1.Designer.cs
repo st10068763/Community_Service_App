@@ -61,7 +61,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnHambugerButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -85,179 +85,183 @@
             // 
             this.btnHambugerButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHambugerButton.Image = ((System.Drawing.Image)(resources.GetObject("btnHambugerButton.Image")));
-            this.btnHambugerButton.Location = new System.Drawing.Point(-15, 0);
+            this.btnHambugerButton.Location = new System.Drawing.Point(0, 0);
             this.btnHambugerButton.Name = "btnHambugerButton";
-            this.btnHambugerButton.Size = new System.Drawing.Size(118, 63);
+            this.btnHambugerButton.Size = new System.Drawing.Size(103, 63);
             this.btnHambugerButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnHambugerButton.TabIndex = 1;
             this.btnHambugerButton.TabStop = false;
+            this.TourClip.SetToolTip(this.btnHambugerButton, "Click here to hide or extand the menu");
             this.btnHambugerButton.Click += new System.EventHandler(this.btnHambugerButton_Click);
             // 
             // sidebarContainer
             // 
-            this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.sidebarContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
             this.sidebarContainer.Controls.Add(this.flowLayoutPanel2);
-            this.sidebarContainer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.sidebarContainer.Cursor = System.Windows.Forms.Cursors.Default;
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarContainer.Location = new System.Drawing.Point(0, 67);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(280, 625);
+            this.sidebarContainer.Size = new System.Drawing.Size(303, 625);
             this.sidebarContainer.TabIndex = 1;
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
             this.flowLayoutPanel2.Controls.Add(this.panel6);
             this.flowLayoutPanel2.Controls.Add(this.panel4);
             this.flowLayoutPanel2.Controls.Add(this.panel2);
             this.flowLayoutPanel2.Controls.Add(this.panel3);
             this.flowLayoutPanel2.Controls.Add(this.panel5);
-            this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(278, 388);
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(303, 388);
             this.flowLayoutPanel2.TabIndex = 5;
-            this.flowLayoutPanel2.UseWaitCursor = true;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.BtnDashboard);
-            this.panel6.Location = new System.Drawing.Point(3, 33);
+            this.panel6.Location = new System.Drawing.Point(3, 23);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel6.Size = new System.Drawing.Size(267, 63);
+            this.panel6.Size = new System.Drawing.Size(297, 63);
             this.panel6.TabIndex = 4;
-            this.panel6.UseWaitCursor = true;
             // 
             // BtnDashboard
             // 
             this.BtnDashboard.AutoSize = true;
-            this.BtnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.BtnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
             this.BtnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDashboard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("BtnDashboard.Image")));
             this.BtnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDashboard.Location = new System.Drawing.Point(0, 0);
+            this.BtnDashboard.Location = new System.Drawing.Point(-1, -2);
             this.BtnDashboard.Name = "BtnDashboard";
             this.BtnDashboard.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnDashboard.Size = new System.Drawing.Size(284, 63);
+            this.BtnDashboard.Size = new System.Drawing.Size(298, 63);
             this.BtnDashboard.TabIndex = 2;
-            this.BtnDashboard.Text = "    Dashboard";
+            this.BtnDashboard.Text = "Dashboard";
+            this.BtnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TourClip.SetToolTip(this.BtnDashboard, "Click here to see the dashboard \r\nwhere you can find more information\r\n");
             this.BtnDashboard.UseVisualStyleBackColor = false;
             this.BtnDashboard.Click += new System.EventHandler(this.BtnDashboard_Click);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.btnLocalEventsAndAnnouncements);
-            this.panel4.Location = new System.Drawing.Point(3, 102);
+            this.panel4.Location = new System.Drawing.Point(3, 92);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(273, 62);
+            this.panel4.Size = new System.Drawing.Size(297, 62);
             this.panel4.TabIndex = 4;
-            this.panel4.UseWaitCursor = true;
             // 
             // btnLocalEventsAndAnnouncements
             // 
             this.btnLocalEventsAndAnnouncements.AutoSize = true;
-            this.btnLocalEventsAndAnnouncements.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.btnLocalEventsAndAnnouncements.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
             this.btnLocalEventsAndAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLocalEventsAndAnnouncements.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLocalEventsAndAnnouncements.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLocalEventsAndAnnouncements.Image = ((System.Drawing.Image)(resources.GetObject("btnLocalEventsAndAnnouncements.Image")));
             this.btnLocalEventsAndAnnouncements.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLocalEventsAndAnnouncements.Location = new System.Drawing.Point(-1, 4);
+            this.btnLocalEventsAndAnnouncements.Location = new System.Drawing.Point(0, 0);
             this.btnLocalEventsAndAnnouncements.Name = "btnLocalEventsAndAnnouncements";
             this.btnLocalEventsAndAnnouncements.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnLocalEventsAndAnnouncements.Size = new System.Drawing.Size(285, 71);
+            this.btnLocalEventsAndAnnouncements.Size = new System.Drawing.Size(297, 62);
             this.btnLocalEventsAndAnnouncements.TabIndex = 2;
-            this.btnLocalEventsAndAnnouncements.Text = "          Events Announcements";
+            this.btnLocalEventsAndAnnouncements.Text = "Events Announcements";
             this.btnLocalEventsAndAnnouncements.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TourClip.SetToolTip(this.btnLocalEventsAndAnnouncements, "Click here to see recent local events and announcesments ");
             this.btnLocalEventsAndAnnouncements.UseVisualStyleBackColor = false;
             this.btnLocalEventsAndAnnouncements.Click += new System.EventHandler(this.btnLocalEventsAndAnnouncements_Click);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.BtnServiceRequestService);
-            this.panel2.Location = new System.Drawing.Point(3, 170);
+            this.panel2.Location = new System.Drawing.Point(3, 160);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(267, 63);
+            this.panel2.Size = new System.Drawing.Size(300, 63);
             this.panel2.TabIndex = 3;
-            this.panel2.UseWaitCursor = true;
             // 
             // BtnServiceRequestService
             // 
             this.BtnServiceRequestService.AutoSize = true;
-            this.BtnServiceRequestService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.BtnServiceRequestService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
             this.BtnServiceRequestService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnServiceRequestService.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnServiceRequestService.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnServiceRequestService.Image = ((System.Drawing.Image)(resources.GetObject("BtnServiceRequestService.Image")));
             this.BtnServiceRequestService.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnServiceRequestService.Location = new System.Drawing.Point(0, 0);
+            this.BtnServiceRequestService.Location = new System.Drawing.Point(-1, 0);
             this.BtnServiceRequestService.Name = "BtnServiceRequestService";
             this.BtnServiceRequestService.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnServiceRequestService.Size = new System.Drawing.Size(293, 63);
+            this.BtnServiceRequestService.Size = new System.Drawing.Size(300, 63);
             this.BtnServiceRequestService.TabIndex = 2;
-            this.BtnServiceRequestService.Text = "          Service Request ";
+            this.BtnServiceRequestService.Text = "Service Request ";
+            this.BtnServiceRequestService.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TourClip.SetToolTip(this.BtnServiceRequestService, "Click here to request a service");
             this.BtnServiceRequestService.UseVisualStyleBackColor = false;
             this.BtnServiceRequestService.Click += new System.EventHandler(this.BtnServiceRequestService_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.BtnRepoertIssue);
-            this.panel3.Location = new System.Drawing.Point(3, 239);
+            this.panel3.Location = new System.Drawing.Point(3, 229);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(270, 64);
+            this.panel3.Size = new System.Drawing.Size(300, 64);
             this.panel3.TabIndex = 4;
-            this.panel3.UseWaitCursor = true;
             // 
             // BtnRepoertIssue
             // 
             this.BtnRepoertIssue.AutoSize = true;
-            this.BtnRepoertIssue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.BtnRepoertIssue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
             this.BtnRepoertIssue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRepoertIssue.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRepoertIssue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnRepoertIssue.Image = ((System.Drawing.Image)(resources.GetObject("BtnRepoertIssue.Image")));
             this.BtnRepoertIssue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRepoertIssue.Location = new System.Drawing.Point(-3, 0);
+            this.BtnRepoertIssue.Location = new System.Drawing.Point(-1, -1);
             this.BtnRepoertIssue.Name = "BtnRepoertIssue";
             this.BtnRepoertIssue.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnRepoertIssue.Size = new System.Drawing.Size(279, 62);
+            this.BtnRepoertIssue.Size = new System.Drawing.Size(298, 62);
             this.BtnRepoertIssue.TabIndex = 2;
-            this.BtnRepoertIssue.Text = "      Report Issue";
+            this.BtnRepoertIssue.Text = "Report Issue";
+            this.BtnRepoertIssue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TourClip.SetToolTip(this.BtnRepoertIssue, "Click here to report a new issue");
             this.BtnRepoertIssue.UseVisualStyleBackColor = false;
             this.BtnRepoertIssue.Click += new System.EventHandler(this.BtnRepoertIssue_Click);
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.BtnLogout);
-            this.panel5.Location = new System.Drawing.Point(3, 309);
+            this.panel5.Location = new System.Drawing.Point(3, 299);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(267, 63);
+            this.panel5.Size = new System.Drawing.Size(297, 63);
             this.panel5.TabIndex = 4;
-            this.panel5.UseWaitCursor = true;
             // 
             // BtnLogout
             // 
             this.BtnLogout.AutoSize = true;
-            this.BtnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
+            this.BtnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
             this.BtnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnLogout.Image = ((System.Drawing.Image)(resources.GetObject("BtnLogout.Image")));
             this.BtnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLogout.Location = new System.Drawing.Point(0, 0);
+            this.BtnLogout.Location = new System.Drawing.Point(0, -3);
             this.BtnLogout.Name = "BtnLogout";
             this.BtnLogout.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnLogout.Size = new System.Drawing.Size(276, 62);
+            this.BtnLogout.Size = new System.Drawing.Size(297, 62);
             this.BtnLogout.TabIndex = 2;
-            this.BtnLogout.Text = "    Logout";
+            this.BtnLogout.Text = "Logout";
+            this.BtnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TourClip.SetToolTip(this.BtnLogout, "By clicking here you will exit the application");
             this.BtnLogout.UseVisualStyleBackColor = false;
             this.BtnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
@@ -277,8 +281,9 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.IsMdiContainer = true;
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ShowIcon = false;
+            this.Text = "Community connection app";
+            this.TourClip.SetToolTip(this, "Welcome to the community connection app");
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHambugerButton)).EndInit();
