@@ -128,10 +128,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Friendship People Togetherness Happiness Outdoors Concept Stock Image - Image of celebration, happiness_ 47451697.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Photos\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

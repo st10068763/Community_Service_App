@@ -59,16 +59,5 @@ namespace PROG_3B_POE.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Friendship_People_Togetherness_Happiness_Outdoors_Concept_Stock_Image___Image_of_celebration__happiness__47451697 {
-            get {
-                object obj = ResourceManager.GetObject("Friendship People Togetherness Happiness Outdoors Concept Stock Image - Image of " +
-                        "celebration, happiness_ 47451697", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
