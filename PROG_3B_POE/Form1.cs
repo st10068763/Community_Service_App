@@ -12,6 +12,13 @@ namespace PROG_3B_POE
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// Declaring the forms that will be used in the application
+        /// </summary>
+        ReportIssueForm reportForm;
+        LocalEventsAnnouncementsForm localEventsForm;
+        ServiceRequestForm serviceRequestForm;
+        DashboardForm dashboardForm;
         private int tourStep = 0;
         // Indicates whether the sidebar is expanded or not
         bool sidebarExpand = true;
@@ -21,18 +28,12 @@ namespace PROG_3B_POE
             InitializeComponent();
             
         }
-
+        //-----------------------------------METHODS TO LOAD THE FORMS-----------------------------------
         /// <summary>
-        /// Declaring the forms that will be used in the application
+        /// Method to load the form
         /// </summary>
-        ReportIssueForm reportForm;
-        LocalEventsAnnouncementsForm localEventsForm;
-        ServiceRequestForm serviceRequestForm;
-        DashboardForm dashboardForm;
-        /// <summary>
-        /// Declaring the tool tip that will be used for the app tour
-        /// </summary>
-       
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLocalEventsAndAnnouncements_Click(object sender, EventArgs e)
         {
             if (localEventsForm == null)
@@ -96,7 +97,11 @@ namespace PROG_3B_POE
                 serviceRequestForm.Activate();
             }
         }
-
+        /// <summary>
+        /// Method to close the service request form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ServiceRequestForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             serviceRequestForm = null;
@@ -134,18 +139,28 @@ namespace PROG_3B_POE
             reportForm = null;
         }
 
+        /// <summary>
+        /// Close the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-       
+        /// <summary>
+        /// Method to handle the sidebar button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHambugerButton_Click(object sender, EventArgs e)
         {
             // Toggle the sidebar visibility by starting the timer
             sideBarTransiction.Start();           
         }
 
+        //----------------------------------------------SIDE BAR TRANSITION-------------------------------------------------
         /// <summary>
         /// Method to handle the sidebar transition
         /// </summary>
@@ -177,4 +192,4 @@ namespace PROG_3B_POE
             }
         }
     }
-}
+}//-------------------------------------------------------------DingDong End of Code-------------------------------------------------------------//

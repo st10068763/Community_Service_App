@@ -21,6 +21,11 @@ namespace PROG_3B_POE
             SetFormRoundedCorners(50);
         }
 
+        //-------------------------------------------------ROUNDED CORNERS-------------------------------------------------
+        /// <summary>
+        /// Method to round the corners of the form to make it look more user -friendly
+        /// </summary>
+        /// <param name="radius"></param>
         private void SetFormRoundedCorners(int radius)
         {
             // Create a rounded rectangle path
@@ -36,11 +41,21 @@ namespace PROG_3B_POE
             Region = new Region(path);
         }
 
+        //-------------------------------------------------RATING FORM EFFECT-------------------------------------------------
+        /// <summary>
+        /// Method to load the form 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RatingForm_Load(object sender, EventArgs e)
         {
+            // Set the form opacity to 0
             this.Opacity = 0;
+            // Create a timer to fade in the form
             Timer timer = new Timer();
-            timer.Interval = 300;
+            // Set the interval to 3 seconds
+            timer.Interval = 3000;
+            // Create a tick event to fade in the form
             timer.Tick += (s, ev) =>
             {
                 if (this.Opacity < 1) this.Opacity += 0.65; // Smooth fade-in effect
@@ -48,7 +63,7 @@ namespace PROG_3B_POE
             };
             timer.Start();
         }
-
+        //-------------------------------------------------RATING FORM------------------------------------------------- 
         /// <summary>
         /// Displays a message box with the rating if the user select a rating from 1 to 3 stars and 4 to 5 stars the user will get a different message
         /// </summary>
@@ -58,7 +73,7 @@ namespace PROG_3B_POE
         {
             int rating = 0;
 
-            
+            // using if else statements to check which radio button is selected and assign the rating
             if (rb1.Checked)
             {
                 rating = 1;
@@ -80,6 +95,7 @@ namespace PROG_3B_POE
                 rating = 5;
             }
 
+            // using switch statement to display a message box based on the rating
             switch (rating)
             {
                 case 1:
@@ -99,7 +115,6 @@ namespace PROG_3B_POE
 
             // closes the form
             this.Close();
-
         }
     }
-}
+}//-------------------------------------------------------------DingDong End of Code-------------------------------------------------------------//

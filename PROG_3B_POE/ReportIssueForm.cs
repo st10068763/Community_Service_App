@@ -12,19 +12,18 @@ namespace PROG_3B_POE
 {
     public partial class ReportIssueForm : Form
     {
+        /// <summary>
+        /// Using a binding list to store the issue reports
+        /// </summary>
+        BindingList<IssueReport> issues = new BindingList<IssueReport>();
+         
+        //Variable to track if it is the first time the form is loaded
         private bool firstTime = true;
 
         public ReportIssueForm()
         {
             InitializeComponent();
         }
-
-        //List<IssueReport> issues = new List<IssueReport>();
-
-        /// <summary>
-        /// Using a binding list to store the issue reports
-        /// </summary>
-        BindingList<IssueReport> issues = new BindingList<IssueReport>();
 
         /// <summary>
         /// Class to store the issue details
@@ -37,6 +36,11 @@ namespace PROG_3B_POE
             public Image Attachment { get; set; }
         }
 
+        /// <summary>
+        /// Method to load the form and set the progress bar to 0
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ReportIssueForm_Load(object sender, EventArgs e)
         {
             progressBar.Value = 0;
@@ -48,36 +52,50 @@ namespace PROG_3B_POE
             // Bind the BindingList to the DataGridView
             ReportDataGrid.DataSource = issues;
         }
-
+        //--------------------------------------ADD FILE BUTTON------------------------------------------
+        /// <summary>
+        /// Button to add a file to the report
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddFile_Click(object sender, EventArgs e)
         {
-            // Configure the openFileDialog1 settings
-            openFileDialog1.Filter = "Document Files|*.docx;*.pdf;*.txt|Image Files|*.jpg;*.jpeg;*.png|All Files|*.*";
-            openFileDialog1.Title = "Select a Document or Image";
-
-            // Show the dialog and check if a file was selected
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            /// using try catch block to handle exceptions
+            try
             {
-                string filePath = openFileDialog1.FileName; // Get the file path
+                // Configure the openFileDialog1 settings
+                openFileDialog1.Filter = "Document Files|*.docx;*.pdf;*.txt|Image Files|*.jpg;*.jpeg;*.png|All Files|*.*";
+                openFileDialog1.Title = "Select a Document or Image";
 
-                // Optionally handle different file types 
-                string fileExtension = System.IO.Path.GetExtension(filePath).ToLower();
+                // Show the dialog and check if a file was selected
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog1.FileName; // Get the file path
 
-                // Handle text files
-                if (fileExtension == ".txt")
-                {
-                    string readFile = System.IO.File.ReadAllText(filePath); // Read the text file
-                    MessageBox.Show("File content: " + readFile, "Text File Content", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Optionally handle different file types 
+                    string fileExtension = System.IO.Path.GetExtension(filePath).ToLower();
+
+                    // Handle text files
+                    if (fileExtension == ".txt")
+                    {
+                        string readFile = System.IO.File.ReadAllText(filePath); // Read the text file
+                        MessageBox.Show("File content: " + readFile, "Text File Content", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    // Handle document and image files (you can add more handling here as needed)
+                    else if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png")
+                    {
+                        // Display image in a PictureBox as a preview
+                        AttachedPictureBox.Image = Image.FromFile(filePath);
+                    }
+                    // Update progress based on file being added
+                    UpdateProgress();
                 }
-                // Handle document and image files (you can add more handling here as needed)
-                else if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png")
-                {
-                    // Display image in a PictureBox as a preview
-                    AttachedPictureBox.Image = Image.FromFile(filePath); 
-                }
-                // Update progress based on file being added
-                UpdateProgress();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }           
+                     
         }
 
         //--------------------------------------USER INPUT TRACKER/ PROGRESS BAR------------------------------------------
@@ -99,9 +117,11 @@ namespace PROG_3B_POE
         private void CategoryListBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateProgress();
-        }           
-
-        // Method to calculate and update progress bar based on filled fields
+        }
+        //--------------------------------------PROGRESS BAR------------------------------------------
+        /// <summary>
+        ///  Method to calculate and update progress bar based on filled fields
+        /// </summary>
         private void UpdateProgress()
         {
             // List of required fields to check
@@ -124,7 +144,7 @@ namespace PROG_3B_POE
             // Update progress bar value
             progressBar.Value = progressPercentage;
         }
-        //----------------------------------------------------------------------------------------------------------------
+        //----------------------------------------------REPORT ISSUE------------------------------------------------------------------
         /// <summary>
         /// Button to submit the report and display the report in the grid view
         /// </summary>
@@ -132,36 +152,44 @@ namespace PROG_3B_POE
         /// <param name="e"></param>
         private void btnSubmitReport_Click(object sender, EventArgs e)
         {
-            if (firstTime)
+            try
             {
-                //creating a new instance of rating from 
-                RatingForm ratingForm = new RatingForm();
-                ratingForm.ShowDialog();
-                firstTime = false;
+                // Display rating form on first time submission
+                if (firstTime)
+                {
+                    //creating a new instance of rating from 
+                    RatingForm ratingForm = new RatingForm();
+                    ratingForm.ShowDialog();
+                    firstTime = false;
+                }
+
+                // Checking if all the fields are filled
+                if (txtDescription.Text == "" || textLocation.Text == "" || CategoryListBx.Text == "")
+                {
+                    MessageBox.Show("Please fill in all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Return early to prevent further execution
+                }
+
+                // Success message
+                MessageBox.Show("Your " + CategoryListBx.Text + " issue has been reported.\n" +
+                    " Thank you for your feedback.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Create a new IssueReport object and populate it with user input
+                IssueReport issue = new IssueReport
+                {
+                    Description = txtDescription.Text,
+                    Location = textLocation.Text,
+                    Category = CategoryListBx.Text,
+                    Attachment = AttachedPictureBox.Image
+                };
+
+                // Add the issue to the list of issues
+                issues.Add(issue);
             }
-           
-            // Checking if all the fields are filled
-            if (txtDescription.Text == "" || textLocation.Text == "" || CategoryListBx.Text == "")
+            catch (Exception ex)
             {
-                MessageBox.Show("Please fill in all the fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Return early to prevent further execution
-            }
-
-            // Success message
-            MessageBox.Show("Your " + CategoryListBx.Text + " issue has been reported.\n" +
-                " Thank you for your feedback.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Create a new IssueReport object and populate it with user input
-            IssueReport issue = new IssueReport
-            {
-                Description = txtDescription.Text,
-                Location = textLocation.Text,
-                Category = CategoryListBx.Text,
-                Attachment = AttachedPictureBox.Image
-            };
-
-            // Add the issue to the list of issues
-            issues.Add(issue);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }           
 
             //Passes the data to the grid view
             ReportDataGrid.DataSource = issues;
@@ -175,8 +203,8 @@ namespace PROG_3B_POE
             // Reset the progress bar after submission
             progressBar.Value = 0;
         }
+        //--------------------------------------------------END OF REPORT ISSUE--------------------------------------------------------------
 
-       
         private void AttachedPictureBox_Click(object sender, EventArgs e)
         {
 
@@ -188,4 +216,4 @@ namespace PROG_3B_POE
 
         }
     }
-}
+}//-------------------------------------------------------------DingDong End of Code-------------------------------------------------------------//
