@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Report = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textLocation = new System.Windows.Forms.TextBox();
@@ -42,6 +43,8 @@
             this.AttachedPictureBox = new System.Windows.Forms.PictureBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.ReportDataGrid = new System.Windows.Forms.DataGridView();
+            this.lbDateAndTime = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AttachedPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReportDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -136,7 +139,7 @@
             this.btnSubmitReport.FlatAppearance.BorderSize = 5;
             this.btnSubmitReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmitReport.ForeColor = System.Drawing.Color.White;
-            this.btnSubmitReport.Location = new System.Drawing.Point(207, 646);
+            this.btnSubmitReport.Location = new System.Drawing.Point(225, 646);
             this.btnSubmitReport.Name = "btnSubmitReport";
             this.btnSubmitReport.Size = new System.Drawing.Size(784, 45);
             this.btnSubmitReport.TabIndex = 9;
@@ -192,7 +195,8 @@
             this.progressBar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.progressBar.Location = new System.Drawing.Point(0, 0);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(1232, 17);
+            this.progressBar.Size = new System.Drawing.Size(1232, 37);
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 14;
             // 
             // ReportDataGrid
@@ -205,12 +209,24 @@
             this.ReportDataGrid.Size = new System.Drawing.Size(654, 189);
             this.ReportDataGrid.TabIndex = 15;
             // 
+            // lbDateAndTime
+            // 
+            this.lbDateAndTime.AutoSize = true;
+            this.lbDateAndTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDateAndTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbDateAndTime.Location = new System.Drawing.Point(27, 40);
+            this.lbDateAndTime.Name = "lbDateAndTime";
+            this.lbDateAndTime.Size = new System.Drawing.Size(148, 25);
+            this.lbDateAndTime.TabIndex = 17;
+            this.lbDateAndTime.Text = "lbDateAndTime";
+            // 
             // ReportIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(123)))));
             this.ClientSize = new System.Drawing.Size(1232, 703);
+            this.Controls.Add(this.lbDateAndTime);
             this.Controls.Add(this.ReportDataGrid);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.AttachedPictureBox);
@@ -251,5 +267,7 @@
         private System.Windows.Forms.PictureBox AttachedPictureBox;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.DataGridView ReportDataGrid;
+        private System.Windows.Forms.Label lbDateAndTime;
+        private System.Windows.Forms.Timer timer;
     }
 }

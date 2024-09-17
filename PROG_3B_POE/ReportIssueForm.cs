@@ -23,6 +23,15 @@ namespace PROG_3B_POE
         public ReportIssueForm()
         {
             InitializeComponent();
+
+            // initialize the timer
+            Timer timer = new Timer();
+            timer.Interval = 100; // 1 millisecond
+            timer.Tick += new EventHandler(Timer_Tick);
+            timer.Start();
+
+            // calls the method to show date and time
+            ShowDateAndTime(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -96,6 +105,24 @@ namespace PROG_3B_POE
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }           
                      
+        }
+
+        /// <summary>
+        /// Method to display date and time in the report
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowDateAndTime(object sender, EventArgs e)
+        {
+            DateTime dateTime = DateTime.Now;
+            lbDateAndTime.Text = dateTime.ToString();
+        }
+
+        // Event handler for the timer tick event
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Call the ShowDateAndTime method to update the date and time display
+            ShowDateAndTime(this, EventArgs.Empty);
         }
 
         //--------------------------------------USER INPUT TRACKER/ PROGRESS BAR------------------------------------------
