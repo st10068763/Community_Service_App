@@ -39,11 +39,12 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1219, 755);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1321, 755);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // eventsList1
             // 
+            this.eventsList1.Dock = System.Windows.Forms.DockStyle.Top;
             this.eventsList1.EventDate = new System.DateTime(2024, 10, 10, 17, 38, 6, 0);
             this.eventsList1.EventDescription = "Something about the event";
             this.eventsList1.EventImage = global::PROG_3B_POE.Properties.Resources.sport_event;
@@ -60,7 +61,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
-            this.ClientSize = new System.Drawing.Size(1219, 755);
+            this.ClientSize = new System.Drawing.Size(1321, 755);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

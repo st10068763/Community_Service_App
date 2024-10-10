@@ -27,39 +27,26 @@ namespace PROG_3B_POE
             AddMockEvents();
 
             // Displays the list of events
-            EventListItems();
+            //EventListItems();
         }
 
         private void AddMockEvents()
         {
-            EventsList[] EventsList = new EventsList[5];
+            EventsList[] eventsList = new EventsList[5];
 
-            for(int i = 0; i < EventsList.Length; i++)
+            for(int i = 0; i < eventsList.Length; i++)
             {
-                EventsList[i] = new EventsList();
-                EventsList[i].EventName = "Food Event " + i;
-                EventsList[i].EventImage = Resources.food_event;
-                EventsList[i].EventDate = DateTime.Now.AddDays(i);
-                EventsList[i].EventLocation = "Cape Town";
-                EventsList[i].EventDescription = "Cape town food event that will take place at the food market.";
-
+                eventsList[i].EventName = "Food Event " + i;
+                eventsList[i].EventImage = Resources.food_event;
+                eventsList[i].EventDate = DateTime.Now.AddDays(i);
+                eventsList[i].EventTime = DateTime.Now.AddHours(i);
+                eventsList[i].EventLocation = "Cape Town";
+                eventsList[i].EventDescription = "Cape town food event that will take place at the food market.";
 
                 flowLayoutPanel1.Controls.Clear();
                 // Add the event to the list of events
-                flowLayoutPanel1.Controls.Add(EventsList[i]);
+                flowLayoutPanel1.Controls.Add(eventsList[i]);
             }
-
-            // Create and add mock event data
-            EventsList mockEvent = new EventsList
-            {
-                EventName = "Food Event",
-                EventImage = Resources.food_event,  
-                EventDate = DateTime.Now.AddDays(10),
-                EventLocation = "Cape Town",
-                EventDescription = "Cape town food event that will take place at the food market."
-            };
-
-            eventsList.Add(mockEvent);
         }
 
         private void EventListItems()

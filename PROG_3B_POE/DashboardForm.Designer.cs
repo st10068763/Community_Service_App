@@ -30,6 +30,8 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
             this.btnCreateEvent = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -44,9 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.eventsList1 = new PROG_3B_POE.EventsList();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtSartTime = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,17 +55,16 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Controls.Add(this.eventsList1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1128, 656);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1260, 739);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Peru;
-            this.panel1.Controls.Add(this.txtSartTime);
+            this.panel1.Controls.Add(this.dtpStartTime);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dtpEventDate);
             this.panel1.Controls.Add(this.btnCreateEvent);
@@ -85,8 +83,25 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1128, 339);
+            this.panel1.Size = new System.Drawing.Size(1257, 350);
             this.panel1.TabIndex = 1;
+            // 
+            // dtpStartTime
+            // 
+            this.dtpStartTime.Location = new System.Drawing.Point(128, 129);
+            this.dtpStartTime.Name = "dtpStartTime";
+            this.dtpStartTime.Size = new System.Drawing.Size(745, 22);
+            this.dtpStartTime.TabIndex = 28;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(13, 129);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 25);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Start time";
             // 
             // dtpEventDate
             // 
@@ -228,47 +243,18 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Create Event";
             // 
-            // eventsList1
-            // 
-            this.eventsList1.EventDate = new System.DateTime(((long)(0)));
-            this.eventsList1.EventDescription = null;
-            this.eventsList1.EventImage = null;
-            this.eventsList1.EventLocation = null;
-            this.eventsList1.EventName = null;
-            this.eventsList1.EventTime = new System.DateTime(((long)(0)));
-            this.eventsList1.Location = new System.Drawing.Point(3, 348);
-            this.eventsList1.Name = "eventsList1";
-            this.eventsList1.Size = new System.Drawing.Size(1313, 195);
-            this.eventsList1.TabIndex = 2;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 129);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 25);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Start time";
-            // 
-            // txtSartTime
-            // 
-            this.txtSartTime.Location = new System.Drawing.Point(128, 133);
-            this.txtSartTime.Name = "txtSartTime";
-            this.txtSartTime.Size = new System.Drawing.Size(745, 22);
-            this.txtSartTime.TabIndex = 27;
-            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
-            this.ClientSize = new System.Drawing.Size(1128, 656);
+            this.ClientSize = new System.Drawing.Size(1260, 739);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashboardForm";
             this.Text = "DashboardForm";
+            this.Load += new System.EventHandler(this.DashboardForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -295,8 +281,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCreateEvent;
         private System.Windows.Forms.DateTimePicker dtpEventDate;
-        private System.Windows.Forms.TextBox txtSartTime;
         private System.Windows.Forms.Label label7;
-        private EventsList eventsList1;
+        private System.Windows.Forms.DateTimePicker dtpStartTime;
     }
 }

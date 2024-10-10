@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROG_3B_POE.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace PROG_3B_POE
         public string EventName { get; set; }
         public Image EventImage { get; set; }
         public DateTime EventDate { get; set; }
+        public DateTime EventTime { get; set; }
         public string EventCategory { get; set; }
         public string EventLocation { get; set; }
         public string EventDescription { get; set; }
@@ -24,6 +26,44 @@ namespace PROG_3B_POE
         {
             InitializeComponent();
         }
+
+        private void AddMockEvents()
+        {
+            // Clear the flow layout panel first, if it contains any controls
+           // flowLayoutPanel1.Controls.Clear();
+
+            // Create the first mock event
+            EventsList event1 = new EventsList();
+            event1.EventName = "Food Festival";
+            event1.EventImage = Resources.food_event;  
+            event1.EventDate = DateTime.Now.AddDays(3);
+            event1.EventTime = DateTime.Now.AddHours(15);  
+            event1.EventLocation = "Cape Town";
+            event1.EventDescription = "Join us for a day filled with delicious food and drinks at the Cape Town Food Festival.";
+            flowLayoutPanel1.Controls.Add(event1);
+
+            // Create the second mock event
+            EventsList event2 = new EventsList();
+            event2.EventName = "Music Concert";
+            event2.EventImage = Resources.music_event;  
+            event2.EventDate = DateTime.Now.AddDays(7);
+            event2.EventTime = DateTime.Now.AddHours(18);  
+            event2.EventLocation = "Johannesburg";
+            event2.EventDescription = "Experience live performances by top artists at the Johannesburg Music Concert.";
+            flowLayoutPanel1.Controls.Add(event2);
+
+            // Create the third mock event
+            EventsList event3 = new EventsList();
+            event3.EventName = "Rugby Match";
+            event3.EventImage = Resources.sport_event;  
+            event3.EventDate = DateTime.Now.AddDays(14);
+            event3.EventTime = DateTime.Now.AddHours(10); 
+            event3.EventLocation = "Durban";
+            event3.EventDescription = "Join us for an exciting rugby match at the Durban Sports Arena.";
+            flowLayoutPanel1.Controls.Add(event3);
+        }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -52,7 +92,8 @@ namespace PROG_3B_POE
         {
             // Gets the event details from the textboxes and date time picker
             EventName = txtName.Text;
-            EventDate = dtpEventDate.Value;
+            EventDate = dtpEventDate.Value.Date; // Only select the date
+            EventTime = dtpStartTime.Value;
             EventCategory = cbCategory.SelectedItem.ToString();
             EventLocation = txtLocation.Text;
             EventDescription = txtDescription.Text;
@@ -87,6 +128,11 @@ namespace PROG_3B_POE
             DialogResult result = MessageBox.Show($"Event Name: {EventName}\nEvent Date: {EventDate}\nEvent Category: {EventCategory}\nEvent Location: {EventLocation}\nEvent Description: {EventDescription}", "Create Event", MessageBoxButtons.OKCancel);
             //this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+            AddMockEvents();
         }
     }
 }

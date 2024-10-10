@@ -127,7 +127,7 @@
             this.panel1.Controls.Add(this.lbEventDate);
             this.panel1.Location = new System.Drawing.Point(251, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1062, 195);
+            this.panel1.Size = new System.Drawing.Size(1018, 195);
             this.panel1.TabIndex = 6;
             // 
             // panel2
@@ -136,7 +136,7 @@
             this.panel2.Controls.Add(this.eventImage);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(248, 227);
+            this.panel2.Size = new System.Drawing.Size(248, 195);
             this.panel2.TabIndex = 7;
             // 
             // lbEventTime
@@ -236,7 +236,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "EventsList";
-            this.Size = new System.Drawing.Size(1313, 195);
+            this.Size = new System.Drawing.Size(1257, 195);
             ((System.ComponentModel.ISupportInitialize)(this.eventImage)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
