@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,50 +15,54 @@ namespace PROG_3B_POE
             InitializeComponent();
         }
 
-        // Local variables to store the event details
-        private string _EventName;
-        private Image _EventImage;
-        private DateTime _EventDate;
-        private string _EventCategory;
-        private string _EventLocation;
-        private string _EventDescription;
-        //-----------------------GETTERS AND SETTERS-----------------------//
+        // Declaring the variables
+        #region
+        private string _eventName;
+        private DateTime _eventDate;
+        private string _eventLocation;
+        private string _eventDescription;
+        private Image _eventImage;
+        private DateTime _eventTime;
+
+        //---------------------------Getters and Setters---------------------------//
+
         [Category("Custom Props")]
         public string EventName
         {
-            get { return _EventName; }
-            set { _EventName = value; lbEventName.Text = value;}
-        }
-        [Category("Custom Props")]
-        public Image EventImage
-        {
-            get { return _EventImage; }
-            set { _EventImage = value; pictureBox1.Image = value; }
+            get { return _eventName; }
+            set { _eventName = value; lbEventName.Text = value; }
         }
         [Category("Custom Props")]
         public DateTime EventDate
         {
-            get { return _EventDate; }
-            set { _EventDate = value; lbEventDate.Text = value.ToShortDateString();}
-        }
-        [Category("Custom Props")]
-        public string EventCategory
-        {
-            get { return _EventCategory; }
-            set { _EventCategory = value; lbEventCategory.Text = value;}
+            get { return _eventDate; }
+            set { _eventDate = value; lbEventDate.Text = value.ToString("d"); }
         }
         [Category("Custom Props")]
         public string EventLocation
         {
-            get { return _EventLocation; }
-            set { _EventLocation = value; lbEventLocation.Text = value;}
+            get { return _eventLocation; }
+            set { _eventLocation = value; lbLocation.Text = value; }
         }
         [Category("Custom Props")]
         public string EventDescription
         {
-            get { return _EventDescription; }
-            set { _EventDescription = value; lbEventDescription.Text = value;}
+            get { return _eventDescription; }
+            set { _eventDescription = value; lbEventDescription.Text = value; }
         }
-        //-----------------------GETTERS AND SETTERS-----------------------//
+        [Category("Custom Props")]
+        public Image EventImage
+        {
+            get { return _eventImage; }
+            set { _eventImage = value; eventImage.Image = value; }
+        }
+        [Category("Custom Props")]
+        public DateTime EventTime
+        {
+            get { return _eventTime; }
+            set { _eventTime = value; lbEventTime.Text = value.ToString("t"); }
+        }
+        #endregion
     }
+
 }

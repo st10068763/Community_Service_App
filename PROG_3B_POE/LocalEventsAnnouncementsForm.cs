@@ -14,7 +14,7 @@ namespace PROG_3B_POE
     public partial class LocalEventsAnnouncementsForm : Form
     {
         //-------------List of events
-        //private List<EventsList> eventsList = new List<EventsList>();
+        private List<EventsList> eventsList = new List<EventsList>();
 
         public LocalEventsAnnouncementsForm()
         {
@@ -40,7 +40,6 @@ namespace PROG_3B_POE
                 EventsList[i].EventName = "Food Event " + i;
                 EventsList[i].EventImage = Resources.food_event;
                 EventsList[i].EventDate = DateTime.Now.AddDays(i);
-                EventsList[i].EventCategory = "Time out Food Market";
                 EventsList[i].EventLocation = "Cape Town";
                 EventsList[i].EventDescription = "Cape town food event that will take place at the food market.";
 
@@ -50,18 +49,17 @@ namespace PROG_3B_POE
                 flowLayoutPanel1.Controls.Add(EventsList[i]);
             }
 
-            //// Create and add mock event data
-            //EventsList mockEvent = new EventsList
-            //{
-            //    EventName = "Food Event",
-            //    EventImage = Resources.food_event,  // Ensure you have an image in Resources
-            //    EventDate = DateTime.Now.AddDays(10),  // Mock future event date
-            //    EventCategory = "Time out Food Market",
-            //    EventLocation = "Cape Town",
-            //    EventDescription = "Cape town food event that will take place at the food market."
-            //};
+            // Create and add mock event data
+            EventsList mockEvent = new EventsList
+            {
+                EventName = "Food Event",
+                EventImage = Resources.food_event,  
+                EventDate = DateTime.Now.AddDays(10),
+                EventLocation = "Cape Town",
+                EventDescription = "Cape town food event that will take place at the food market."
+            };
 
-           // eventsList.Add(mockEvent);
+            eventsList.Add(mockEvent);
         }
 
         private void EventListItems()
@@ -76,31 +74,5 @@ namespace PROG_3B_POE
             }
 
         }
-
-        private void btnAddNewEvent_Click(object sender, EventArgs e)
-        {
-            // Open the CreateEventForm to allow the user to add a new event
-            DashboardForm dashboardForm  = new DashboardForm();
-            if (dashboardForm.ShowDialog() == DialogResult.OK)
-            {
-                // Create a new instance of EventsList and populate it with the data from CreateEventForm
-                EventsList newEvent = new EventsList
-                {
-                    EventName = dashboardForm.EventName,
-                    EventDate = dashboardForm.EventDate,
-                    EventCategory = dashboardForm.EventCategory,
-                    EventLocation = dashboardForm.EventLocation,
-                    EventDescription = dashboardForm.EventDescription,
-                    EventImage = dashboardForm.EventImage  // Use the image selected by the user
-                };
-
-                // Add the new event to the event list
-                eventsList.Add(newEvent);
-
-                // Refresh the event list display
-                EventListItems();
-            }
-        }
-    }
-    
+    }    
 }
