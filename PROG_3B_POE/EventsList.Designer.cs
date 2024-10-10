@@ -43,6 +43,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::PROG_3B_POE.Properties.Resources.food_event;
             this.pictureBox1.Location = new System.Drawing.Point(3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(230, 168);
@@ -86,7 +87,7 @@
             this.lbEventDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbEventDescription.Location = new System.Drawing.Point(13, 115);
             this.lbEventDescription.Name = "lbEventDescription";
-            this.lbEventDescription.Size = new System.Drawing.Size(690, 69);
+            this.lbEventDescription.Size = new System.Drawing.Size(712, 53);
             this.lbEventDescription.TabIndex = 4;
             this.lbEventDescription.Text = "The description of this event, all the user has to know about it ";
             // 
@@ -117,9 +118,9 @@
             this.panel2.Controls.Add(this.lbEventDescription);
             this.panel2.Controls.Add(this.lbEventLocation);
             this.panel2.Controls.Add(this.lbEventDate);
-            this.panel2.Location = new System.Drawing.Point(242, 4);
+            this.panel2.Location = new System.Drawing.Point(239, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(967, 168);
+            this.panel2.Size = new System.Drawing.Size(973, 175);
             this.panel2.TabIndex = 9;
             // 
             // EventsList

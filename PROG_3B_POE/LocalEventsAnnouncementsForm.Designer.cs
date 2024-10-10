@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAddNewEvent = new System.Windows.Forms.Button();
             this.eventsList1 = new PROG_3B_POE.EventsList();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -37,11 +38,23 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.eventsList1);
+            this.flowLayoutPanel1.Controls.Add(this.btnAddNewEvent);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1219, 755);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // btnAddNewEvent
+            // 
+            this.btnAddNewEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNewEvent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnAddNewEvent.Location = new System.Drawing.Point(3, 184);
+            this.btnAddNewEvent.Name = "btnAddNewEvent";
+            this.btnAddNewEvent.Size = new System.Drawing.Size(157, 31);
+            this.btnAddNewEvent.TabIndex = 1;
+            this.btnAddNewEvent.Text = "Add new event";
+            this.btnAddNewEvent.UseVisualStyleBackColor = true;
             // 
             // eventsList1
             // 
@@ -54,8 +67,8 @@
             this.eventsList1.EventName = null;
             this.eventsList1.Location = new System.Drawing.Point(3, 3);
             this.eventsList1.Name = "eventsList1";
-            this.eventsList1.Size = new System.Drawing.Size(1216, 175);
-            this.eventsList1.TabIndex = 0;
+            this.eventsList1.Size = new System.Drawing.Size(1212, 175);
+            this.eventsList1.TabIndex = 2;
             // 
             // LocalEventsAnnouncementsForm
             // 
@@ -68,7 +81,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LocalEventsAnnouncementsForm";
             this.Text = "LocalEventsAnnouncementsForm";
-            this.Load += new System.EventHandler(this.LocalEventsAnnouncementsForm_Load_1);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -77,6 +89,7 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnAddNewEvent;
         private EventsList eventsList1;
     }
 }

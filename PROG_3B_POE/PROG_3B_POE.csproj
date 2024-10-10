@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\food_event.jpg" />
+    <None Include="Resources\food_event1.jpg" />
     <Content Include="Resources\music_event.jpg" />
     <Content Include="Resources\sport_event.jpg" />
   </ItemGroup>

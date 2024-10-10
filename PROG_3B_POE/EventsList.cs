@@ -62,7 +62,5 @@ namespace PROG_3B_POE
             set { _EventDescription = value; lbEventDescription.Text = value;}
         }
         //-----------------------GETTERS AND SETTERS-----------------------//
-
-
     }
 }
