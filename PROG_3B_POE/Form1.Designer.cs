@@ -67,7 +67,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1242, 67);
+            this.panel1.Size = new System.Drawing.Size(1242, 64);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -87,7 +87,7 @@
             this.btnHambugerButton.Image = ((System.Drawing.Image)(resources.GetObject("btnHambugerButton.Image")));
             this.btnHambugerButton.Location = new System.Drawing.Point(0, 0);
             this.btnHambugerButton.Name = "btnHambugerButton";
-            this.btnHambugerButton.Size = new System.Drawing.Size(103, 63);
+            this.btnHambugerButton.Size = new System.Drawing.Size(82, 53);
             this.btnHambugerButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnHambugerButton.TabIndex = 1;
             this.btnHambugerButton.TabStop = false;
@@ -100,9 +100,9 @@
             this.sidebarContainer.Controls.Add(this.flowLayoutPanel2);
             this.sidebarContainer.Cursor = System.Windows.Forms.Cursors.Default;
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidebarContainer.Location = new System.Drawing.Point(0, 67);
+            this.sidebarContainer.Location = new System.Drawing.Point(0, 64);
             this.sidebarContainer.Name = "sidebarContainer";
-            this.sidebarContainer.Size = new System.Drawing.Size(303, 625);
+            this.sidebarContainer.Size = new System.Drawing.Size(303, 628);
             this.sidebarContainer.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -116,14 +116,13 @@
             this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(303, 388);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(303, 364);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.BtnDashboard);
-            this.panel6.Location = new System.Drawing.Point(3, 23);
+            this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.panel6.Size = new System.Drawing.Size(297, 63);
@@ -140,7 +139,6 @@
             this.BtnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDashboard.Location = new System.Drawing.Point(-1, -2);
             this.BtnDashboard.Name = "BtnDashboard";
-            this.BtnDashboard.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.BtnDashboard.Size = new System.Drawing.Size(298, 63);
             this.BtnDashboard.TabIndex = 2;
             this.BtnDashboard.Text = "Dashboard";
@@ -152,7 +150,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.btnLocalEventsAndAnnouncements);
-            this.panel4.Location = new System.Drawing.Point(3, 92);
+            this.panel4.Location = new System.Drawing.Point(3, 72);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.panel4.Size = new System.Drawing.Size(297, 62);
@@ -181,7 +179,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.BtnServiceRequestService);
-            this.panel2.Location = new System.Drawing.Point(3, 160);
+            this.panel2.Location = new System.Drawing.Point(3, 140);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.panel2.Size = new System.Drawing.Size(300, 63);
@@ -210,7 +208,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.BtnRepoertIssue);
-            this.panel3.Location = new System.Drawing.Point(3, 229);
+            this.panel3.Location = new System.Drawing.Point(3, 209);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.panel3.Size = new System.Drawing.Size(300, 64);
@@ -239,7 +237,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.BtnLogout);
-            this.panel5.Location = new System.Drawing.Point(3, 299);
+            this.panel5.Location = new System.Drawing.Point(3, 279);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.panel5.Size = new System.Drawing.Size(297, 63);
