@@ -23,6 +23,7 @@ namespace PROG_3B_POE
         private string _eventDescription;
         private Image _eventImage;
         private DateTime _eventTime;
+        private string _eventCategory;
 
         //---------------------------Getters and Setters---------------------------//
 
@@ -61,6 +62,12 @@ namespace PROG_3B_POE
         {
             get { return _eventTime; }
             set { _eventTime = value; lbEventTime.Text = value.ToString("t"); }
+        }
+        [Category("Custom Props")]
+        public string EventCategory
+        {
+            get { return _eventCategory; }
+            set { _eventCategory = value; lbEventCategory.Text = value; }
         }
         #endregion
     }
