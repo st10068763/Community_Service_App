@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.eventsList1 = new PROG_3B_POE.EventsList();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
@@ -46,8 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.eventsList1 = new PROG_3B_POE.EventsList();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,6 +62,20 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1321, 405);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // eventsList1
+            // 
+            this.eventsList1.EventCategory = null;
+            this.eventsList1.EventDate = new System.DateTime(((long)(0)));
+            this.eventsList1.EventDescription = null;
+            this.eventsList1.EventImage = null;
+            this.eventsList1.EventLocation = null;
+            this.eventsList1.EventName = null;
+            this.eventsList1.EventTime = new System.DateTime(((long)(0)));
+            this.eventsList1.Location = new System.Drawing.Point(3, 3);
+            this.eventsList1.Name = "eventsList1";
+            this.eventsList1.Size = new System.Drawing.Size(1318, 342);
+            this.eventsList1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -88,6 +102,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1321, 350);
             this.panel1.TabIndex = 2;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtSearch.Location = new System.Drawing.Point(337, 31);
+            this.txtSearch.Multiline = true;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(348, 30);
+            this.txtSearch.TabIndex = 29;
+            this.txtSearch.Text = "Search...";
             // 
             // dtpStartTime
             // 
@@ -250,30 +274,6 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Create Event";
             // 
-            // eventsList1
-            // 
-            this.eventsList1.EventCategory = null;
-            this.eventsList1.EventDate = new System.DateTime(((long)(0)));
-            this.eventsList1.EventDescription = null;
-            this.eventsList1.EventImage = null;
-            this.eventsList1.EventLocation = null;
-            this.eventsList1.EventName = null;
-            this.eventsList1.EventTime = new System.DateTime(((long)(0)));
-            this.eventsList1.Location = new System.Drawing.Point(3, 3);
-            this.eventsList1.Name = "eventsList1";
-            this.eventsList1.Size = new System.Drawing.Size(1318, 195);
-            this.eventsList1.TabIndex = 0;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtSearch.Location = new System.Drawing.Point(337, 31);
-            this.txtSearch.Multiline = true;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(348, 30);
-            this.txtSearch.TabIndex = 29;
-            this.txtSearch.Text = "Search...";
-            // 
             // LocalEventsAnnouncementsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -315,7 +315,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private EventsList eventsList1;
         private System.Windows.Forms.TextBox txtSearch;
+        private EventsList eventsList1;
     }
 }
