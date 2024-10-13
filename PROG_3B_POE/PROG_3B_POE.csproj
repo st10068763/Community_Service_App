@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="music_event.jpg" />
+    <None Include="Resources\Alphabetical Sorting 2.png" />
     <Content Include="Resources\food_event.jpg" />
     <None Include="Resources\food_event1.jpg" />
     <None Include="Resources\logo.png" />

@@ -40,13 +40,13 @@
             this.btnSubmitReport = new System.Windows.Forms.Button();
             this.CategoryListBx = new System.Windows.Forms.ListBox();
             this.btnAddFile = new System.Windows.Forms.Button();
-            this.AttachedPictureBox = new System.Windows.Forms.PictureBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.ReportDataGrid = new System.Windows.Forms.DataGridView();
             this.lbDateAndTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.AttachedPictureBox)).BeginInit();
+            this.AttachedPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ReportDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttachedPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Report
@@ -177,16 +177,6 @@
             this.btnAddFile.UseVisualStyleBackColor = false;
             this.btnAddFile.Click += new System.EventHandler(this.btnAddFile_Click);
             // 
-            // AttachedPictureBox
-            // 
-            this.AttachedPictureBox.Location = new System.Drawing.Point(774, 403);
-            this.AttachedPictureBox.Name = "AttachedPictureBox";
-            this.AttachedPictureBox.Size = new System.Drawing.Size(226, 140);
-            this.AttachedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.AttachedPictureBox.TabIndex = 12;
-            this.AttachedPictureBox.TabStop = false;
-            this.AttachedPictureBox.Click += new System.EventHandler(this.AttachedPictureBox_Click);
-            // 
             // progressBar
             // 
             this.progressBar.AccessibleRole = System.Windows.Forms.AccessibleRole.Application;
@@ -220,6 +210,16 @@
             this.lbDateAndTime.TabIndex = 17;
             this.lbDateAndTime.Text = "lbDateAndTime";
             // 
+            // AttachedPictureBox
+            // 
+            this.AttachedPictureBox.Location = new System.Drawing.Point(774, 403);
+            this.AttachedPictureBox.Name = "AttachedPictureBox";
+            this.AttachedPictureBox.Size = new System.Drawing.Size(226, 140);
+            this.AttachedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.AttachedPictureBox.TabIndex = 12;
+            this.AttachedPictureBox.TabStop = false;
+            this.AttachedPictureBox.Click += new System.EventHandler(this.AttachedPictureBox_Click);
+            // 
             // ReportIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,8 +244,8 @@
             this.Name = "ReportIssueForm";
             this.Text = "ReportIssueForm";
             this.Load += new System.EventHandler(this.ReportIssueForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.AttachedPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReportDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttachedPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

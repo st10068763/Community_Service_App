@@ -29,11 +29,19 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dateFilter = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
             this.btnCreateEvent = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAddImage = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.txtLocation = new System.Windows.Forms.TextBox();
@@ -45,32 +53,121 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.eventsList1 = new PROG_3B_POE.EventsList();
             this.flowLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.DimGray;
-            this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Controls.Add(this.eventsList1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 442);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1321, 755);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1321, 313);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Goldenrod;
+            this.panel2.Controls.Add(this.dateFilter);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.cbFilter);
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.txtSearch);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1321, 60);
+            this.panel2.TabIndex = 4;
+            // 
+            // dateFilter
+            // 
+            this.dateFilter.Location = new System.Drawing.Point(1078, 16);
+            this.dateFilter.Name = "dateFilter";
+            this.dateFilter.Size = new System.Drawing.Size(228, 22);
+            this.dateFilter.TabIndex = 5;
+            this.dateFilter.ValueChanged += new System.EventHandler(this.dateFilter_ValueChanged);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::PROG_3B_POE.Properties.Resources.Alphabetical_Sorting_2;
+            this.pictureBox3.Location = new System.Drawing.Point(862, 9);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(61, 41);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            // 
+            // cbFilter
+            // 
+            this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Items.AddRange(new object[] {
+            "All",
+            "Awareness",
+            "Community build",
+            "Donation",
+            "Education",
+            "Food",
+            "Music",
+            "Recreation",
+            "Sport",
+            "Workshop"});
+            this.cbFilter.Location = new System.Drawing.Point(937, 16);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(121, 24);
+            this.cbFilter.TabIndex = 3;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnSearch.Location = new System.Drawing.Point(704, 9);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(123, 39);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.AccessibleDescription = "";
+            this.txtSearch.AccessibleName = "";
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(88, 9);
+            this.txtSearch.Multiline = true;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(598, 39);
+            this.txtSearch.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::PROG_3B_POE.Properties.Resources.Ophthalmology;
+            this.pictureBox2.Location = new System.Drawing.Point(11, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.dtpStartTime);
             this.panel1.Controls.Add(this.label7);
@@ -88,9 +185,9 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 69);
+            this.panel1.Location = new System.Drawing.Point(0, 66);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1321, 350);
+            this.panel1.Size = new System.Drawing.Size(1321, 370);
             this.panel1.TabIndex = 3;
             // 
             // dtpStartTime
@@ -132,6 +229,15 @@
             this.btnCreateEvent.UseVisualStyleBackColor = true;
             this.btnCreateEvent.Click += new System.EventHandler(this.btnCreateEvent_Click_1);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(890, 83);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(275, 219);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnAddImage
             // 
             this.btnAddImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,20 +271,22 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Items.AddRange(new object[] {
-            "Sport",
+            "Awareness",
             "Community build",
-            "Recreation",
-            "Music",
-            "Food",
-            "Workshop",
-            "Education",
             "Donation",
-            "Awareness"});
+            "Education",
+            "Food",
+            "Music",
+            "Recreation",
+            "Sport",
+            "Workshop"});
             this.cbCategory.Location = new System.Drawing.Point(128, 199);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(745, 24);
+            this.cbCategory.Sorted = true;
             this.cbCategory.TabIndex = 18;
             // 
             // txtName
@@ -254,64 +362,30 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Create Event";
             // 
-            // panel2
+            // eventsList1
             // 
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.txtSearch);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1321, 60);
-            this.panel2.TabIndex = 4;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.AccessibleDescription = "";
-            this.txtSearch.AccessibleName = "";
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(326, 15);
-            this.txtSearch.Multiline = true;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(598, 39);
-            this.txtSearch.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button1.Location = new System.Drawing.Point(942, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 39);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::PROG_3B_POE.Properties.Resources.Ophthalmology;
-            this.pictureBox2.Location = new System.Drawing.Point(254, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(66, 40);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(890, 83);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(275, 219);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 23;
-            this.pictureBox1.TabStop = false;
+            this.eventsList1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.eventsList1.EventCategory = null;
+            this.eventsList1.EventDate = new System.DateTime(((long)(0)));
+            this.eventsList1.EventDescription = null;
+            this.eventsList1.EventImage = null;
+            this.eventsList1.EventLocation = null;
+            this.eventsList1.EventName = null;
+            this.eventsList1.EventTime = new System.DateTime(((long)(0)));
+            this.eventsList1.Location = new System.Drawing.Point(3, 3);
+            this.eventsList1.Name = "eventsList1";
+            this.eventsList1.Size = new System.Drawing.Size(1299, 342);
+            this.eventsList1.TabIndex = 0;
             // 
             // LocalEventsAnnouncementsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1321, 755);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -319,11 +393,12 @@
             this.Text = "LocalEventsAnnouncementsForm";
             this.Load += new System.EventHandler(this.LocalEventsAnnouncementsForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -351,7 +426,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ComboBox cbFilter;
+        private System.Windows.Forms.DateTimePicker dateFilter;
+        private EventsList eventsList1;
     }
 }

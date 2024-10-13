@@ -152,10 +152,10 @@
             // eventImage
             // 
             this.eventImage.Image = global::PROG_3B_POE.Properties.Resources.music_event;
-            this.eventImage.Location = new System.Drawing.Point(0, 3);
+            this.eventImage.Location = new System.Drawing.Point(3, 0);
             this.eventImage.Name = "eventImage";
-            this.eventImage.Size = new System.Drawing.Size(348, 331);
-            this.eventImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.eventImage.Size = new System.Drawing.Size(345, 334);
+            this.eventImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.eventImage.TabIndex = 0;
             this.eventImage.TabStop = false;
             // 
