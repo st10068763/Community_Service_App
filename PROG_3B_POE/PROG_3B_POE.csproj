@@ -149,6 +149,7 @@
     <None Include="Resources\logo.png" />
     <Content Include="Resources\music_event.jpg" />
     <None Include="Resources\south-african-3d-flag-vector.jpg" />
+    <None Include="Resources\Ophthalmology.png" />
     <Content Include="Resources\sport_event.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

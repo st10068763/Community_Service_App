@@ -61,8 +61,7 @@
             // 
             // sidebarContainer
             // 
-            this.sidebarContainer.BackColor = System.Drawing.Color.Transparent;
-            this.sidebarContainer.BackgroundImage = global::PROG_3B_POE.Properties.Resources.south_african_3d_flag_vector;
+            this.sidebarContainer.BackColor = System.Drawing.Color.Black;
             this.sidebarContainer.Controls.Add(this.flowLayoutPanel2);
             this.sidebarContainer.Cursor = System.Windows.Forms.Cursors.Default;
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
@@ -138,11 +137,10 @@
             // BtnDashboard
             // 
             this.BtnDashboard.AutoSize = true;
-            this.BtnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
-            this.BtnDashboard.BackgroundImage = global::PROG_3B_POE.Properties.Resources.south_african_3d_flag_vector;
+            this.BtnDashboard.BackColor = System.Drawing.Color.Black;
             this.BtnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDashboard.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnDashboard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("BtnDashboard.Image")));
             this.BtnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDashboard.Location = new System.Drawing.Point(-1, -2);
@@ -158,11 +156,10 @@
             // btnLocalEventsAndAnnouncements
             // 
             this.btnLocalEventsAndAnnouncements.AutoSize = true;
-            this.btnLocalEventsAndAnnouncements.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
-            this.btnLocalEventsAndAnnouncements.BackgroundImage = global::PROG_3B_POE.Properties.Resources.south_african_3d_flag_vector;
+            this.btnLocalEventsAndAnnouncements.BackColor = System.Drawing.Color.Black;
             this.btnLocalEventsAndAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLocalEventsAndAnnouncements.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLocalEventsAndAnnouncements.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLocalEventsAndAnnouncements.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLocalEventsAndAnnouncements.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLocalEventsAndAnnouncements.Image = ((System.Drawing.Image)(resources.GetObject("btnLocalEventsAndAnnouncements.Image")));
             this.btnLocalEventsAndAnnouncements.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLocalEventsAndAnnouncements.Location = new System.Drawing.Point(0, 0);
@@ -179,11 +176,10 @@
             // BtnServiceRequestService
             // 
             this.BtnServiceRequestService.AutoSize = true;
-            this.BtnServiceRequestService.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
-            this.BtnServiceRequestService.BackgroundImage = global::PROG_3B_POE.Properties.Resources.south_african_3d_flag_vector;
+            this.BtnServiceRequestService.BackColor = System.Drawing.Color.Black;
             this.BtnServiceRequestService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnServiceRequestService.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnServiceRequestService.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnServiceRequestService.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnServiceRequestService.Image = ((System.Drawing.Image)(resources.GetObject("BtnServiceRequestService.Image")));
             this.BtnServiceRequestService.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnServiceRequestService.Location = new System.Drawing.Point(-1, 0);
@@ -200,11 +196,10 @@
             // BtnRepoertIssue
             // 
             this.BtnRepoertIssue.AutoSize = true;
-            this.BtnRepoertIssue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
-            this.BtnRepoertIssue.BackgroundImage = global::PROG_3B_POE.Properties.Resources.south_african_3d_flag_vector;
+            this.BtnRepoertIssue.BackColor = System.Drawing.Color.Black;
             this.BtnRepoertIssue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRepoertIssue.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRepoertIssue.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnRepoertIssue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnRepoertIssue.Image = ((System.Drawing.Image)(resources.GetObject("BtnRepoertIssue.Image")));
             this.BtnRepoertIssue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRepoertIssue.Location = new System.Drawing.Point(-1, -1);
@@ -221,11 +216,10 @@
             // BtnLogout
             // 
             this.BtnLogout.AutoSize = true;
-            this.BtnLogout.BackColor = System.Drawing.Color.Transparent;
-            this.BtnLogout.BackgroundImage = global::PROG_3B_POE.Properties.Resources.south_african_3d_flag_vector;
+            this.BtnLogout.BackColor = System.Drawing.Color.Black;
             this.BtnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogout.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BtnLogout.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnLogout.Image = ((System.Drawing.Image)(resources.GetObject("BtnLogout.Image")));
             this.BtnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnLogout.Location = new System.Drawing.Point(0, -3);

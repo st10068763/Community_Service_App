@@ -25,15 +25,19 @@ namespace PROG_3B_POE
         public string EventLocation { get; set; }
         public string EventDescription { get; set; }
 
+
         public LocalEventsAnnouncementsForm()
         {
             InitializeComponent();
+
+            dtpStartTime.CustomFormat = "HH:mm"; // Shows hours and minutes only
+            dtpStartTime.ShowUpDown = true; // Allows user to scroll through time
         }
 
         private void DisplayEvents()
         {
             // Clear the flow layout to avoid duplicates
-            flowLayoutPanel1.Controls.Clear();
+           // flowLayoutPanel1.Controls.Clear();
 
             // Loop through the centralized events list and display them
             foreach (var eventItem in eventsList)
@@ -65,6 +69,7 @@ namespace PROG_3B_POE
             new EventsList
             {
                 EventName = "Food Festival",
+                EventCategory = "Food",
                 EventImage = Resources.food_event,
                 EventDate = DateTime.Now.AddDays(3),
                 EventTime = DateTime.Now.AddHours(15),
@@ -74,6 +79,7 @@ namespace PROG_3B_POE
             new EventsList
             {
                 EventName = "Music Concert",
+                EventCategory = "Music",
                 EventImage = Resources.music_event,
                 EventDate = DateTime.Now.AddDays(7),
                 EventTime = DateTime.Now.AddHours(18),
@@ -83,6 +89,7 @@ namespace PROG_3B_POE
             new EventsList
             {
                 EventName = "Rugby Match",
+                EventCategory = "Sport",
                 EventImage = Resources.sport_event,
                 EventDate = DateTime.Now.AddDays(14),
                 EventTime = DateTime.Now.AddHours(10),
@@ -95,27 +102,20 @@ namespace PROG_3B_POE
             //return mockEventsList;
         }
 
-        private void btnAddImage_Click(object sender, EventArgs e)
+        private void LocalEventsAnnouncementsForm_Load(object sender, EventArgs e)
         {
-            // open file dialog that will allow the user to select an image file
-            OpenFileDialog openFileDialog = new OpenFileDialog()
+            // Add mock events once when the form loads
+            if (!eventsList.Any())
             {
-                Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp;)|*.jpg; *.jpeg; *.gif; *.bmp;",
-                Title = "Select an Image"
-            };
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // set the image property to the selected image
-                EventImage = Image.FromFile(openFileDialog.FileName);
-                // display the selected image in the picture box
-                pictureBox1.Image = EventImage;
+                AddMockEvents();
             }
+
+            // Display all events (including mock events)
+            DisplayEvents();
         }
 
-        private void btnCreateEvent_Click(object sender, EventArgs e)
-        {          
-
+        private void btnCreateEvent_Click_1(object sender, EventArgs e)
+        {
             //---------------------input validation for all fields
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
@@ -164,16 +164,22 @@ namespace PROG_3B_POE
             DialogResult result = MessageBox.Show($"Event Name: {txtName.Text}\nEvent Image: {EventImage}\nEvent Date: {dtpEventDate}\nEvent Category: {cbCategory}\nEvent Location: {txtLocation}\nEvent Description: {txtDescription}", "Create Event", MessageBoxButtons.OKCancel);
         }
 
-        private void LocalEventsAnnouncementsForm_Load(object sender, EventArgs e)
+        private void btnAddImage_Click_1(object sender, EventArgs e)
         {
-            // Add mock events once when the form loads
-            if (!eventsList.Any())
+            // open file dialog that will allow the user to select an image file
+            OpenFileDialog openFileDialog = new OpenFileDialog()
             {
-                AddMockEvents();
-            }
+                Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp;)|*.jpg; *.jpeg; *.gif; *.bmp;",
+                Title = "Select an Image"
+            };
 
-            // Display all events (including mock events)
-            DisplayEvents();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // set the image property to the selected image
+                EventImage = Image.FromFile(openFileDialog.FileName);
+                // display the selected image in the picture box
+                pictureBox1.Image = EventImage;
+            }
         }
     }    
 }

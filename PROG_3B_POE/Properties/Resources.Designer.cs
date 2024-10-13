@@ -93,6 +93,16 @@ namespace PROG_3B_POE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Ophthalmology {
+            get {
+                object obj = ResourceManager.GetObject("Ophthalmology", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap south_african_3d_flag_vector {
             get {
                 object obj = ResourceManager.GetObject("south-african-3d-flag-vector", resourceCulture);
