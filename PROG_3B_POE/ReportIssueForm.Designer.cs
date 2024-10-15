@@ -35,7 +35,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.Report = new System.Windows.Forms.Label();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.lbDateAndTime = new System.Windows.Forms.Label();
             this.textLocation = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AttachedPictureBox)).BeginInit();
@@ -68,9 +68,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.progressBar);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Report);
-            this.panel1.Controls.Add(this.progressBar);
             this.panel1.Controls.Add(this.lbDateAndTime);
             this.panel1.Controls.Add(this.textLocation);
             this.panel1.Controls.Add(this.label3);
@@ -103,29 +103,18 @@
             this.Report.AutoSize = true;
             this.Report.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Report.ForeColor = System.Drawing.Color.White;
-            this.Report.Location = new System.Drawing.Point(301, 24);
+            this.Report.Location = new System.Drawing.Point(301, 35);
             this.Report.Name = "Report";
             this.Report.Size = new System.Drawing.Size(471, 48);
             this.Report.TabIndex = 18;
             this.Report.Text = "Report Application Form";
-            // 
-            // progressBar
-            // 
-            this.progressBar.AccessibleRole = System.Windows.Forms.AccessibleRole.Application;
-            this.progressBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.progressBar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.progressBar.Location = new System.Drawing.Point(-132, -3);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(1375, 24);
-            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar.TabIndex = 29;
             // 
             // lbDateAndTime
             // 
             this.lbDateAndTime.AutoSize = true;
             this.lbDateAndTime.Font = new System.Drawing.Font("Elephant", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDateAndTime.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbDateAndTime.Location = new System.Drawing.Point(913, 38);
+            this.lbDateAndTime.Location = new System.Drawing.Point(913, 44);
             this.lbDateAndTime.Name = "lbDateAndTime";
             this.lbDateAndTime.Size = new System.Drawing.Size(190, 26);
             this.lbDateAndTime.TabIndex = 31;
@@ -244,6 +233,17 @@
             this.label5.TabIndex = 24;
             this.label5.Text = "Attach Image/ Document";
             // 
+            // progressBar
+            // 
+            this.progressBar.AccessibleRole = System.Windows.Forms.AccessibleRole.Application;
+            this.progressBar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressBar.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.progressBar.Location = new System.Drawing.Point(0, 0);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(1229, 32);
+            this.progressBar.TabIndex = 32;
+            // 
             // ReportIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -269,7 +269,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lbDateAndTime;
         private System.Windows.Forms.TextBox textLocation;
         private System.Windows.Forms.Label Report;
@@ -281,5 +280,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox txtDescription;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

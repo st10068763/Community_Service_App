@@ -24,13 +24,241 @@ namespace PROG_3B_POE
         public string EventCategory { get; set; }
         public string EventLocation { get; set; }
         public string EventDescription { get; set; }
-
+        /// <summary>
+        /// Declare a stack to store the recently viewed events
+        /// </summary>
+        Stack<EventsList> recentViewedEvents = new Stack<EventsList>();
+        /// <summary>
+        /// Queue to store the upcoming events
+        /// </summary>
+        Queue<EventsList> upcomingEvents = new Queue<EventsList>();
+        /// <summary>
+        /// Using a SortedDictionary to store the priority events based on the event date
+        /// </summary>
+        SortedDictionary<DateTime, List<EventsList>> priorityEvents = new SortedDictionary<DateTime, List<EventsList>>();
+        /// <summary>
+        /// Using a Dictionary to store events with event name as the key
+        /// </summary>
+        Dictionary<string, EventsList> eventsDictionary = new Dictionary<string, EventsList>();
+        /// <summary>
+        /// List to store event categories the user has joined
+        /// </summary>
+        private List<string> joinedEventCategories = new List<string>();
 
         public LocalEventsAnnouncementsForm()
         {
             InitializeComponent();
             // Allows user to scroll through time
-            dtpStartTime.ShowUpDown = true; 
+            dtpStartTime.ShowUpDown = true;
+            DisplayPrioritizedEvents();
+        }
+
+        /// <summary>
+        /// Method to track viewed events and display recommendations
+        /// </summary>
+        /// <param name="eventItem"></param>
+        private void TrackViewedEvents(EventsList eventItem)
+        {
+            // will push the recently viewed event onto the stack
+            recentViewedEvents.Push(eventItem);
+            // removes the oldest viewed event from the stack and keeps the stack size to 5
+            if (recentViewedEvents.Count > 5)
+            {
+                recentViewedEvents.Pop();
+            }
+        }
+
+        //--------------------------------------------//
+
+
+
+
+        /// <summary>
+        /// Method to display the recommended events
+        /// </summary>
+        private void DisplayRecommendations()
+        {
+            var recommendedEvents = new List<EventsList>();
+
+            // Check if user has joined any events
+            if (joinedEventCategories.Any())
+            {
+                // Filter events by categories the user has joined and avoid recommending the same event they joined
+                recommendedEvents = eventsList.Where(x =>
+                    joinedEventCategories.Contains(x.EventCategory) &&
+                    !recentViewedEvents.Any(e => e.EventName == x.EventName) // Avoid recommending events already joined
+                ).ToList();
+            }
+
+            // Display the recommended events (you can use your existing method)
+            DisplayFilteredEvents(recommendedEvents);
+
+            // Check if there are recommended events
+            if (recommendedEvents.Any())
+            {
+                // Get the first recommended event
+                var joinedEvent = recommendedEvents.First();
+
+                // Show a message confirming the user joined the event
+                MessageBox.Show($"You have successfully joined the event: {joinedEvent.EventName} in the category: {joinedEvent.EventCategory}");
+            }
+        }
+
+        /// <summary>
+        /// Method to handle when a user joins an event
+        /// </summary>
+        private void JoinEvent(EventsList eventItem)
+        {
+            // Add the event category to the list of joined event categories if not already added
+            if (!joinedEventCategories.Contains(eventItem.EventCategory))
+            {
+                joinedEventCategories.Add(eventItem.EventCategory);
+            }
+
+            // Optionally, display a message confirming the user joined the event
+            MessageBox.Show($"You have successfully joined the event: {eventItem.EventName} in the category: {eventItem.EventCategory}");
+
+            // Update recommendations after joining an event
+            DisplayRecommendations();
+        }
+
+        /// <summary>
+        /// Will display the upcoming events
+        /// </summary>
+        private void DisplayUpcomingEvents()
+        {
+            // Get the current date
+            DateTime today = DateTime.Now;
+
+            // Filter events that are 7 days or less from today
+            var upcomingSoonEvents = eventsList
+                .Where(e => (e.EventDate - today).TotalDays <= 7 && (e.EventDate - today).TotalDays >= 0)
+                .ToList();
+
+            if (upcomingSoonEvents.Count > 0)
+            {
+                // Display all the upcoming events within 7 days
+                StringBuilder message = new StringBuilder();
+                foreach (var eventItem in upcomingSoonEvents)
+                {
+                    message.AppendLine($"Upcoming Event: {eventItem.EventName}");
+                    message.AppendLine($"Date: {eventItem.EventDate.ToShortDateString()}");
+                    message.AppendLine($"Time: {eventItem.EventTime.ToShortTimeString()}");
+                    message.AppendLine($"Location: {eventItem.EventLocation}");
+                    message.AppendLine($"Description: {eventItem.EventDescription}");
+                    message.AppendLine();
+                }
+                MessageBox.Show(message.ToString(), "Upcoming Events", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Show message if there are no events within the next 7 days
+                MessageBox.Show("No upcoming events in the next 7 days.", "Upcoming Events", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
+        private void DisplayPrioritizedEvents()
+        {
+            // Clear existing controls in the flow layout
+            flowLayoutPanel1.Controls.Clear();
+
+            // Loop through the SortedDictionary to display events sorted by date
+            foreach (var dateEntry in priorityEvents)
+            {
+                foreach (var eventItem in dateEntry.Value)
+                {
+                    // Create an instance of the user control and assign event details
+                    EventsList eventControl = new EventsList
+                    {
+                        EventName = eventItem.EventName,
+                        EventCategory = eventItem.EventCategory,
+                        EventImage = eventItem.EventImage,
+                        EventDate = eventItem.EventDate,
+                        EventTime = eventItem.EventTime,
+                        EventLocation = eventItem.EventLocation,
+                        EventDescription = eventItem.EventDescription
+                    };
+
+                    // Add click event for the event control
+                    eventControl.Click += (s, e) =>
+                    {
+                        // Track the viewed event
+                        TrackViewedEvents(eventItem);
+
+                        // Display event details
+                        MessageBox.Show($"Event: {eventItem.EventName}\n" +
+                            $"Category: {eventItem.EventCategory}\n" +
+                            $"Location: {eventItem.EventLocation}\n" +
+                            $"Date: {eventItem.EventDate.ToShortDateString()}");
+
+                        // Update recommendations
+                        DisplayRecommendations();
+                    };
+
+                    // Add the event control to the flow layout panel
+                    flowLayoutPanel1.Controls.Add(eventControl);
+                }
+            }
+        }
+
+        private List<string> GetPrioritizedEventMessages()
+        {
+            // Sample implementation: Replace this with actual logic to fetch prioritized messages
+            List<string> prioritizedMessages = new List<string>();
+
+            prioritizedMessages.Add("Event 1: High priority");
+            prioritizedMessages.Add("Event 2: Medium priority");
+
+            // Return the list of prioritized messages
+            return prioritizedMessages;
+        }
+
+
+
+        private void PrioritizeEvents()
+        {
+            priorityEvents.Clear();
+            // Sort the events by date
+            foreach (var eventItem in eventsList)
+            {
+                if (!priorityEvents.ContainsKey(eventItem.EventDate.Date))
+                {
+                    priorityEvents[eventItem.EventDate.Date] = new List<EventsList>();
+                }
+
+                priorityEvents[eventItem.EventDate.Date].Add(eventItem);
+            }
+        }
+
+        private void AddEventsToDictionary()
+        {
+            foreach (var eventItem in eventsList)
+            {
+                if (!eventsDictionary.ContainsKey(eventItem.EventName))
+                {
+                    // Add the event to the dictionary with the event name as the key
+                    eventsDictionary.Add(eventItem.EventName, eventItem);
+                }
+            }                       
+        }
+
+        private void SearchEventsInDictionary(string eventName)
+        {
+            if (eventsDictionary.ContainsKey(eventName))
+            {
+                var eventItem = eventsDictionary[eventName];
+                MessageBox.Show($"Event Name: {eventItem.EventName}" +
+                $"\nDate: {eventItem.EventDate.ToShortDateString()}" +
+                $"\nTime: {eventItem.EventTime.ToShortTimeString()}" +
+                $"\nLocation: {eventItem.EventLocation}" +
+                $"\nDescription: {eventItem.EventDescription}" +
+                $"", "Search Event", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Event not found.", "Search Event", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
@@ -54,6 +282,22 @@ namespace PROG_3B_POE
                     EventTime = eventItem.EventTime,
                     EventLocation = eventItem.EventLocation,
                     EventDescription = eventItem.EventDescription
+                };
+
+                // Add click event for the event control
+                eventControl.Click += (s, e) =>
+                {
+                    // Track the viewed event
+                    TrackViewedEvents(eventItem);
+
+                    // You can also display event details when clicked
+                    MessageBox.Show($"Event: {eventItem.EventName}\n" +
+                        $"Category: {eventItem.EventCategory}\n" +
+                        $"Location: {eventItem.EventLocation}\n" +
+                        $"Date: {eventItem.EventDate.ToShortDateString()}");
+
+                    // Optionally, update the recommendations
+                    DisplayRecommendations();
                 };
 
                 // Add the event control to the flow layout panel
@@ -113,6 +357,9 @@ namespace PROG_3B_POE
                 AddMockEvents();
             }
 
+            // Prioritize the events after loading
+            PrioritizeEvents();
+
             // Display all events (including mock events)
             DisplayEvents();
         }
@@ -130,10 +377,6 @@ namespace PROG_3B_POE
                 MessageBox.Show("Please select a valid event category.");
                 return;
             }
-
-            // Capture the selected category after validation
-          //  string selectedCategory = cbCategory.SelectedItem.ToString();
-
             // Input validation for all fields
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
@@ -173,19 +416,21 @@ namespace PROG_3B_POE
 
             // Add the new event to the list and refresh the display
             eventsList.Add(newEvent);
+            // add event to the dictionary
+            AddEventsToDictionary();
+            // Display the events
             DisplayEvents();
 
             // Dialog box to confirm the event creation with event details
             DialogResult result = MessageBox.Show($"Event Name: {txtName.Text}\n" +
                                                    $"Event Image: {EventImage}\n" +
-                                                   $"Event Date: {dtpEventDate.Value.Date}\n" + // Use .Date to get just the date
-                                                   $"Event Category: {cbCategory.SelectedItem}\n" + // Show the selected category
-                                                   $"Event Location: {txtLocation.Text}\n" + // Changed to .Text
-                                                   $"Event Description: {txtDescription.Text}", // Changed to .Text
+                                                   $"Event Date: {dtpEventDate.Value.Date}\n" + 
+                                                   $"Event Category: {cbCategory.SelectedItem}\n" + 
+                                                   $"Event Location: {txtLocation.Text}\n" +
+                                                   $"Event Description: {txtDescription.Text}", 
                                                    "Create Event",
                                                    MessageBoxButtons.OKCancel);
         }
-
 
         /// <summary>
         /// Button click event to add an image to the event
@@ -241,19 +486,33 @@ namespace PROG_3B_POE
         }
         //----------------------------------------------Search function -------------------------------------------------//
         /// <summary>
-        /// Method to search 
+        /// Method to search for events based on the search input
         /// </summary>
         private void SearchEvents()
         {
-            // Get search input
+            // Get the search input from the text box
             string searchInput = txtSearch.Text.ToLower().Trim();
 
-            // Search in the list based on the user input that will be compared with the event name, category, description and location
-            var searchedEvents = eventsList.Where(x => x.EventName.ToLower().Contains(searchInput) && x.EventCategory.Contains(searchInput)
-            && x.EventDescription.ToLower().Contains(searchInput) && x.EventLocation.ToLower().Contains(searchInput)).ToList();
+            if (string.IsNullOrWhiteSpace(searchInput))
+            {
+                MessageBox.Show("Please enter a search term.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            // Call DisplayFilteredEvents to display the searched events
+            // Search in the list based on event name, description, or location (any match)
+            var searchedEvents = eventsList.Where(x =>
+                x.EventName.ToLower().Contains(searchInput) ||
+                x.EventDescription.ToLower().Contains(searchInput) ||
+                x.EventLocation.ToLower().Contains(searchInput)).ToList();
+
+            // Display the filtered search results
             DisplayFilteredEvents(searchedEvents);
+
+            // Check if no events are found
+            if (searchedEvents.Count == 0)
+            {
+                MessageBox.Show("No events found matching the search criteria.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
@@ -265,7 +524,6 @@ namespace PROG_3B_POE
             // Clear the flow layout to avoid duplicates
             flowLayoutPanel1.Controls.Clear();
 
-            // Loop through the filtered events and display them
             foreach (var eventItem in filteredEvents)
             {
                 // Create an instance of the user control and assign event details
@@ -283,14 +541,12 @@ namespace PROG_3B_POE
                 // Add the event control to the flow layout panel
                 flowLayoutPanel1.Controls.Add(eventControl);
             }
-
-            // If no events match the filter, display a message
-            if (!filteredEvents.Any())
-            {
-                MessageBox.Show("No events match your search criteria.");
-            }
         }
-
+        /// <summary>
+        /// Button click event to search for events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             // Check if the search textbox is empty
@@ -302,18 +558,69 @@ namespace PROG_3B_POE
             else
             {
                 // Search events when the button is clicked
-                SearchEvents();
+               // SearchEvents();
+                SearchEventsInDictionary(txtSearch.Text);
             }
         }
-
+        /// <summary>
+        /// Button to filter events based on the category
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             CategoryFilter();
         }
-
+        /// <summary>
+        /// Button to filter events based on the date
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dateFilter_ValueChanged(object sender, EventArgs e)
         {
             DateFilter();
+        }
+        //------------------------------------------------------------------------------------------------------------//
+        private void btnRecommendations_Click(object sender, EventArgs e)
+        {
+            DisplayRecommendations();
+
+            // Call the prioritize method when the user clicks a button
+            PrioritizeEvents();
+            // Optionally, refresh the display to show prioritized events
+            //DisplayEvents();
+        }
+
+        private void btnUpcomingEvents_Click(object sender, EventArgs e)
+        {
+            DisplayUpcomingEvents();
+        }
+
+        //-------------------Toast message
+        private void ShowToastMessage(string message)
+        {
+            ToolTip toast = new ToolTip();
+            toast.Show(message, this, this.Location.X + 50, this.Location.Y + 50, 30000); // Display for 3 minutes
+        }
+
+        private void ClearFilters()
+        {
+            // Reset search textbox
+            txtSearch.Text = string.Empty;
+
+            // Reset category combo box
+            cbFilter.SelectedIndex = -1;
+
+            // Reset date filter
+            dateFilter.Checked = false;
+
+            // Redisplay all events
+            DisplayEvents();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ClearFilters();
         }
     }
 }

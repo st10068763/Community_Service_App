@@ -35,14 +35,14 @@
             this.lbEventDate = new System.Windows.Forms.Label();
             this.lbEventTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnJoin = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.eventImage = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btnJoin = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.eventImage = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventImage)).BeginInit();
@@ -139,35 +139,17 @@
             this.panel1.Size = new System.Drawing.Size(1140, 345);
             this.panel1.TabIndex = 6;
             // 
-            // btnJoin
+            // label5
             // 
-            this.btnJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnJoin.Location = new System.Drawing.Point(361, 305);
-            this.btnJoin.Name = "btnJoin";
-            this.btnJoin.Size = new System.Drawing.Size(197, 36);
-            this.btnJoin.TabIndex = 7;
-            this.btnJoin.Text = "Join";
-            this.btnJoin.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel2.Controls.Add(this.eventImage);
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(357, 345);
-            this.panel2.TabIndex = 7;
-            // 
-            // eventImage
-            // 
-            this.eventImage.Image = global::PROG_3B_POE.Properties.Resources.music_event;
-            this.eventImage.Location = new System.Drawing.Point(3, 0);
-            this.eventImage.Name = "eventImage";
-            this.eventImage.Size = new System.Drawing.Size(345, 334);
-            this.eventImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.eventImage.TabIndex = 0;
-            this.eventImage.TabStop = false;
+            this.label5.AutoEllipsis = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Gold;
+            this.label5.Location = new System.Drawing.Point(41, 250);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(147, 26);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "About event:";
             // 
             // label1
             // 
@@ -217,17 +199,36 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Date of Event:";
             // 
-            // label5
+            // btnJoin
             // 
-            this.label5.AutoEllipsis = true;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gold;
-            this.label5.Location = new System.Drawing.Point(41, 250);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 26);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "About event:";
+            this.btnJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnJoin.Location = new System.Drawing.Point(361, 296);
+            this.btnJoin.Name = "btnJoin";
+            this.btnJoin.Size = new System.Drawing.Size(197, 36);
+            this.btnJoin.TabIndex = 7;
+            this.btnJoin.Text = "Join";
+            this.btnJoin.UseVisualStyleBackColor = true;
+            this.btnJoin.Click += new System.EventHandler(this.btnJoin_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.eventImage);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(357, 345);
+            this.panel2.TabIndex = 7;
+            // 
+            // eventImage
+            // 
+            this.eventImage.Image = global::PROG_3B_POE.Properties.Resources.music_event;
+            this.eventImage.Location = new System.Drawing.Point(3, 0);
+            this.eventImage.Name = "eventImage";
+            this.eventImage.Size = new System.Drawing.Size(345, 334);
+            this.eventImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.eventImage.TabIndex = 0;
+            this.eventImage.TabStop = false;
             // 
             // EventsList
             // 

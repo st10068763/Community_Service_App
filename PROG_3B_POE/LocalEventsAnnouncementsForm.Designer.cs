@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.eventsList1 = new PROG_3B_POE.EventsList();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnRecommendations = new System.Windows.Forms.Button();
             this.dateFilter = new System.Windows.Forms.DateTimePicker();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.cbFilter = new System.Windows.Forms.ComboBox();
@@ -37,6 +40,8 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUpcomingEvents = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
@@ -53,12 +58,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.eventsList1 = new PROG_3B_POE.EventsList();
+            this.btnReset = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,9 +83,26 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1321, 313);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // eventsList1
+            // 
+            this.eventsList1.EventCategory = null;
+            this.eventsList1.EventDate = new System.DateTime(((long)(0)));
+            this.eventsList1.EventDescription = null;
+            this.eventsList1.EventImage = null;
+            this.eventsList1.EventLocation = null;
+            this.eventsList1.EventName = null;
+            this.eventsList1.EventTime = new System.DateTime(((long)(0)));
+            this.eventsList1.Location = new System.Drawing.Point(3, 3);
+            this.eventsList1.Name = "eventsList1";
+            this.eventsList1.Size = new System.Drawing.Size(1479, 342);
+            this.eventsList1.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Goldenrod;
+            this.panel2.Controls.Add(this.btnReset);
+            this.panel2.Controls.Add(this.pictureBox4);
+            this.panel2.Controls.Add(this.btnRecommendations);
             this.panel2.Controls.Add(this.dateFilter);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.cbFilter);
@@ -91,19 +115,42 @@
             this.panel2.Size = new System.Drawing.Size(1321, 60);
             this.panel2.TabIndex = 4;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::PROG_3B_POE.Properties.Resources.Rating;
+            this.pictureBox4.Location = new System.Drawing.Point(524, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btnRecommendations
+            // 
+            this.btnRecommendations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecommendations.ForeColor = System.Drawing.Color.Black;
+            this.btnRecommendations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecommendations.Location = new System.Drawing.Point(588, 10);
+            this.btnRecommendations.Name = "btnRecommendations";
+            this.btnRecommendations.Size = new System.Drawing.Size(181, 39);
+            this.btnRecommendations.TabIndex = 6;
+            this.btnRecommendations.Text = "Recommendations";
+            this.btnRecommendations.UseVisualStyleBackColor = true;
+            this.btnRecommendations.Click += new System.EventHandler(this.btnRecommendations_Click);
+            // 
             // dateFilter
             // 
             this.dateFilter.CustomFormat = "";
-            this.dateFilter.Location = new System.Drawing.Point(1022, 16);
+            this.dateFilter.Location = new System.Drawing.Point(975, 16);
             this.dateFilter.Name = "dateFilter";
-            this.dateFilter.Size = new System.Drawing.Size(228, 22);
+            this.dateFilter.Size = new System.Drawing.Size(217, 22);
             this.dateFilter.TabIndex = 5;
             this.dateFilter.ValueChanged += new System.EventHandler(this.dateFilter_ValueChanged);
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::PROG_3B_POE.Properties.Resources.Alphabetical_Sorting_2;
-            this.pictureBox3.Location = new System.Drawing.Point(817, 9);
+            this.pictureBox3.Location = new System.Drawing.Point(776, 9);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(61, 41);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -125,7 +172,7 @@
             "Recreation",
             "Sport",
             "Workshop"});
-            this.cbFilter.Location = new System.Drawing.Point(887, 16);
+            this.cbFilter.Location = new System.Drawing.Point(846, 16);
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(121, 24);
             this.cbFilter.TabIndex = 3;
@@ -135,9 +182,9 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnSearch.Location = new System.Drawing.Point(678, 9);
+            this.btnSearch.Location = new System.Drawing.Point(419, 8);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(123, 39);
+            this.btnSearch.Size = new System.Drawing.Size(103, 39);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -152,7 +199,7 @@
             this.txtSearch.Location = new System.Drawing.Point(69, 9);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(598, 39);
+            this.txtSearch.Size = new System.Drawing.Size(344, 39);
             this.txtSearch.TabIndex = 1;
             // 
             // pictureBox2
@@ -171,6 +218,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.btnUpcomingEvents);
+            this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.dtpStartTime);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dtpEventDate);
@@ -191,6 +240,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1321, 370);
             this.panel1.TabIndex = 3;
+            // 
+            // btnUpcomingEvents
+            // 
+            this.btnUpcomingEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpcomingEvents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnUpcomingEvents.Location = new System.Drawing.Point(937, 22);
+            this.btnUpcomingEvents.Name = "btnUpcomingEvents";
+            this.btnUpcomingEvents.Size = new System.Drawing.Size(228, 33);
+            this.btnUpcomingEvents.TabIndex = 30;
+            this.btnUpcomingEvents.Text = "up comming events";
+            this.btnUpcomingEvents.UseVisualStyleBackColor = true;
+            this.btnUpcomingEvents.Click += new System.EventHandler(this.btnUpcomingEvents_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::PROG_3B_POE.Properties.Resources.Event_Accepted_Tentatively;
+            this.pictureBox5.Location = new System.Drawing.Point(846, 11);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(72, 50);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 29;
+            this.pictureBox5.TabStop = false;
             // 
             // dtpStartTime
             // 
@@ -364,19 +435,17 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Create Event";
             // 
-            // eventsList1
+            // btnReset
             // 
-            this.eventsList1.EventCategory = null;
-            this.eventsList1.EventDate = new System.DateTime(((long)(0)));
-            this.eventsList1.EventDescription = null;
-            this.eventsList1.EventImage = null;
-            this.eventsList1.EventLocation = null;
-            this.eventsList1.EventName = null;
-            this.eventsList1.EventTime = new System.DateTime(((long)(0)));
-            this.eventsList1.Location = new System.Drawing.Point(3, 3);
-            this.eventsList1.Name = "eventsList1";
-            this.eventsList1.Size = new System.Drawing.Size(1479, 342);
-            this.eventsList1.TabIndex = 0;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnReset.Location = new System.Drawing.Point(1198, 5);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(103, 39);
+            this.btnReset.TabIndex = 8;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // LocalEventsAnnouncementsForm
             // 
@@ -395,10 +464,12 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -432,5 +503,10 @@
         private System.Windows.Forms.ComboBox cbFilter;
         private System.Windows.Forms.DateTimePicker dateFilter;
         private EventsList eventsList1;
+        private System.Windows.Forms.Button btnRecommendations;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button btnUpcomingEvents;
+        private System.Windows.Forms.Button btnReset;
     }
 }

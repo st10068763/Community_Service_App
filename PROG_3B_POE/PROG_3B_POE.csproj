@@ -163,6 +163,7 @@
   <ItemGroup>
     <Content Include="music_event.jpg" />
     <None Include="Resources\Alphabetical Sorting 2.png" />
+    <None Include="Resources\Event Accepted Tentatively.png" />
     <Content Include="Resources\food_event.jpg" />
     <None Include="Resources\food_event1.jpg" />
     <None Include="Resources\logo.png" />
@@ -170,6 +171,7 @@
     <None Include="Resources\south-african-3d-flag-vector.jpg" />
     <None Include="Resources\Ophthalmology.png" />
     <None Include="Resources\Settings.png" />
+    <None Include="Resources\Rating.png" />
     <Content Include="Resources\sport_event.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

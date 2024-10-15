@@ -40,7 +40,6 @@ namespace PROG_3B_POE
             // calls the method to show date and time
             ShowDateAndTime(this, EventArgs.Empty);
         }
-
         /// <summary>
         /// Class to store the issue details
         /// </summary>
@@ -51,7 +50,6 @@ namespace PROG_3B_POE
             public string Description { get; set; }
             public Image Attachment { get; set; }
         }
-
         /// <summary>
         /// Method to load the form and set the progress bar to 0
         /// </summary>
@@ -69,16 +67,6 @@ namespace PROG_3B_POE
             //ReportDataGrid.DataSource = issues;
         }
         //--------------------------------------ADD FILE BUTTON------------------------------------------
-        /// <summary>
-        /// Button to add a file to the report
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAddFile_Click(object sender, EventArgs e)
-        {
-                  
-        }
-
         /// <summary>
         /// Method to display date and time in the report
         /// </summary>
@@ -212,18 +200,11 @@ namespace PROG_3B_POE
             progressBar.Value = 0;
         }
         //--------------------------------------------------END OF REPORT ISSUE--------------------------------------------------------------
-
-        private void AttachedPictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFilePath_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
+        /// <summary>
+        /// Button to add a file to the report
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddFile_Click_1(object sender, EventArgs e)
         {
             /// using try catch block to handle exceptions
@@ -262,7 +243,9 @@ namespace PROG_3B_POE
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        /// <summary>
+        /// Add mock reports to the form
+        /// </summary>
         public void MockReports()
         {
             // Create mock report list
@@ -271,21 +254,21 @@ namespace PROG_3B_POE
                 new IssueReport
                 {
                     Category = "Road",
-                    Attachment = Resources.music_event,
+                    Attachment = Resources.logo,
                     Location = "Johannesburg",
                     Description = "Potholes are causing major traffic disruptions."
                 },
                 new IssueReport
                 {
                     Category = "Electricity",
-                    Attachment = Resources.music_event,
+                    Attachment = Resources.logo,
                     Location = "Cape Town",
                     Description = "Power outages in several neighborhoods."
                 },
                 new IssueReport
                 {
                     Category = "Water",
-                    Attachment = Resources.music_event,
+                    Attachment = Resources.logo,
                     Location = "Durban",
                     Description = "Water leakage reported in residential areas."
                 }

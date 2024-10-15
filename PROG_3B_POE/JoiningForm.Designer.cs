@@ -32,9 +32,9 @@
             this.lbFullName = new System.Windows.Forms.Label();
             this.lbPhoneNumber = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -78,26 +78,26 @@
             this.lbEmail.TabIndex = 3;
             this.lbEmail.Text = "E-mail";
             // 
-            // textBox1
+            // txtFullName
             // 
-            this.textBox1.Location = new System.Drawing.Point(302, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(518, 22);
-            this.textBox1.TabIndex = 4;
+            this.txtFullName.Location = new System.Drawing.Point(302, 65);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(518, 22);
+            this.txtFullName.TabIndex = 4;
             // 
-            // textBox2
+            // txtPhoneNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(302, 128);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(518, 22);
-            this.textBox2.TabIndex = 5;
+            this.txtPhoneNumber.Location = new System.Drawing.Point(302, 128);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(518, 22);
+            this.txtPhoneNumber.TabIndex = 5;
             // 
-            // textBox3
+            // txtEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(302, 181);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(518, 22);
-            this.textBox3.TabIndex = 6;
+            this.txtEmail.Location = new System.Drawing.Point(302, 181);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(518, 22);
+            this.txtEmail.TabIndex = 6;
             // 
             // btnSubmit
             // 
@@ -108,6 +108,7 @@
             this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // JoiningForm
             // 
@@ -115,15 +116,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtPhoneNumber);
+            this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.lbPhoneNumber);
             this.Controls.Add(this.lbFullName);
             this.Controls.Add(this.label1);
             this.Name = "JoiningForm";
-            this.Size = new System.Drawing.Size(1123, 268);
+            this.Size = new System.Drawing.Size(1092, 278);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,9 +136,9 @@
         private System.Windows.Forms.Label lbFullName;
         private System.Windows.Forms.Label lbPhoneNumber;
         private System.Windows.Forms.Label lbEmail;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtFullName;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnSubmit;
     }
 }
