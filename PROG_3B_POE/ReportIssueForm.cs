@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROG_3B_POE.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,12 @@ namespace PROG_3B_POE
         //Variable to track if it is the first time the form is loaded
         private bool firstTime = true;
 
+        // Declare a public property to store the event details
+        public Image Attachment { get; set; }
+        public string Category { get; set; }
+        public string Location { get; set; }
+        public string Description { get; set; }
+
         public ReportIssueForm()
         {
             InitializeComponent();
@@ -29,7 +36,7 @@ namespace PROG_3B_POE
             timer.Interval = 100; // 1 millisecond
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
-
+            MockReports();
             // calls the method to show date and time
             ShowDateAndTime(this, EventArgs.Empty);
         }
@@ -59,7 +66,7 @@ namespace PROG_3B_POE
             CategoryListBx.SelectedIndexChanged += CategoryListBx_SelectedIndexChanged;
 
             // Bind the BindingList to the DataGridView
-            ReportDataGrid.DataSource = issues;
+            //ReportDataGrid.DataSource = issues;
         }
         //--------------------------------------ADD FILE BUTTON------------------------------------------
         /// <summary>
@@ -69,42 +76,7 @@ namespace PROG_3B_POE
         /// <param name="e"></param>
         private void btnAddFile_Click(object sender, EventArgs e)
         {
-            /// using try catch block to handle exceptions
-            try
-            {
-                // Configure the openFileDialog1 settings
-                openFileDialog1.Filter = "Document Files|*.docx;*.pdf;*.txt|Image Files|*.jpg;*.jpeg;*.png|All Files|*.*";
-                openFileDialog1.Title = "Select a Document or Image";
-
-                // Show the dialog and check if a file was selected
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = openFileDialog1.FileName; // Get the file path
-
-                    // Optionally handle different file types 
-                    string fileExtension = System.IO.Path.GetExtension(filePath).ToLower();
-
-                    // Handle text files
-                    if (fileExtension == ".txt")
-                    {
-                        string readFile = System.IO.File.ReadAllText(filePath); // Read the text file
-                        MessageBox.Show("File content: " + readFile, "Text File Content", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    // Handle document and image files (you can add more handling here as needed)
-                    else if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png")
-                    {
-                        // Display image in a PictureBox as a preview
-                        AttachedPictureBox.Image = Image.FromFile(filePath);
-                    }
-                    // Update progress based on file being added
-                    UpdateProgress();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }           
-                     
+                  
         }
 
         /// <summary>
@@ -177,7 +149,7 @@ namespace PROG_3B_POE
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnSubmitReport_Click(object sender, EventArgs e)
+        private void btnSubmitReport_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -212,14 +184,23 @@ namespace PROG_3B_POE
 
                 // Add the issue to the list of issues
                 issues.Add(issue);
+
+                // Create a new ReportControl and populate it with the issue details
+                ReportControl reportControl = new ReportControl
+                {
+                    EventCategory = issue.Category,
+                    Location = issue.Location,
+                    Description = issue.Description,
+                    ReportImage = issue.Attachment
+                };
+
+                // Add the reportControl to the form's panel (flowLayoutPanel1)
+                flowLayoutPanel1.Controls.Add(reportControl);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }           
-
-            //Passes the data to the grid view
-            ReportDataGrid.DataSource = issues;
+            }
 
             // Clear the input fields after submission
             txtDescription.Text = "";
@@ -242,5 +223,89 @@ namespace PROG_3B_POE
 
 
         }
+
+        private void btnAddFile_Click_1(object sender, EventArgs e)
+        {
+            /// using try catch block to handle exceptions
+            try
+            {
+                // Configure the openFileDialog1 settings
+                openFileDialog1.Filter = "Document Files|*.docx;*.pdf;*.txt|Image Files|*.jpg;*.jpeg;*.png|All Files|*.*";
+                openFileDialog1.Title = "Select a Document or Image";
+
+                // Show the dialog and check if a file was selected
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog1.FileName; // Get the file path
+
+                    // Optionally handle different file types 
+                    string fileExtension = System.IO.Path.GetExtension(filePath).ToLower();
+
+                    // Handle text files
+                    if (fileExtension == ".txt")
+                    {
+                        string readFile = System.IO.File.ReadAllText(filePath); // Read the text file
+                        MessageBox.Show("File content: " + readFile, "Text File Content", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    // Handle document and image files (you can add more handling here as needed)
+                    else if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".png")
+                    {
+                        // Display image in a PictureBox as a preview
+                        AttachedPictureBox.Image = Image.FromFile(filePath);
+                    }
+                    // Update progress based on file being added
+                    UpdateProgress();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void MockReports()
+        {
+            // Create mock report list
+            List<IssueReport> mockReportList = new List<IssueReport>
+            {
+                new IssueReport
+                {
+                    Category = "Road",
+                    Attachment = Resources.music_event,
+                    Location = "Johannesburg",
+                    Description = "Potholes are causing major traffic disruptions."
+                },
+                new IssueReport
+                {
+                    Category = "Electricity",
+                    Attachment = Resources.music_event,
+                    Location = "Cape Town",
+                    Description = "Power outages in several neighborhoods."
+                },
+                new IssueReport
+                {
+                    Category = "Water",
+                    Attachment = Resources.music_event,
+                    Location = "Durban",
+                    Description = "Water leakage reported in residential areas."
+                }
+            };
+
+            // Display mock reports on the form using ReportControl
+            foreach (var issue in mockReportList)
+            {
+                ReportControl reportControl = new ReportControl
+                {
+                    EventCategory = issue.Category,
+                    Location = issue.Location,
+                    Description = issue.Description,
+                    ReportImage = issue.Attachment
+                };
+
+                // Add the reportControl to the form's panel (flowLayoutPanel1)
+                flowLayoutPanel1.Controls.Add(reportControl);
+            }
+        }
+                
     }
 }//-------------------------------------------------------------DingDong End of Code-------------------------------------------------------------//

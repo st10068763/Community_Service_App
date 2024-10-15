@@ -45,9 +45,11 @@
             this.BtnServiceRequestService = new System.Windows.Forms.Button();
             this.BtnRepoertIssue = new System.Windows.Forms.Button();
             this.BtnLogout = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnHambugerButton = new System.Windows.Forms.PictureBox();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.sidebarContainer.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -57,6 +59,7 @@
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHambugerButton)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebarContainer
@@ -78,10 +81,11 @@
             this.flowLayoutPanel2.Controls.Add(this.panel2);
             this.flowLayoutPanel2.Controls.Add(this.panel3);
             this.flowLayoutPanel2.Controls.Add(this.panel5);
+            this.flowLayoutPanel2.Controls.Add(this.panel7);
             this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(303, 364);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(303, 436);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // panel6
@@ -122,7 +126,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.BtnLogout);
+            this.panel5.Controls.Add(this.button1);
             this.panel5.Location = new System.Drawing.Point(3, 279);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
@@ -222,7 +226,7 @@
             this.BtnLogout.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.BtnLogout.Image = ((System.Drawing.Image)(resources.GetObject("BtnLogout.Image")));
             this.BtnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnLogout.Location = new System.Drawing.Point(0, -3);
+            this.BtnLogout.Location = new System.Drawing.Point(-3, -3);
             this.BtnLogout.Name = "BtnLogout";
             this.BtnLogout.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.BtnLogout.Size = new System.Drawing.Size(297, 62);
@@ -232,6 +236,25 @@
             this.TourClip.SetToolTip(this.BtnLogout, "By clicking here you will exit the application");
             this.BtnLogout.UseVisualStyleBackColor = false;
             this.BtnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
+            // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(-1, -2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(297, 62);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Settings";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TourClip.SetToolTip(this.button1, "This button will take the user to the settings page");
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -250,8 +273,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Elephant", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(106, 6);
+            this.label1.ForeColor = System.Drawing.Color.Snow;
+            this.label1.Location = new System.Drawing.Point(415, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(475, 47);
             this.label1.TabIndex = 2;
@@ -270,6 +293,15 @@
             this.btnHambugerButton.TabStop = false;
             this.TourClip.SetToolTip(this.btnHambugerButton, "Click here to hide or extand the menu");
             this.btnHambugerButton.Click += new System.EventHandler(this.btnHambugerButton_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.BtnLogout);
+            this.panel7.Location = new System.Drawing.Point(3, 348);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel7.Size = new System.Drawing.Size(297, 63);
+            this.panel7.TabIndex = 5;
             // 
             // Form1
             // 
@@ -300,6 +332,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHambugerButton)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -324,5 +358,7 @@
         private System.Windows.Forms.Timer sideBarTransiction;
         private System.Windows.Forms.Timer MessageTimer;
         private System.Windows.Forms.ToolTip TourClip;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel7;
     }
 }

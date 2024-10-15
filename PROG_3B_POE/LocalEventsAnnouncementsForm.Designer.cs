@@ -93,7 +93,8 @@
             // 
             // dateFilter
             // 
-            this.dateFilter.Location = new System.Drawing.Point(1078, 16);
+            this.dateFilter.CustomFormat = "";
+            this.dateFilter.Location = new System.Drawing.Point(1022, 16);
             this.dateFilter.Name = "dateFilter";
             this.dateFilter.Size = new System.Drawing.Size(228, 22);
             this.dateFilter.TabIndex = 5;
@@ -102,7 +103,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::PROG_3B_POE.Properties.Resources.Alphabetical_Sorting_2;
-            this.pictureBox3.Location = new System.Drawing.Point(862, 9);
+            this.pictureBox3.Location = new System.Drawing.Point(817, 9);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(61, 41);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -124,7 +125,7 @@
             "Recreation",
             "Sport",
             "Workshop"});
-            this.cbFilter.Location = new System.Drawing.Point(937, 16);
+            this.cbFilter.Location = new System.Drawing.Point(887, 16);
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(121, 24);
             this.cbFilter.TabIndex = 3;
@@ -134,7 +135,7 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnSearch.Location = new System.Drawing.Point(704, 9);
+            this.btnSearch.Location = new System.Drawing.Point(678, 9);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(123, 39);
             this.btnSearch.TabIndex = 2;
@@ -148,7 +149,7 @@
             this.txtSearch.AccessibleName = "";
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(88, 9);
+            this.txtSearch.Location = new System.Drawing.Point(69, 9);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(598, 39);
@@ -157,7 +158,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PROG_3B_POE.Properties.Resources.Ophthalmology;
-            this.pictureBox2.Location = new System.Drawing.Point(11, 9);
+            this.pictureBox2.Location = new System.Drawing.Point(5, 9);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(66, 40);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -168,6 +169,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.dtpStartTime);
             this.panel1.Controls.Add(this.label7);
@@ -193,7 +195,7 @@
             // dtpStartTime
             // 
             this.dtpStartTime.CustomFormat = "HH:mm";
-            this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStartTime.Location = new System.Drawing.Point(128, 161);
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.Size = new System.Drawing.Size(745, 22);
@@ -364,8 +366,6 @@
             // 
             // eventsList1
             // 
-            this.eventsList1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.eventsList1.EventCategory = null;
             this.eventsList1.EventDate = new System.DateTime(((long)(0)));
             this.eventsList1.EventDescription = null;
@@ -375,7 +375,7 @@
             this.eventsList1.EventTime = new System.DateTime(((long)(0)));
             this.eventsList1.Location = new System.Drawing.Point(3, 3);
             this.eventsList1.Name = "eventsList1";
-            this.eventsList1.Size = new System.Drawing.Size(1299, 342);
+            this.eventsList1.Size = new System.Drawing.Size(1479, 342);
             this.eventsList1.TabIndex = 0;
             // 
             // LocalEventsAnnouncementsForm

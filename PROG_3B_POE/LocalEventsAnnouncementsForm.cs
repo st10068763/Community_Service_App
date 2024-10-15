@@ -29,7 +29,8 @@ namespace PROG_3B_POE
         public LocalEventsAnnouncementsForm()
         {
             InitializeComponent();
-            dtpStartTime.ShowUpDown = true; // Allows user to scroll through time
+            // Allows user to scroll through time
+            dtpStartTime.ShowUpDown = true; 
         }
 
         /// <summary>
@@ -213,38 +214,46 @@ namespace PROG_3B_POE
         /// <summary>
         /// Method to filter events based on the search input, category, and date
         /// </summary>
-        private void EventFilter()
+        private void CategoryFilter()
         {
             // Get category selection and date selection
             string categoryInput = cbFilter.SelectedItem?.ToString().ToLower(); // Ensure case insensitivity for category
-            DateTime? selectedDate = dateFilter.Checked ? dateFilter.Value.Date : (DateTime?)null;
 
-            // Filter the events based on the category and date, even if the search box is empty
+            // Filter the events based on the category selected
             var filteredEvents = eventsList.Where(x =>
-                (string.IsNullOrEmpty(categoryInput) || x.EventCategory.ToLower() == categoryInput) && // Compare categories in lowercase
-                (!selectedDate.HasValue || x.EventDate.Date == selectedDate.Value.Date) // Filter by date if selected
-            ).ToList();
+                (string.IsNullOrEmpty(categoryInput) || x.EventCategory.ToLower() == categoryInput)).ToList();
 
             // Display the filtered events
             DisplayFilteredEvents(filteredEvents);
         }
 
+        /// <summary>
+        /// Method to filter the events by date
+        /// </summary>
+        private void DateFilter()
+        {
+            DateTime? selectedDate = dateFilter.Checked ? dateFilter.Value.Date : (DateTime?)null;
+
+            var DateFilter = eventsList.Where(x =>
+            (!selectedDate.HasValue || x.EventDate.Date == selectedDate.Value.Date)).ToList(); // Filter by date if selected
+            // Displays the event happening for the selected date
+            DisplayFilteredEvents(DateFilter);
+        }
+        //----------------------------------------------Search function -------------------------------------------------//
+        /// <summary>
+        /// Method to search 
+        /// </summary>
         private void SearchEvents()
         {
             // Get search input
             string searchInput = txtSearch.Text.ToLower().Trim();
 
-            // If the user provided search input, filter events by event name
-            if (!string.IsNullOrEmpty(searchInput))
-            {
-                var searchedEvents = eventsList.Where(x => x.EventName.ToLower().Contains(searchInput)).ToList();
-                DisplayFilteredEvents(searchedEvents);
-            }
-            else
-            {
-                // Display all events if search input is empty
-                DisplayEvents();
-            }
+            // Search in the list based on the user input that will be compared with the event name, category, description and location
+            var searchedEvents = eventsList.Where(x => x.EventName.ToLower().Contains(searchInput) && x.EventCategory.Contains(searchInput)
+            && x.EventDescription.ToLower().Contains(searchInput) && x.EventLocation.ToLower().Contains(searchInput)).ToList();
+
+            // Call DisplayFilteredEvents to display the searched events
+            DisplayFilteredEvents(searchedEvents);
         }
 
         /// <summary>
@@ -275,7 +284,7 @@ namespace PROG_3B_POE
                 flowLayoutPanel1.Controls.Add(eventControl);
             }
 
-            // If no events match the filter, display a message or handle it as needed
+            // If no events match the filter, display a message
             if (!filteredEvents.Any())
             {
                 MessageBox.Show("No events match your search criteria.");
@@ -292,18 +301,19 @@ namespace PROG_3B_POE
             }
             else
             {
+                // Search events when the button is clicked
                 SearchEvents();
             }
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EventFilter();
+            CategoryFilter();
         }
 
         private void dateFilter_ValueChanged(object sender, EventArgs e)
         {
-            EventFilter();
+            DateFilter();
         }
     }
 }
