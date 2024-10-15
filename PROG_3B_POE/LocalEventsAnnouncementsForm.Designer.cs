@@ -29,7 +29,19 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.eventsList1 = new PROG_3B_POE.EventsList();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnRecommendations = new System.Windows.Forms.Button();
+            this.dateFilter = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUpcomingEvents = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpEventDate = new System.Windows.Forms.DateTimePicker();
@@ -46,27 +58,168 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.eventsList1 = new PROG_3B_POE.EventsList();
-            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.DimGray;
             this.flowLayoutPanel1.Controls.Add(this.eventsList1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 350);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 442);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1321, 405);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1321, 313);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // eventsList1
+            // 
+            this.eventsList1.EventCategory = null;
+            this.eventsList1.EventDate = new System.DateTime(((long)(0)));
+            this.eventsList1.EventDescription = null;
+            this.eventsList1.EventImage = null;
+            this.eventsList1.EventLocation = null;
+            this.eventsList1.EventName = null;
+            this.eventsList1.EventTime = new System.DateTime(((long)(0)));
+            this.eventsList1.Location = new System.Drawing.Point(3, 3);
+            this.eventsList1.Name = "eventsList1";
+            this.eventsList1.Size = new System.Drawing.Size(1479, 342);
+            this.eventsList1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Goldenrod;
+            this.panel2.Controls.Add(this.btnReset);
+            this.panel2.Controls.Add(this.pictureBox4);
+            this.panel2.Controls.Add(this.btnRecommendations);
+            this.panel2.Controls.Add(this.dateFilter);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.cbFilter);
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.txtSearch);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1321, 60);
+            this.panel2.TabIndex = 4;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::PROG_3B_POE.Properties.Resources.Rating;
+            this.pictureBox4.Location = new System.Drawing.Point(524, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(58, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btnRecommendations
+            // 
+            this.btnRecommendations.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecommendations.ForeColor = System.Drawing.Color.Black;
+            this.btnRecommendations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecommendations.Location = new System.Drawing.Point(588, 10);
+            this.btnRecommendations.Name = "btnRecommendations";
+            this.btnRecommendations.Size = new System.Drawing.Size(181, 39);
+            this.btnRecommendations.TabIndex = 6;
+            this.btnRecommendations.Text = "Recommendations";
+            this.btnRecommendations.UseVisualStyleBackColor = true;
+            this.btnRecommendations.Click += new System.EventHandler(this.btnRecommendations_Click);
+            // 
+            // dateFilter
+            // 
+            this.dateFilter.CustomFormat = "";
+            this.dateFilter.Location = new System.Drawing.Point(975, 16);
+            this.dateFilter.Name = "dateFilter";
+            this.dateFilter.Size = new System.Drawing.Size(217, 22);
+            this.dateFilter.TabIndex = 5;
+            this.dateFilter.ValueChanged += new System.EventHandler(this.dateFilter_ValueChanged);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::PROG_3B_POE.Properties.Resources.Alphabetical_Sorting_2;
+            this.pictureBox3.Location = new System.Drawing.Point(776, 9);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(61, 41);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            // 
+            // cbFilter
+            // 
+            this.cbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Items.AddRange(new object[] {
+            "All",
+            "Awareness",
+            "Community build",
+            "Donation",
+            "Education",
+            "Food",
+            "Music",
+            "Recreation",
+            "Sport",
+            "Workshop"});
+            this.cbFilter.Location = new System.Drawing.Point(846, 16);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(121, 24);
+            this.cbFilter.TabIndex = 3;
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.cbFilter_SelectedIndexChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnSearch.Location = new System.Drawing.Point(419, 8);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(103, 39);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.AccessibleDescription = "";
+            this.txtSearch.AccessibleName = "";
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(69, 9);
+            this.txtSearch.Multiline = true;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(344, 39);
+            this.txtSearch.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::PROG_3B_POE.Properties.Resources.Ophthalmology;
+            this.pictureBox2.Location = new System.Drawing.Point(5, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Peru;
-            this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.btnUpcomingEvents);
+            this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.dtpStartTime);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dtpEventDate);
@@ -83,14 +236,37 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 66);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1321, 350);
-            this.panel1.TabIndex = 2;
+            this.panel1.Size = new System.Drawing.Size(1321, 370);
+            this.panel1.TabIndex = 3;
+            // 
+            // btnUpcomingEvents
+            // 
+            this.btnUpcomingEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpcomingEvents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnUpcomingEvents.Location = new System.Drawing.Point(937, 22);
+            this.btnUpcomingEvents.Name = "btnUpcomingEvents";
+            this.btnUpcomingEvents.Size = new System.Drawing.Size(228, 33);
+            this.btnUpcomingEvents.TabIndex = 30;
+            this.btnUpcomingEvents.Text = "up comming events";
+            this.btnUpcomingEvents.UseVisualStyleBackColor = true;
+            this.btnUpcomingEvents.Click += new System.EventHandler(this.btnUpcomingEvents_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::PROG_3B_POE.Properties.Resources.Event_Accepted_Tentatively;
+            this.pictureBox5.Location = new System.Drawing.Point(846, 11);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(72, 50);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 29;
+            this.pictureBox5.TabStop = false;
             // 
             // dtpStartTime
             // 
+            this.dtpStartTime.CustomFormat = "HH:mm";
+            this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStartTime.Location = new System.Drawing.Point(128, 161);
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.Size = new System.Drawing.Size(745, 22);
@@ -100,6 +276,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(13, 161);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 25);
@@ -116,20 +293,20 @@
             // btnCreateEvent
             // 
             this.btnCreateEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateEvent.ForeColor = System.Drawing.Color.LightSalmon;
+            this.btnCreateEvent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCreateEvent.Location = new System.Drawing.Point(435, 311);
             this.btnCreateEvent.Name = "btnCreateEvent";
             this.btnCreateEvent.Size = new System.Drawing.Size(156, 33);
             this.btnCreateEvent.TabIndex = 24;
             this.btnCreateEvent.Text = "Create New Event";
             this.btnCreateEvent.UseVisualStyleBackColor = true;
-            this.btnCreateEvent.Click += new System.EventHandler(this.btnCreateEvent_Click);
+            this.btnCreateEvent.Click += new System.EventHandler(this.btnCreateEvent_Click_1);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(890, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(890, 83);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(223, 162);
+            this.pictureBox1.Size = new System.Drawing.Size(275, 219);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
@@ -137,14 +314,14 @@
             // btnAddImage
             // 
             this.btnAddImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddImage.ForeColor = System.Drawing.Color.LightSalmon;
-            this.btnAddImage.Location = new System.Drawing.Point(924, 46);
+            this.btnAddImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAddImage.Location = new System.Drawing.Point(937, 311);
             this.btnAddImage.Name = "btnAddImage";
             this.btnAddImage.Size = new System.Drawing.Size(156, 33);
             this.btnAddImage.TabIndex = 22;
             this.btnAddImage.Text = "Add event image";
             this.btnAddImage.UseVisualStyleBackColor = true;
-            this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
+            this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click_1);
             // 
             // txtDescription
             // 
@@ -167,20 +344,22 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Items.AddRange(new object[] {
-            "Sport",
+            "Awareness",
             "Community build",
-            "Recreation",
-            "Music",
-            "Food",
-            "Workshop",
-            "Education",
             "Donation",
-            "Awareness"});
+            "Education",
+            "Food",
+            "Music",
+            "Recreation",
+            "Sport",
+            "Workshop"});
             this.cbCategory.Location = new System.Drawing.Point(128, 199);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(745, 24);
+            this.cbCategory.Sorted = true;
             this.cbCategory.TabIndex = 18;
             // 
             // txtName
@@ -194,6 +373,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(13, 122);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 25);
@@ -204,6 +384,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(13, 198);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 25);
@@ -214,6 +395,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(13, 235);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 25);
@@ -224,6 +406,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(13, 270);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 25);
@@ -234,6 +417,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(13, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 25);
@@ -244,43 +428,33 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(36, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 39);
             this.label1.TabIndex = 11;
             this.label1.Text = "Create Event";
             // 
-            // eventsList1
+            // btnReset
             // 
-            this.eventsList1.EventCategory = null;
-            this.eventsList1.EventDate = new System.DateTime(((long)(0)));
-            this.eventsList1.EventDescription = null;
-            this.eventsList1.EventImage = null;
-            this.eventsList1.EventLocation = null;
-            this.eventsList1.EventName = null;
-            this.eventsList1.EventTime = new System.DateTime(((long)(0)));
-            this.eventsList1.Location = new System.Drawing.Point(3, 3);
-            this.eventsList1.Name = "eventsList1";
-            this.eventsList1.Size = new System.Drawing.Size(1318, 195);
-            this.eventsList1.TabIndex = 0;
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtSearch.Location = new System.Drawing.Point(337, 31);
-            this.txtSearch.Multiline = true;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(348, 30);
-            this.txtSearch.TabIndex = 29;
-            this.txtSearch.Text = "Search...";
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnReset.Location = new System.Drawing.Point(1198, 5);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(103, 39);
+            this.btnReset.TabIndex = 8;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // LocalEventsAnnouncementsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1321, 755);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -288,8 +462,14 @@
             this.Text = "LocalEventsAnnouncementsForm";
             this.Load += new System.EventHandler(this.LocalEventsAnnouncementsForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -315,7 +495,18 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private EventsList eventsList1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.ComboBox cbFilter;
+        private System.Windows.Forms.DateTimePicker dateFilter;
+        private EventsList eventsList1;
+        private System.Windows.Forms.Button btnRecommendations;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button btnUpcomingEvents;
+        private System.Windows.Forms.Button btnReset;
     }
 }

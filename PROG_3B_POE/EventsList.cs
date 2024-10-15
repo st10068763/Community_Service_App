@@ -70,6 +70,28 @@ namespace PROG_3B_POE
             set { _eventCategory = value; lbEventCategory.Text = value; }
         }
         #endregion
+
+        private void btnJoin_Click(object sender, EventArgs e)
+        {
+            // Create a new form to host the JoiningForm UserControl
+            Form hostForm = new Form();
+
+            // Create and initialize the JoiningForm UserControl
+            JoiningForm joiningForm = new JoiningForm();
+            // Set properties for the host form
+            hostForm.Text = "Join Event";
+            // Center the form on the screen
+            hostForm.StartPosition = FormStartPosition.CenterScreen; 
+            // Set the size of the form 
+            hostForm.Size = new Size(900, 300);
+            // Added the JoiningForm to the host form
+            hostForm.Controls.Add(joiningForm); 
+
+            // Show the host form as a modal dialog (centered on the screen)
+            hostForm.ShowDialog();
+
+        }
+
     }
 
 }
