@@ -33,33 +33,30 @@
             this.sidebarContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.BtnDashboard = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnLocalEventsAndAnnouncements = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnServiceRequestService = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.BtnRepoertIssue = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.BtnLogout = new System.Windows.Forms.Button();
             this.sideBarTransiction = new System.Windows.Forms.Timer(this.components);
             this.MessageTimer = new System.Windows.Forms.Timer(this.components);
             this.TourClip = new System.Windows.Forms.ToolTip(this.components);
-            this.BtnDashboard = new System.Windows.Forms.Button();
-            this.btnLocalEventsAndAnnouncements = new System.Windows.Forms.Button();
-            this.BtnServiceRequestService = new System.Windows.Forms.Button();
-            this.BtnRepoertIssue = new System.Windows.Forms.Button();
-            this.BtnLogout = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHambugerButton = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnHambugerButton = new System.Windows.Forms.PictureBox();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.sidebarContainer.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHambugerButton)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHambugerButton)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebarContainer
@@ -80,7 +77,6 @@
             this.flowLayoutPanel2.Controls.Add(this.panel4);
             this.flowLayoutPanel2.Controls.Add(this.panel2);
             this.flowLayoutPanel2.Controls.Add(this.panel3);
-            this.flowLayoutPanel2.Controls.Add(this.panel5);
             this.flowLayoutPanel2.Controls.Add(this.panel7);
             this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -96,47 +92,6 @@
             this.panel6.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.panel6.Size = new System.Drawing.Size(297, 63);
             this.panel6.TabIndex = 4;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnLocalEventsAndAnnouncements);
-            this.panel4.Location = new System.Drawing.Point(3, 72);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(297, 62);
-            this.panel4.TabIndex = 4;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.BtnServiceRequestService);
-            this.panel2.Location = new System.Drawing.Point(3, 140);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel2.Size = new System.Drawing.Size(300, 63);
-            this.panel2.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.BtnRepoertIssue);
-            this.panel3.Location = new System.Drawing.Point(3, 209);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(300, 64);
-            this.panel3.TabIndex = 4;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.button1);
-            this.panel5.Location = new System.Drawing.Point(3, 279);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(297, 63);
-            this.panel5.TabIndex = 4;
-            // 
-            // sideBarTransiction
-            // 
-            this.sideBarTransiction.Interval = 10;
-            this.sideBarTransiction.Tick += new System.EventHandler(this.sideBarTransiction_Tick);
             // 
             // BtnDashboard
             // 
@@ -156,6 +111,15 @@
             this.TourClip.SetToolTip(this.BtnDashboard, "Click here to see the dashboard \r\nwhere you can find more information\r\n");
             this.BtnDashboard.UseVisualStyleBackColor = false;
             this.BtnDashboard.Click += new System.EventHandler(this.BtnDashboard_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnLocalEventsAndAnnouncements);
+            this.panel4.Location = new System.Drawing.Point(3, 72);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel4.Size = new System.Drawing.Size(297, 62);
+            this.panel4.TabIndex = 4;
             // 
             // btnLocalEventsAndAnnouncements
             // 
@@ -177,6 +141,15 @@
             this.btnLocalEventsAndAnnouncements.UseVisualStyleBackColor = false;
             this.btnLocalEventsAndAnnouncements.Click += new System.EventHandler(this.btnLocalEventsAndAnnouncements_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.BtnServiceRequestService);
+            this.panel2.Location = new System.Drawing.Point(3, 140);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(300, 63);
+            this.panel2.TabIndex = 3;
+            // 
             // BtnServiceRequestService
             // 
             this.BtnServiceRequestService.AutoSize = true;
@@ -196,6 +169,15 @@
             this.TourClip.SetToolTip(this.BtnServiceRequestService, "Click here to request a service");
             this.BtnServiceRequestService.UseVisualStyleBackColor = false;
             this.BtnServiceRequestService.Click += new System.EventHandler(this.BtnServiceRequestService_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BtnRepoertIssue);
+            this.panel3.Location = new System.Drawing.Point(3, 209);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel3.Size = new System.Drawing.Size(300, 64);
+            this.panel3.TabIndex = 4;
             // 
             // BtnRepoertIssue
             // 
@@ -217,6 +199,15 @@
             this.BtnRepoertIssue.UseVisualStyleBackColor = false;
             this.BtnRepoertIssue.Click += new System.EventHandler(this.BtnRepoertIssue_Click);
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.BtnLogout);
+            this.panel7.Location = new System.Drawing.Point(3, 279);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.panel7.Size = new System.Drawing.Size(297, 63);
+            this.panel7.TabIndex = 5;
+            // 
             // BtnLogout
             // 
             this.BtnLogout.AutoSize = true;
@@ -237,24 +228,24 @@
             this.BtnLogout.UseVisualStyleBackColor = false;
             this.BtnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
             // 
-            // button1
+            // sideBarTransiction
             // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-1, -2);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(297, 62);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Settings";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TourClip.SetToolTip(this.button1, "This button will take the user to the settings page");
-            this.button1.UseVisualStyleBackColor = false;
+            this.sideBarTransiction.Interval = 10;
+            this.sideBarTransiction.Tick += new System.EventHandler(this.sideBarTransiction_Tick);
+            // 
+            // btnHambugerButton
+            // 
+            this.btnHambugerButton.BackColor = System.Drawing.Color.Transparent;
+            this.btnHambugerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHambugerButton.Image = ((System.Drawing.Image)(resources.GetObject("btnHambugerButton.Image")));
+            this.btnHambugerButton.Location = new System.Drawing.Point(0, 0);
+            this.btnHambugerButton.Name = "btnHambugerButton";
+            this.btnHambugerButton.Size = new System.Drawing.Size(82, 53);
+            this.btnHambugerButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnHambugerButton.TabIndex = 1;
+            this.btnHambugerButton.TabStop = false;
+            this.TourClip.SetToolTip(this.btnHambugerButton, "Click here to hide or extand the menu");
+            this.btnHambugerButton.Click += new System.EventHandler(this.btnHambugerButton_Click);
             // 
             // panel1
             // 
@@ -280,29 +271,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Community Connection";
             // 
-            // btnHambugerButton
-            // 
-            this.btnHambugerButton.BackColor = System.Drawing.Color.Transparent;
-            this.btnHambugerButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHambugerButton.Image = ((System.Drawing.Image)(resources.GetObject("btnHambugerButton.Image")));
-            this.btnHambugerButton.Location = new System.Drawing.Point(0, 0);
-            this.btnHambugerButton.Name = "btnHambugerButton";
-            this.btnHambugerButton.Size = new System.Drawing.Size(82, 53);
-            this.btnHambugerButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnHambugerButton.TabIndex = 1;
-            this.btnHambugerButton.TabStop = false;
-            this.TourClip.SetToolTip(this.btnHambugerButton, "Click here to hide or extand the menu");
-            this.btnHambugerButton.Click += new System.EventHandler(this.btnHambugerButton_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.BtnLogout);
-            this.panel7.Location = new System.Drawing.Point(3, 348);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.panel7.Size = new System.Drawing.Size(297, 63);
-            this.panel7.TabIndex = 5;
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -327,13 +295,11 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnHambugerButton)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHambugerButton)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -350,7 +316,6 @@
         private System.Windows.Forms.Button BtnRepoertIssue;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnLocalEventsAndAnnouncements;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button BtnLogout;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button BtnDashboard;
@@ -358,7 +323,6 @@
         private System.Windows.Forms.Timer sideBarTransiction;
         private System.Windows.Forms.Timer MessageTimer;
         private System.Windows.Forms.ToolTip TourClip;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel7;
     }
 }
