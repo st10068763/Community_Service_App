@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PROG_3B_POE
 {
@@ -14,6 +15,7 @@ namespace PROG_3B_POE
             public string Status { get; set; }
             public string Priority { get; set; } 
             public string Description { get; set; }
+            public string Category { get; set; }
             public DateTime RequestDate { get; set; }
         }
 
@@ -26,7 +28,6 @@ namespace PROG_3B_POE
 
         private PriorityQueue<ServiceRequest, string> priorityQueue = new PriorityQueue<ServiceRequest, string>();
 
-
         private SortedSet<ServiceRequest> requestQueue;
         ReportIssueForm reportIssueForm = new ReportIssueForm();
         private static readonly Random random = new Random();
@@ -35,6 +36,7 @@ namespace PROG_3B_POE
         {
             InitializeComponent();
             requestQueue = new SortedSet<ServiceRequest>(new RequestPriorityComparer());
+            InitializeChartTypeComboBox();
             LoadIssues(); // Load issues when the form opens
             // calls the method to display the chart
             DisplayChart();
@@ -88,7 +90,7 @@ namespace PROG_3B_POE
         private void UpdateDisplay()
         {
             dgvServiceRequests.DataSource = null;
-            dgvServiceRequests.DataSource = requestQueue.ToList();
+            dgvServiceRequests.DataSource = ReportIssueForm.issues.Select(ConvertIssueToRequest).ToList();
         }
 
         // Custom comparer for sorting requests by priority
@@ -96,7 +98,7 @@ namespace PROG_3B_POE
         {
             public int Compare(ServiceRequest x, ServiceRequest y)
             {
-                int priorityComparison = String.Compare(y.Priority, x.Priority); // Compare strings
+                int priorityComparison = String.Compare(y.Priority, x.Priority); 
                 return priorityComparison == 0 ? x.RequestId.CompareTo(y.RequestId) : priorityComparison;
             }
         }
@@ -132,8 +134,13 @@ namespace PROG_3B_POE
 
             dgvServiceRequests.DataSource = null;
             dgvServiceRequests.DataSource = filteredRequests;
-        }        
+        }
 
+        /// <summary>
+        /// Method to update the status of a request when the user changes the status in the DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvServiceRequests_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgvServiceRequests.Columns[e.ColumnIndex].Name == "StatusColumn")
@@ -141,69 +148,84 @@ namespace PROG_3B_POE
                 var selectedRequest = (ServiceRequest)dgvServiceRequests.Rows[e.RowIndex].DataBoundItem;
                 string newStatus = dgvServiceRequests.Rows[e.RowIndex].Cells["StatusColumn"].Value.ToString();
                 UpdateRequestStatus(selectedRequest.RequestId, newStatus);
+                // Refresh the chart after the status has been updated
+                DisplayChart();
             }
-        }
-
-        //----------------------------------Sorting
-        private void SortRequests(string criteria)
-        {
-            List<ServiceRequest> sortedRequests = requestQueue.ToList();
-
-            switch (criteria)
-            {
-                case "Priority":
-                    sortedRequests = sortedRequests.OrderBy(r => r.Priority).ToList();
-                    break;
-                case "Request Date":
-                    sortedRequests = sortedRequests.OrderBy(r => r.RequestDate).ToList();
-                    break;
-                case "Status":
-                    sortedRequests = sortedRequests.OrderBy(r => r.Status).ToList();
-                    break;
-            }
-
-            dgvServiceRequests.DataSource = null;
-            dgvServiceRequests.DataSource = sortedRequests;
-        }
-
-        //--------------------------------Priority queues
-        private void LoadIntoPriorityQueue()
-        {
-            // Clear the priority queue
-            priorityQueue = new PriorityQueue<ServiceRequest, string>(); 
-
-            foreach (var request in ReportIssueForm.issues.Select(ConvertIssueToRequest))
-            {
-                priorityQueue.Enqueue(request, request.Priority);
-            }
-        }
-
-        private void DisplayPriorityQueue()
-        {
-            dgvServiceRequests.DataSource = priorityQueue.UnorderedItems
-            .OrderBy(item => item.Priority) // Sort by priority for display
-            .ToList();
         }
 
         //----------------------------------Chart
+        //=========================================================================//
+        private void cbChartType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayChart();
+        }
+
+        private void InitializeChartTypeComboBox()
+        {
+            cbChartType.SelectedIndex = 0;
+            cbChartType.SelectedIndexChanged += cbChartType_SelectedIndexChanged;
+            this.Controls.Add(cbChartType);
+        }
+        //-------------------Changes the graph type based on the radio button selected
+        /// <summary>
+        /// Button to display the chart as a line graph
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLineGraph_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnLineGraph.Checked)
+            {
+                ServiceChart.Series[0].ChartType = SeriesChartType.Line;
+            }
+        }
+        /// <summary>
+        /// Button to display the chart as a bar graph
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnStakedGraph_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnStakedGraph.Checked)
+            {
+                ServiceChart.Series[0].ChartType = SeriesChartType.StackedColumn;
+            }
+        }
+
         /// <summary>
         /// Method to display the chart with the number of requests per category
         /// </summary>
         private void DisplayChart()
         {
             // Clear existing points
-            ServiceChart.Series["Column"].Points.Clear(); 
+            ServiceChart.Series["Column"].Points.Clear();
 
-            var requestGroups = ReportIssueForm.issues
-                .GroupBy(issue => issue.Category)
-                .Select(group => new { Category = group.Key, Count = group.Count() });
-
-            foreach (var group in requestGroups)
+            if (cbChartType.SelectedItem.ToString() == "Category")
             {
-                ServiceChart.Series["Column"].Points.AddXY(group.Category, group.Count);
+                // Group by Category
+                var categoryGroups = ReportIssueForm.issues
+                    .GroupBy(issue => issue.Category)
+                    .Select(group => new { Category = group.Key, Count = group.Count() });
+
+                foreach (var group in categoryGroups)
+                {
+                    ServiceChart.Series["Column"].Points.AddXY(group.Category, group.Count);
+                }
+            }
+            else if (cbChartType.SelectedItem.ToString() == "Status")
+            {
+                // Group by Status
+                var statusGroups = ReportIssueForm.issues
+                    .GroupBy(issue => issue.Status)
+                    .Select(group => new { Status = group.Key, Count = group.Count() });
+
+                foreach (var group in statusGroups)
+                {
+                    ServiceChart.Series["Column"].Points.AddXY(group.Status, group.Count);
+                }
             }
         }
-
+        //*************************************END OF CHART*******************************************
 
         private void btnTrackRequest_Click_1(object sender, EventArgs e)
         {
@@ -235,8 +257,22 @@ namespace PROG_3B_POE
             if (dgvServiceRequests.SelectedRows.Count > 0)
             {
                 var selectedRequest = (ServiceRequest)dgvServiceRequests.SelectedRows[0].DataBoundItem;
-                selectedRequest.Status = "Resolved";
-                UpdateRequestStatus(selectedRequest.RequestId, "Resolved");
+
+                // Get the new status from the DataGridView when the user clicks the button
+                string newStatus = ServiceStatus.DataPropertyName?.ToString();
+
+                if (!string.IsNullOrEmpty(newStatus))
+                {
+                    selectedRequest.Status = newStatus;
+                    UpdateRequestStatus(selectedRequest.RequestId, newStatus);
+
+                    // refresh the chart
+                    DisplayChart();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a valid status.", "Status Update Error");
+                }
             }
         }
 
@@ -271,11 +307,46 @@ namespace PROG_3B_POE
         }
 
         //----------------------------------Sorting
+        //==========================================================================//
+        //----------------------------------Sorting
+        private void SortRequests(string criteria)
+        {
+            var sortedRequests = ReportIssueForm.issues
+                .Select(ConvertIssueToRequest) // Convert all issues to service requests
+                .ToList();
+
+            switch (criteria)
+            {
+                case "Priority":
+                    sortedRequests = sortedRequests.OrderBy(r => r.Priority).ToList();
+                    break;
+                case "Request Date":
+                    sortedRequests = sortedRequests.OrderBy(r => r.RequestDate).ToList();
+                    break;
+                case "Pending":
+                    sortedRequests = sortedRequests.Where(r => r.Status == Status.Pending).ToList();
+                    break;
+                case "In Progress":
+                    sortedRequests = sortedRequests.Where(r => r.Status == Status.InProgress).ToList();
+                    break;
+                case "Resolved":
+                    sortedRequests = sortedRequests.Where(r => r.Status == Status.Resolved).ToList();
+                    break;
+                default:
+                    MessageBox.Show("Invalid sorting criteria.", "Error");
+                    return;
+            }
+
+            // Update the DataGridView
+            dgvServiceRequests.DataSource = null;
+            dgvServiceRequests.DataSource = sortedRequests;
+        }
+
         private void rdBtnPending_CheckedChanged(object sender, EventArgs e)
         {
             if (rdBtnPending.Checked)
             {
-                SortRequests("Pending");
+                SortRequests(Status.Pending);
             }
         }
 
@@ -283,7 +354,7 @@ namespace PROG_3B_POE
         {
             if (rdBtnInProgress.Checked)
             {
-                SortRequests("In Progress");
+                SortRequests(Status.InProgress);
             }
         }
 
@@ -291,7 +362,7 @@ namespace PROG_3B_POE
         {
             if (rdBtnSolved.Checked)
             {
-                SortRequests("Resolved");
+                SortRequests(Status.Resolved);
             }
         }
 
@@ -299,12 +370,20 @@ namespace PROG_3B_POE
         {
             if (cbCategorySorting.SelectedIndex != -1)
             {
-                SortRequests(cbCategorySorting.SelectedItem.ToString());
+                string selectedCategory = cbCategorySorting.SelectedItem.ToString();
+
+                var filteredRequests = ReportIssueForm.issues
+                    .Where(issue => issue.Category == selectedCategory)
+                    .Select(ConvertIssueToRequest)
+                    .ToList();
+
+                dgvServiceRequests.DataSource = null;
+                dgvServiceRequests.DataSource = filteredRequests;
             }
-        }
+        }       
     }
 
-    //------------------------------------
+    //------------------------------------Priority Queue---------------------------------------------------//
     public class PriorityQueue<TElement, TPriority> where TPriority : IComparable<TPriority>
     {
         private List<(TElement Element, TPriority Priority)> _elements = new List<(TElement, TPriority)>();

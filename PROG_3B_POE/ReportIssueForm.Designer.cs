@@ -160,8 +160,9 @@
             this.CategoryListBx.ItemHeight = 25;
             this.CategoryListBx.Items.AddRange(new object[] {
             "Crime",
+            "Electricity ",
             "Others",
-            "Roads ",
+            "Road",
             "Safety",
             "Sanitation",
             "Utilities",

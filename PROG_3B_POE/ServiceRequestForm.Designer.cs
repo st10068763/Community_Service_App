@@ -32,18 +32,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvServiceRequests = new System.Windows.Forms.DataGridView();
+            this.Request_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Request_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRequestDetails = new System.Windows.Forms.Label();
             this.txtRequestID = new System.Windows.Forms.TextBox();
             this.lblRequestID = new System.Windows.Forms.Label();
@@ -66,11 +73,9 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.ServiceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.rtbRequestStatus = new System.Windows.Forms.RichTextBox();
-            this.Request_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServiceStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Request_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbChartType = new System.Windows.Forms.ComboBox();
+            this.btnLineGraph = new System.Windows.Forms.RadioButton();
+            this.btnStakedGraph = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceRequests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceRequestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceChart)).BeginInit();
@@ -92,23 +97,95 @@
             this.dgvServiceRequests.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Request_ID,
             this.ServiceStatus,
+            this.Category,
             this.Priority,
             this.Description,
             this.Request_Date});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvServiceRequests.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvServiceRequests.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvServiceRequests.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
             this.dgvServiceRequests.Location = new System.Drawing.Point(20, 70);
             this.dgvServiceRequests.Name = "dgvServiceRequests";
             this.dgvServiceRequests.RowHeadersWidth = 51;
             this.dgvServiceRequests.Size = new System.Drawing.Size(744, 279);
             this.dgvServiceRequests.TabIndex = 1;
+            // 
+            // Request_ID
+            // 
+            this.Request_ID.DataPropertyName = "RequestId";
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.Request_ID.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Request_ID.HeaderText = "Request ID";
+            this.Request_ID.MinimumWidth = 6;
+            this.Request_ID.Name = "Request_ID";
+            this.Request_ID.ReadOnly = true;
+            this.Request_ID.Width = 125;
+            // 
+            // ServiceStatus
+            // 
+            this.ServiceStatus.DataPropertyName = "Status";
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.ServiceStatus.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ServiceStatus.HeaderText = "Service Status";
+            this.ServiceStatus.Items.AddRange(new object[] {
+            "In progress",
+            "Pending",
+            "Solved"});
+            this.ServiceStatus.MinimumWidth = 6;
+            this.ServiceStatus.Name = "ServiceStatus";
+            this.ServiceStatus.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ServiceStatus.Sorted = true;
+            this.ServiceStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ServiceStatus.Width = 125;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 6;
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Width = 125;
+            // 
+            // Priority
+            // 
+            this.Priority.DataPropertyName = "Priority";
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.Priority.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Priority.HeaderText = "Priority";
+            this.Priority.MinimumWidth = 6;
+            this.Priority.Name = "Priority";
+            this.Priority.ReadOnly = true;
+            this.Priority.Width = 125;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Description.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 125;
+            // 
+            // Request_Date
+            // 
+            this.Request_Date.DataPropertyName = "RequestDate";
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Request_Date.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Request_Date.HeaderText = "Request Date";
+            this.Request_Date.MinimumWidth = 6;
+            this.Request_Date.Name = "Request_Date";
+            this.Request_Date.ReadOnly = true;
+            this.Request_Date.Width = 125;
             // 
             // lblRequestDetails
             // 
@@ -212,6 +289,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(910, 247);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 30);
@@ -223,12 +301,13 @@
             this.cbCategorySorting.FormattingEnabled = true;
             this.cbCategorySorting.Items.AddRange(new object[] {
             "Crime",
-            "Others",
-            "Roads ",
+            "Road ",
+            "Eletricity",
             "Safety",
             "Sanitation",
             "Utilities",
-            "Weather"});
+            "Weather",
+            "Others"});
             this.cbCategorySorting.Location = new System.Drawing.Point(912, 285);
             this.cbCategorySorting.Name = "cbCategorySorting";
             this.cbCategorySorting.Size = new System.Drawing.Size(215, 24);
@@ -238,7 +317,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(796, 285);
+            this.label3.Location = new System.Drawing.Point(776, 285);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 25);
             this.label3.TabIndex = 17;
@@ -247,16 +326,16 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(800, 330);
+            this.label4.Location = new System.Drawing.Point(779, 330);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 25);
+            this.label4.Size = new System.Drawing.Size(80, 25);
             this.label4.TabIndex = 18;
             this.label4.Text = "Priority";
             // 
             // rdBtnPending
             // 
             this.rdBtnPending.AutoSize = true;
-            this.rdBtnPending.Location = new System.Drawing.Point(905, 335);
+            this.rdBtnPending.Location = new System.Drawing.Point(870, 335);
             this.rdBtnPending.Name = "rdBtnPending";
             this.rdBtnPending.Size = new System.Drawing.Size(78, 20);
             this.rdBtnPending.TabIndex = 19;
@@ -267,7 +346,7 @@
             // rdBtnInProgress
             // 
             this.rdBtnInProgress.AutoSize = true;
-            this.rdBtnInProgress.Location = new System.Drawing.Point(989, 335);
+            this.rdBtnInProgress.Location = new System.Drawing.Point(954, 335);
             this.rdBtnInProgress.Name = "rdBtnInProgress";
             this.rdBtnInProgress.Size = new System.Drawing.Size(96, 20);
             this.rdBtnInProgress.TabIndex = 20;
@@ -278,7 +357,7 @@
             // rdBtnSolved
             // 
             this.rdBtnSolved.AutoSize = true;
-            this.rdBtnSolved.Location = new System.Drawing.Point(1091, 335);
+            this.rdBtnSolved.Location = new System.Drawing.Point(1056, 335);
             this.rdBtnSolved.Name = "rdBtnSolved";
             this.rdBtnSolved.Size = new System.Drawing.Size(71, 20);
             this.rdBtnSolved.TabIndex = 21;
@@ -299,96 +378,86 @@
             // 
             // ServiceChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.ServiceChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.ServiceChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.ServiceChart.ChartAreas.Add(chartArea1);
+            this.ServiceChart.Cursor = System.Windows.Forms.Cursors.Cross;
+            legend1.Name = "Legend1";
+            this.ServiceChart.Legends.Add(legend1);
             this.ServiceChart.Location = new System.Drawing.Point(18, 389);
             this.ServiceChart.Name = "ServiceChart";
+            this.ServiceChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Column";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series2.Legend = "Legend1";
+            series2.Name = "Line";
             series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             series3.Legend = "Legend1";
-            series3.Name = "Column";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series4.Legend = "Legend1";
-            series4.Name = "FastLine";
+            series3.Name = "Staked";
+            series3.YValuesPerPoint = 4;
+            this.ServiceChart.Series.Add(series1);
+            this.ServiceChart.Series.Add(series2);
             this.ServiceChart.Series.Add(series3);
-            this.ServiceChart.Series.Add(series4);
-            this.ServiceChart.Size = new System.Drawing.Size(746, 300);
+            this.ServiceChart.Size = new System.Drawing.Size(746, 322);
             this.ServiceChart.TabIndex = 23;
             this.ServiceChart.Text = "Service Chart";
             // 
             // rtbRequestStatus
             // 
-            this.rtbRequestStatus.Location = new System.Drawing.Point(832, 425);
+            this.rtbRequestStatus.Location = new System.Drawing.Point(868, 425);
             this.rtbRequestStatus.Name = "rtbRequestStatus";
             this.rtbRequestStatus.Size = new System.Drawing.Size(295, 96);
             this.rtbRequestStatus.TabIndex = 24;
             this.rtbRequestStatus.Text = "";
             // 
-            // Request_ID
+            // cbChartType
             // 
-            this.Request_ID.DataPropertyName = "RequestId";
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.Request_ID.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Request_ID.HeaderText = "Request ID";
-            this.Request_ID.MinimumWidth = 6;
-            this.Request_ID.Name = "Request_ID";
-            this.Request_ID.ReadOnly = true;
-            this.Request_ID.Width = 125;
+            this.cbChartType.FormattingEnabled = true;
+            this.cbChartType.Items.AddRange(new object[] {
+            "Category",
+            "Status"});
+            this.cbChartType.Location = new System.Drawing.Point(781, 577);
+            this.cbChartType.Name = "cbChartType";
+            this.cbChartType.Size = new System.Drawing.Size(121, 24);
+            this.cbChartType.TabIndex = 25;
+            this.cbChartType.SelectedIndexChanged += new System.EventHandler(this.cbChartType_SelectedIndexChanged);
             // 
-            // ServiceStatus
+            // btnLineGraph
             // 
-            this.ServiceStatus.DataPropertyName = "Status";
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.ServiceStatus.DefaultCellStyle = dataGridViewCellStyle8;
-            this.ServiceStatus.HeaderText = "Service Status";
-            this.ServiceStatus.MinimumWidth = 6;
-            this.ServiceStatus.Name = "ServiceStatus";
-            this.ServiceStatus.ReadOnly = true;
-            this.ServiceStatus.Width = 125;
+            this.btnLineGraph.AutoSize = true;
+            this.btnLineGraph.Location = new System.Drawing.Point(768, 479);
+            this.btnLineGraph.Name = "btnLineGraph";
+            this.btnLineGraph.Size = new System.Drawing.Size(91, 20);
+            this.btnLineGraph.TabIndex = 27;
+            this.btnLineGraph.TabStop = true;
+            this.btnLineGraph.Text = "Line graph";
+            this.btnLineGraph.UseVisualStyleBackColor = true;
+            this.btnLineGraph.CheckedChanged += new System.EventHandler(this.btnLineGraph_CheckedChanged);
             // 
-            // Priority
+            // btnStakedGraph
             // 
-            this.Priority.DataPropertyName = "Priority";
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.Priority.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Priority.HeaderText = "Priority";
-            this.Priority.MinimumWidth = 6;
-            this.Priority.Name = "Priority";
-            this.Priority.ReadOnly = true;
-            this.Priority.Width = 125;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Description.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Description.HeaderText = "Description";
-            this.Description.MinimumWidth = 6;
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 125;
-            // 
-            // Request_Date
-            // 
-            this.Request_Date.DataPropertyName = "RequestDate";
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Request_Date.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Request_Date.HeaderText = "Request Date";
-            this.Request_Date.MinimumWidth = 6;
-            this.Request_Date.Name = "Request_Date";
-            this.Request_Date.ReadOnly = true;
-            this.Request_Date.Width = 125;
+            this.btnStakedGraph.AutoSize = true;
+            this.btnStakedGraph.Location = new System.Drawing.Point(769, 505);
+            this.btnStakedGraph.Name = "btnStakedGraph";
+            this.btnStakedGraph.Size = new System.Drawing.Size(73, 20);
+            this.btnStakedGraph.TabIndex = 28;
+            this.btnStakedGraph.TabStop = true;
+            this.btnStakedGraph.Text = "Column";
+            this.btnStakedGraph.UseVisualStyleBackColor = true;
+            this.btnStakedGraph.CheckedChanged += new System.EventHandler(this.btnStakedGraph_CheckedChanged);
             // 
             // ServiceRequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(1179, 712);
+            this.ClientSize = new System.Drawing.Size(1179, 733);
+            this.Controls.Add(this.btnStakedGraph);
+            this.Controls.Add(this.btnLineGraph);
+            this.Controls.Add(this.cbChartType);
             this.Controls.Add(this.rtbRequestStatus);
             this.Controls.Add(this.ServiceChart);
             this.Controls.Add(this.btnReset);
@@ -439,9 +508,13 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart ServiceChart;
         private System.Windows.Forms.RichTextBox rtbRequestStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn Request_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceStatus;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ServiceStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn Priority;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn Request_Date;
+        private System.Windows.Forms.ComboBox cbChartType;
+        private System.Windows.Forms.RadioButton btnLineGraph;
+        private System.Windows.Forms.RadioButton btnStakedGraph;
     }
 }
