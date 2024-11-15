@@ -371,7 +371,7 @@ namespace PROG_3B_POE
                     Description = "Sandstorm causing visibility issues on the roads."
                 }
             };
-
+            
             // Add the mock events to the issues list and display them in the flowLayoutPanel
             foreach (var issue in mockEvents)
             {
