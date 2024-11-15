@@ -16,7 +16,7 @@ namespace PROG_3B_POE
         /// <summary>
         /// Using a binding list to store the issue reports
         /// </summary>
-        BindingList<IssueReport> issues = new BindingList<IssueReport>();
+        public static BindingList<IssueReport> issues = new BindingList<IssueReport>();
          
         //Variable to track if it is the first time the form is loaded
         private bool firstTime = true;
@@ -36,6 +36,7 @@ namespace PROG_3B_POE
             timer.Interval = 100; // 1 millisecond
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
+            // Call the method to add mock reports
             MockReports();
             // calls the method to show date and time
             ShowDateAndTime(this, EventArgs.Empty);
@@ -49,6 +50,8 @@ namespace PROG_3B_POE
             public string Category { get; set; }
             public string Description { get; set; }
             public Image Attachment { get; set; }
+            // Default status of the reports is pending
+            public string Status { get; set; } = "Pending";
         }
         /// <summary>
         /// Method to load the form and set the progress bar to 0
@@ -93,14 +96,24 @@ namespace PROG_3B_POE
         /// <param name="e"></param>
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
+            // Call the UpdateProgress method to update the progress bar
             UpdateProgress();
         }
-
+        /// <summary>
+        /// Event handler for the textLocation_TextChanged event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textLocation_TextChanged(object sender, EventArgs e)
         {
+            // Call the UpdateProgress method to update the progress bar
             UpdateProgress();
         }
-
+        /// <summary>
+        /// Changes the progress bar value based on the selected category
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CategoryListBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateProgress();
@@ -122,12 +135,11 @@ namespace PROG_3B_POE
             };
 
             // Calculate progress based on how many fields are filled
-            int filledFieldsCount = requiredFields.Count(f => f);  // Count how many fields are filled
-            int totalFields = requiredFields.Count;  // Total number of required fields
-
+            int filledFieldsCount = requiredFields.Count(f => f); 
+            // Total number of required fields
+            int totalFields = requiredFields.Count;
             // Calculate progress percentage
             int progressPercentage = (filledFieldsCount * 100) / totalFields;
-
             // Update progress bar value
             progressBar.Value = progressPercentage;
         }
@@ -160,7 +172,6 @@ namespace PROG_3B_POE
                 // Success message
                 MessageBox.Show("Your " + CategoryListBx.Text + " issue has been reported.\n" +
                     " Thank you for your feedback.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 // Create a new IssueReport object and populate it with user input
                 IssueReport issue = new IssueReport
                 {
@@ -169,10 +180,8 @@ namespace PROG_3B_POE
                     Category = CategoryListBx.Text,
                     Attachment = AttachedPictureBox.Image
                 };
-
-                // Add the issue to the list of issues
+                // Add the report issue to the list of issues
                 issues.Add(issue);
-
                 // Create a new ReportControl and populate it with the issue details
                 ReportControl reportControl = new ReportControl
                 {
@@ -181,7 +190,6 @@ namespace PROG_3B_POE
                     Description = issue.Description,
                     ReportImage = issue.Attachment
                 };
-
                 // Add the reportControl to the form's panel (flowLayoutPanel1)
                 flowLayoutPanel1.Controls.Add(reportControl);
             }
@@ -189,13 +197,11 @@ namespace PROG_3B_POE
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             // Clear the input fields after submission
             txtDescription.Text = "";
             textLocation.Text = "";
             CategoryListBx.SelectedIndex = -1; // Reset selection
             AttachedPictureBox.Image = null;
-
             // Reset the progress bar after submission
             progressBar.Value = 0;
         }
@@ -273,6 +279,12 @@ namespace PROG_3B_POE
                     Description = "Water leakage reported in residential areas."
                 }
             };
+
+            // Add mock reports to the BindingList issues
+            foreach (var issue in mockReportList)
+            {
+                issues.Add(issue); 
+            }
 
             // Display mock reports on the form using ReportControl
             foreach (var issue in mockReportList)

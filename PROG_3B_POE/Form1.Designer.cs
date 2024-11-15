@@ -61,7 +61,7 @@
             // 
             // sidebarContainer
             // 
-            this.sidebarContainer.BackColor = System.Drawing.Color.Black;
+            this.sidebarContainer.BackColor = System.Drawing.Color.MidnightBlue;
             this.sidebarContainer.Controls.Add(this.flowLayoutPanel2);
             this.sidebarContainer.Cursor = System.Windows.Forms.Cursors.Default;
             this.sidebarContainer.Dock = System.Windows.Forms.DockStyle.Left;
@@ -96,7 +96,7 @@
             // BtnDashboard
             // 
             this.BtnDashboard.AutoSize = true;
-            this.BtnDashboard.BackColor = System.Drawing.Color.Black;
+            this.BtnDashboard.BackColor = System.Drawing.Color.RoyalBlue;
             this.BtnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDashboard.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDashboard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -124,7 +124,7 @@
             // btnLocalEventsAndAnnouncements
             // 
             this.btnLocalEventsAndAnnouncements.AutoSize = true;
-            this.btnLocalEventsAndAnnouncements.BackColor = System.Drawing.Color.Black;
+            this.btnLocalEventsAndAnnouncements.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnLocalEventsAndAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLocalEventsAndAnnouncements.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLocalEventsAndAnnouncements.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -153,7 +153,7 @@
             // BtnServiceRequestService
             // 
             this.BtnServiceRequestService.AutoSize = true;
-            this.BtnServiceRequestService.BackColor = System.Drawing.Color.Black;
+            this.BtnServiceRequestService.BackColor = System.Drawing.Color.RoyalBlue;
             this.BtnServiceRequestService.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnServiceRequestService.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnServiceRequestService.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -182,7 +182,7 @@
             // BtnRepoertIssue
             // 
             this.BtnRepoertIssue.AutoSize = true;
-            this.BtnRepoertIssue.BackColor = System.Drawing.Color.Black;
+            this.BtnRepoertIssue.BackColor = System.Drawing.Color.RoyalBlue;
             this.BtnRepoertIssue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRepoertIssue.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRepoertIssue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -211,7 +211,7 @@
             // BtnLogout
             // 
             this.BtnLogout.AutoSize = true;
-            this.BtnLogout.BackColor = System.Drawing.Color.Black;
+            this.BtnLogout.BackColor = System.Drawing.Color.Red;
             this.BtnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogout.ForeColor = System.Drawing.SystemColors.ControlLightLight;
