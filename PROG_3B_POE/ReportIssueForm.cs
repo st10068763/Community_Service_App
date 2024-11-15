@@ -16,7 +16,7 @@ namespace PROG_3B_POE
         /// <summary>
         /// Using a binding list to store the issue reports
         /// </summary>
-        BindingList<IssueReport> issues = new BindingList<IssueReport>();
+        public static BindingList<IssueReport> issues = new BindingList<IssueReport>();
          
         //Variable to track if it is the first time the form is loaded
         private bool firstTime = true;
@@ -36,7 +36,8 @@ namespace PROG_3B_POE
             timer.Interval = 100; // 1 millisecond
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
-            MockReports();
+            // Call the method to add mock reports
+            AddMockEvents();
             // calls the method to show date and time
             ShowDateAndTime(this, EventArgs.Empty);
         }
@@ -49,6 +50,8 @@ namespace PROG_3B_POE
             public string Category { get; set; }
             public string Description { get; set; }
             public Image Attachment { get; set; }
+            // Default status of the reports is pending
+            public string Status { get; set; } = "Pending";
         }
         /// <summary>
         /// Method to load the form and set the progress bar to 0
@@ -62,9 +65,6 @@ namespace PROG_3B_POE
             txtDescription.TextChanged += txtDescription_TextChanged;
             textLocation.TextChanged += textLocation_TextChanged;
             CategoryListBx.SelectedIndexChanged += CategoryListBx_SelectedIndexChanged;
-
-            // Bind the BindingList to the DataGridView
-            //ReportDataGrid.DataSource = issues;
         }
         //--------------------------------------ADD FILE BUTTON------------------------------------------
         /// <summary>
@@ -93,14 +93,24 @@ namespace PROG_3B_POE
         /// <param name="e"></param>
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
+            // Call the UpdateProgress method to update the progress bar
             UpdateProgress();
         }
-
+        /// <summary>
+        /// Event handler for the textLocation_TextChanged event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textLocation_TextChanged(object sender, EventArgs e)
         {
+            // Call the UpdateProgress method to update the progress bar
             UpdateProgress();
         }
-
+        /// <summary>
+        /// Changes the progress bar value based on the selected category
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CategoryListBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateProgress();
@@ -122,16 +132,15 @@ namespace PROG_3B_POE
             };
 
             // Calculate progress based on how many fields are filled
-            int filledFieldsCount = requiredFields.Count(f => f);  // Count how many fields are filled
-            int totalFields = requiredFields.Count;  // Total number of required fields
-
+            int filledFieldsCount = requiredFields.Count(f => f); 
+            // Total number of required fields
+            int totalFields = requiredFields.Count;
             // Calculate progress percentage
             int progressPercentage = (filledFieldsCount * 100) / totalFields;
-
             // Update progress bar value
             progressBar.Value = progressPercentage;
         }
-        //----------------------------------------------REPORT ISSUE------------------------------------------------------------------
+        //---------------------------------------REPORT ISSUE---------------------------------------
         /// <summary>
         /// Button to submit the report and display the report in the grid view
         /// </summary>
@@ -160,7 +169,6 @@ namespace PROG_3B_POE
                 // Success message
                 MessageBox.Show("Your " + CategoryListBx.Text + " issue has been reported.\n" +
                     " Thank you for your feedback.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 // Create a new IssueReport object and populate it with user input
                 IssueReport issue = new IssueReport
                 {
@@ -169,10 +177,8 @@ namespace PROG_3B_POE
                     Category = CategoryListBx.Text,
                     Attachment = AttachedPictureBox.Image
                 };
-
-                // Add the issue to the list of issues
+                // Add the report issue to the list of issues
                 issues.Add(issue);
-
                 // Create a new ReportControl and populate it with the issue details
                 ReportControl reportControl = new ReportControl
                 {
@@ -181,7 +187,6 @@ namespace PROG_3B_POE
                     Description = issue.Description,
                     ReportImage = issue.Attachment
                 };
-
                 // Add the reportControl to the form's panel (flowLayoutPanel1)
                 flowLayoutPanel1.Controls.Add(reportControl);
             }
@@ -189,17 +194,15 @@ namespace PROG_3B_POE
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             // Clear the input fields after submission
             txtDescription.Text = "";
             textLocation.Text = "";
             CategoryListBx.SelectedIndex = -1; // Reset selection
             AttachedPictureBox.Image = null;
-
             // Reset the progress bar after submission
             progressBar.Value = 0;
         }
-        //--------------------------------------------------END OF REPORT ISSUE--------------------------------------------------------------
+        //-----------------------------------------END OF REPORT ISSUE---------------------------------------
         /// <summary>
         /// Button to add a file to the report
         /// </summary>
@@ -243,40 +246,137 @@ namespace PROG_3B_POE
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        /// <summary>
-        /// Add mock reports to the form
-        /// </summary>
-        public void MockReports()
+        public void AddMockEvents()
         {
-            // Create mock report list
-            List<IssueReport> mockReportList = new List<IssueReport>
+            List<IssueReport> mockEvents = new List<IssueReport>
             {
                 new IssueReport
                 {
-                    Category = "Road",
+                    Category = "Crime",
                     Attachment = Resources.logo,
                     Location = "Johannesburg",
-                    Description = "Potholes are causing major traffic disruptions."
+                    Description = "Reported a theft incident in the civic area."
                 },
                 new IssueReport
                 {
                     Category = "Electricity",
                     Attachment = Resources.logo,
                     Location = "Cape Town",
-                    Description = "Power outages in several neighborhoods."
+                    Description = "Power outage in several neighborhoods."
                 },
                 new IssueReport
                 {
-                    Category = "Water",
+                    Category = "Others",
                     Attachment = Resources.logo,
-                    Location = "Durban",
-                    Description = "Water leakage reported in residential areas."
+                    Location = "Rosebank",
+                    Description = "Noise complaints from a local park."
+                },
+                new IssueReport
+                {
+                    Category = "Road",
+                    Attachment = Resources.logo,
+                    Location = "Limpopo",
+                    Description = "Road construction causing traffic congestion."
+                },
+                new IssueReport
+                {
+                    Category = "Safety",
+                    Attachment = Resources.logo,
+                    Location = "Newlands",
+                    Description = "Unsafe pedestrian crossing near a primary school."
+                },
+                new IssueReport
+                {
+                    Category = "Sanitation",
+                    Attachment = Resources.logo,
+                    Location = "KZN",
+                    Description = "Overflowing garbage bins in a residential area."
+                },
+                new IssueReport
+                {
+                    Category = "Utilities",
+                    Attachment = Resources.logo,
+                    Location = "Polokwane",
+                    Description = "Water supply disruption in a suburb."
+                },
+                new IssueReport
+                {
+                    Category = "Weather",
+                    Attachment = Resources.logo,
+                    Location = "Pretoria",
+                    Description = "Heavy rain causing flooding in low-lying areas."
+                },
+                new IssueReport
+                {
+                    Category = "Crime",
+                    Attachment = Resources.logo,
+                    Location = "New Castle",
+                    Description = "Vandalism reported in a public park."
+                },
+                new IssueReport
+                {
+                    Category = "Electricity",
+                    Attachment = Resources.logo,
+                    Location = "Gauteng",
+                    Description = "Transformer explosion causing power outage."
+                },
+                new IssueReport
+                {
+                    Category = "Others",
+                    Attachment = Resources.logo,
+                    Location = "Cavendish",
+                    Description = "Illegal parking issue near a shopping mall."
+                },
+                new IssueReport
+                {
+                    Category = "Road",
+                    Attachment = Resources.logo,
+                    Location = "Mowbray",
+                    Description = "Potholes causing damage to vehicles."
+                },
+                new IssueReport
+                {
+                    Category = "Safety",
+                    Attachment = Resources.logo,
+                    Location = "Cape Town City",
+                    Description = "Broken streetlights in a residential area."
+                },
+                new IssueReport
+                {
+                    Category = "Sanitation",
+                    Attachment = Resources.logo,
+                    Location = "Rondebosch",
+                    Description = "Sewage leak reported in a public park."
+                },
+                new IssueReport
+                {
+                    Category = "Utilities",
+                    Attachment = Resources.logo,
+                    Location = "Rondebosch",
+                    Description = "Gas leak reported in a commercial building."
+                },
+                new IssueReport
+                {
+                    Category = "Weather",
+                    Attachment = Resources.logo,
+                    Location = "Kempton Park",
+                    Description = "Sandstorm causing visibility issues on the roads."
+                },
+
+                new IssueReport
+                {
+                    Category = "Weather",
+                    Attachment = Resources.logo,
+                    Location = "Spartan",
+                    Description = "Sandstorm causing visibility issues on the roads."
                 }
             };
 
-            // Display mock reports on the form using ReportControl
-            foreach (var issue in mockReportList)
+            // Add the mock events to the issues list and display them in the flowLayoutPanel
+            foreach (var issue in mockEvents)
             {
+                // Add the issue to the list
+                issues.Add(issue);
                 ReportControl reportControl = new ReportControl
                 {
                     EventCategory = issue.Category,
@@ -284,8 +384,7 @@ namespace PROG_3B_POE
                     Description = issue.Description,
                     ReportImage = issue.Attachment
                 };
-
-                // Add the reportControl to the form's panel (flowLayoutPanel1)
+                // Add the reportControl to the form's panel.
                 flowLayoutPanel1.Controls.Add(reportControl);
             }
         }

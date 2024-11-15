@@ -33,6 +33,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
             this.Report = new System.Windows.Forms.Label();
             this.lbDateAndTime = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AttachedPictureBox)).BeginInit();
@@ -58,7 +58,7 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -68,6 +68,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel1.Controls.Add(this.progressBar);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.Report);
@@ -85,6 +86,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1229, 432);
             this.panel1.TabIndex = 33;
+            // 
+            // progressBar
+            // 
+            this.progressBar.AccessibleRole = System.Windows.Forms.AccessibleRole.Application;
+            this.progressBar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.progressBar.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.progressBar.Location = new System.Drawing.Point(0, 0);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(1229, 32);
+            this.progressBar.TabIndex = 32;
             // 
             // label2
             // 
@@ -122,7 +134,7 @@
             // 
             // textLocation
             // 
-            this.textLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textLocation.Location = new System.Drawing.Point(287, 111);
             this.textLocation.Multiline = true;
             this.textLocation.Name = "textLocation";
@@ -148,8 +160,9 @@
             this.CategoryListBx.ItemHeight = 25;
             this.CategoryListBx.Items.AddRange(new object[] {
             "Crime",
+            "Electricity ",
             "Others",
-            "Roads ",
+            "Road",
             "Safety",
             "Sanitation",
             "Utilities",
@@ -169,9 +182,9 @@
             this.btnSubmitReport.FlatAppearance.BorderSize = 5;
             this.btnSubmitReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmitReport.ForeColor = System.Drawing.Color.DimGray;
-            this.btnSubmitReport.Location = new System.Drawing.Point(237, 341);
+            this.btnSubmitReport.Location = new System.Drawing.Point(298, 334);
             this.btnSubmitReport.Name = "btnSubmitReport";
-            this.btnSubmitReport.Size = new System.Drawing.Size(651, 45);
+            this.btnSubmitReport.Size = new System.Drawing.Size(248, 45);
             this.btnSubmitReport.TabIndex = 25;
             this.btnSubmitReport.Text = "Submit Report";
             this.btnSubmitReport.UseVisualStyleBackColor = false;
@@ -214,7 +227,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(287, 164);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(651, 60);
@@ -232,17 +245,6 @@
             this.label5.Size = new System.Drawing.Size(227, 25);
             this.label5.TabIndex = 24;
             this.label5.Text = "Attach Image/ Document";
-            // 
-            // progressBar
-            // 
-            this.progressBar.AccessibleRole = System.Windows.Forms.AccessibleRole.Application;
-            this.progressBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.progressBar.Location = new System.Drawing.Point(0, 0);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(1229, 32);
-            this.progressBar.TabIndex = 32;
             // 
             // ReportIssueForm
             // 

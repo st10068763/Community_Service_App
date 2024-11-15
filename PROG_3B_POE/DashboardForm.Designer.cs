@@ -38,7 +38,7 @@ namespace PROG_3B_POE
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.DarkGray;
             this.flowLayoutPanel1.Controls.Add(this.pnlUpcomingEvents);
             this.flowLayoutPanel1.Controls.Add(this.pnlAnnouncements);
             this.flowLayoutPanel1.Controls.Add(this.pnlUserStats);
@@ -52,7 +52,7 @@ namespace PROG_3B_POE
             // 
             // pnlUpcomingEvents
             // 
-            this.pnlUpcomingEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
+            this.pnlUpcomingEvents.BackColor = System.Drawing.Color.BurlyWood;
             this.pnlUpcomingEvents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlUpcomingEvents.Controls.Add(this.lblUpcomingEvents);
             this.pnlUpcomingEvents.Location = new System.Drawing.Point(23, 23);
@@ -74,7 +74,7 @@ namespace PROG_3B_POE
             // 
             // pnlAnnouncements
             // 
-            this.pnlAnnouncements.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.pnlAnnouncements.BackColor = System.Drawing.Color.BurlyWood;
             this.pnlAnnouncements.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlAnnouncements.Controls.Add(this.lblAnnouncements);
             this.pnlAnnouncements.Location = new System.Drawing.Point(379, 23);
@@ -96,7 +96,7 @@ namespace PROG_3B_POE
             // 
             // pnlUserStats
             // 
-            this.pnlUserStats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(196)))), ((int)(((byte)(15)))));
+            this.pnlUserStats.BackColor = System.Drawing.Color.BurlyWood;
             this.pnlUserStats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlUserStats.Controls.Add(this.lblUserStats);
             this.pnlUserStats.Location = new System.Drawing.Point(735, 23);
@@ -118,7 +118,7 @@ namespace PROG_3B_POE
             // 
             // pnlQuickActions
             // 
-            this.pnlQuickActions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.pnlQuickActions.BackColor = System.Drawing.Color.BurlyWood;
             this.pnlQuickActions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlQuickActions.Controls.Add(this.lblQuickActions);
             this.pnlQuickActions.Controls.Add(this.btnJoinEvent);

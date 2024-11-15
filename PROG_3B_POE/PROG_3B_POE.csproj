@@ -40,6 +40,7 @@
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -147,6 +148,7 @@
     <EmbeddedResource Include="ServiceRequestForm.resx">
       <DependentUpon>ServiceRequestForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\ServiceRequestForm.ServiceRequest.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -173,6 +175,9 @@
     <None Include="Resources\Settings.png" />
     <None Include="Resources\Rating.png" />
     <Content Include="Resources\sport_event.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
