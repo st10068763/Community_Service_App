@@ -46,6 +46,8 @@ namespace PROG_3B_POE
         /// </summary>
         public class IssueReport
         {
+            // Declare the properties of the IssueReport class
+            public Guid Id { get; set; } = Guid.NewGuid();
             public string Location { get; set; }
             public string Category { get; set; }
             public string Description { get; set; }
@@ -169,6 +171,7 @@ namespace PROG_3B_POE
                 // Success message
                 MessageBox.Show("Your " + CategoryListBx.Text + " issue has been reported.\n" +
                     " Thank you for your feedback.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 // Create a new IssueReport object and populate it with user input
                 IssueReport issue = new IssueReport
                 {

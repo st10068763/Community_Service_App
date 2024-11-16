@@ -11,7 +11,7 @@ namespace PROG_3B_POE
     {
         public class ServiceRequest
         {
-            public int RequestId { get; set; }
+            public Guid RequestId { get; set; }
             public string Status { get; set; }
             public string Priority { get; set; } 
             public string Description { get; set; }
@@ -48,17 +48,6 @@ namespace PROG_3B_POE
             if (!requestQueue.Contains(request))
             {
                 requestQueue.Add(request);
-                UpdateDisplay();
-            }
-        }
-
-        // Method to update the status of a specific request
-        public void UpdateRequestStatus(int requestId, string newStatus)
-        {
-            var request = requestQueue.FirstOrDefault(r => r.RequestId == requestId);
-            if (request != null)
-            {
-                request.Status = newStatus;
                 UpdateDisplay();
             }
         }
@@ -108,7 +97,7 @@ namespace PROG_3B_POE
         {
             return new ServiceRequest
             {
-                RequestId = random.Next(100, 999),
+                RequestId = Guid.NewGuid(),
                 Status = issue.Status,
                 Priority = DeterminePriority(issue.Category), 
                 Description = issue.Description,
@@ -253,16 +242,16 @@ namespace PROG_3B_POE
 
         private void btnTrackRequest_Click_1(object sender, EventArgs e)
         {
-            if (int.TryParse(txtRequestID.Text, out int requestId))
+            if (Guid.TryParse(txtRequestID.Text, out Guid requestId))
             {
                 var request = requestQueue.FirstOrDefault(r => r.RequestId == requestId);
                 if (request != null)
                 {
-                    rtbRequestStatus.Text = $"Request ID: {request.RequestId}\n" +
-                                            $"Status: {request.Status}\n" +
-                                            $"Priority: {request.Priority}\n" +
-                                            $"Description: {request.Description}\n" +
-                                            $"Request Date: {request.RequestDate}";
+                    MessageBox.Show($"Request ID: {request.RequestId}\n" +
+                                    $"Status: {request.Status}\n" +
+                                    $"Priority: {request.Priority}\n" +
+                                    $"Description: {request.Description}\n" +
+                                    $"Request Date: {request.RequestDate}");
                 }
                 else
                 {
@@ -273,6 +262,32 @@ namespace PROG_3B_POE
             {
                 MessageBox.Show("Please enter a valid Request ID.");
             }
+        }
+
+        private void UpdateRequestStatus(Guid requestId, string newStatus)
+        {
+            // Update status in requestQueue
+            var request = requestQueue.FirstOrDefault(r => r.RequestId == requestId);
+            if (request != null)
+            {
+                request.Status = newStatus;
+            }
+
+            // Update status in BindingList (ReportIssueForm.issues)
+            var correspondingIssue = ReportIssueForm.issues
+                .FirstOrDefault(issue => issue.Id == requestId);
+
+
+            if (correspondingIssue != null)
+            {
+                correspondingIssue.Status = newStatus;
+            }
+
+            // Refresh DataGridView
+            UpdateDisplay();
+
+            // Update chart
+            DisplayChart();
         }
 
 
@@ -332,7 +347,6 @@ namespace PROG_3B_POE
             UpdateDisplay();
         }
 
-        //----------------------------------Sorting
         //==========================================================================//
         //----------------------------------Sorting
         private void SortRequests(string criteria)
@@ -412,39 +426,24 @@ namespace PROG_3B_POE
         {
             if (e.RowIndex >= 0 && dgvServiceRequests.Columns[e.ColumnIndex].Name == "StatusColumn")
             {
-                var selectedRequest = (ServiceRequest)dgvServiceRequests.Rows[e.RowIndex].DataBoundItem;
-                string newStatus = dgvServiceRequests.Rows[e.RowIndex].Cells["StatusColumn"].Value.ToString();
-
-                if (!string.IsNullOrEmpty(newStatus))
-                {
-                    selectedRequest.Status = newStatus;
-                    UpdateRequestStatus(selectedRequest.RequestId, newStatus);
-                    MessageBox.Show($"Status updated to '{newStatus}' for Request ID: {selectedRequest.RequestId}", "Status Updated");
-
-                    // Refresh DataGridView
-                    UpdateDisplay();
-                    // Refresh chart
-                    DisplayChart();
-                }
-            }
-        }
-
-        // Handle selection change to display details in RichTextBox
-        private void dgvServiceRequests_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvServiceRequests.SelectedRows.Count > 0)
-            {
-                var selectedRequest = (ServiceRequest)dgvServiceRequests.SelectedRows[0].DataBoundItem as ServiceRequest;
+                var selectedRequest = dgvServiceRequests.Rows[e.RowIndex].DataBoundItem as ServiceRequest;
                 if (selectedRequest != null)
                 {
-                    rtbRequestStatus.Text = $"Request ID: {selectedRequest.RequestId}\n" +
-                                            $"Status: {selectedRequest.Status}\n" +
-                                            $"Priority: {selectedRequest.Priority}\n" +
-                                            $"Description: {selectedRequest.Description}\n" +
-                                            $"Request Date: {selectedRequest.RequestDate}";
+                    string newStatus = dgvServiceRequests.Rows[e.RowIndex].Cells["StatusColumn"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(newStatus))
+                    {
+                        UpdateRequestStatus(selectedRequest.RequestId, newStatus);
+
+                        MessageBox.Show($"Status updated to '{newStatus}' for Request ID: {selectedRequest.RequestId}", "Status Updated");
+
+                        // Refresh DataGridView and chart
+                        UpdateDisplay();
+                        DisplayChart();
+                    }
                 }
             }
         }
+        
     }
 
     //------------------------------------Priority Queue---------------------------------------------------//

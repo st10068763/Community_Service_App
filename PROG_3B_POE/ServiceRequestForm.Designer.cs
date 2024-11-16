@@ -72,7 +72,6 @@
             this.rdBtnSolved = new System.Windows.Forms.RadioButton();
             this.btnReset = new System.Windows.Forms.Button();
             this.ServiceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.rtbRequestStatus = new System.Windows.Forms.RichTextBox();
             this.cbChartType = new System.Windows.Forms.ComboBox();
             this.btnLineGraph = new System.Windows.Forms.RadioButton();
             this.btnStakedGraph = new System.Windows.Forms.RadioButton();
@@ -210,7 +209,7 @@
             // lblRequestID
             // 
             this.lblRequestID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblRequestID.Location = new System.Drawing.Point(777, 136);
+            this.lblRequestID.Location = new System.Drawing.Point(772, 136);
             this.lblRequestID.Name = "lblRequestID";
             this.lblRequestID.Size = new System.Drawing.Size(100, 20);
             this.lblRequestID.TabIndex = 3;
@@ -255,7 +254,7 @@
             // lblSearch
             // 
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblSearch.Location = new System.Drawing.Point(783, 171);
+            this.lblSearch.Location = new System.Drawing.Point(779, 171);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(100, 20);
             this.lblSearch.TabIndex = 10;
@@ -372,7 +371,7 @@
             // btnReset
             // 
             this.btnReset.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnReset.Location = new System.Drawing.Point(1027, 369);
+            this.btnReset.Location = new System.Drawing.Point(954, 372);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(100, 30);
             this.btnReset.TabIndex = 22;
@@ -408,14 +407,6 @@
             this.ServiceChart.Size = new System.Drawing.Size(746, 322);
             this.ServiceChart.TabIndex = 23;
             this.ServiceChart.Text = "Service Chart";
-            // 
-            // rtbRequestStatus
-            // 
-            this.rtbRequestStatus.Location = new System.Drawing.Point(868, 425);
-            this.rtbRequestStatus.Name = "rtbRequestStatus";
-            this.rtbRequestStatus.Size = new System.Drawing.Size(295, 96);
-            this.rtbRequestStatus.TabIndex = 24;
-            this.rtbRequestStatus.Text = "";
             // 
             // cbChartType
             // 
@@ -458,7 +449,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Orange;
-            this.label5.Location = new System.Drawing.Point(907, 529);
+            this.label5.Location = new System.Drawing.Point(907, 449);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(197, 30);
             this.label5.TabIndex = 29;
@@ -496,7 +487,6 @@
             this.Controls.Add(this.btnStakedGraph);
             this.Controls.Add(this.btnLineGraph);
             this.Controls.Add(this.cbChartType);
-            this.Controls.Add(this.rtbRequestStatus);
             this.Controls.Add(this.ServiceChart);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.rdBtnSolved);
@@ -544,7 +534,6 @@
         private System.Windows.Forms.RadioButton rdBtnSolved;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.DataVisualization.Charting.Chart ServiceChart;
-        private System.Windows.Forms.RichTextBox rtbRequestStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn Request_ID;
         private System.Windows.Forms.DataGridViewComboBoxColumn ServiceStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
