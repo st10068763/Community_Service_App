@@ -108,7 +108,7 @@ namespace PROG_3B_POE
         {
             return new ServiceRequest
             {
-                RequestId = random.Next(1000, 9999),
+                RequestId = random.Next(100, 999),
                 Status = issue.Status,
                 Priority = DeterminePriority(issue.Category), 
                 Description = issue.Description,
@@ -116,11 +116,22 @@ namespace PROG_3B_POE
             };
         }
 
-        // Determine priority based on category (example logic)
+        /// <summary>
+        /// Determines the priority of a request based on the category
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
         private string DeterminePriority(string category)
         {
-            return category == "Road" ? "High Priority" :
-                (category == "Electricity" ? "Medium Priority" : "Low Priority"); 
+            switch (category)
+            {
+                case "Road":
+                    return "High Priority";
+                case "Electricity":
+                    return "Medium Priority";
+                default:
+                    return "Low Priority";
+            }
         }
 
         // Search method to filter requests in the DataGridView based on input
@@ -224,6 +235,19 @@ namespace PROG_3B_POE
                     ServiceChart.Series["Column"].Points.AddXY(group.Status, group.Count);
                 }
             }
+            // group by priority
+            else if (cbChartType.SelectedItem.ToString() == "Priority")
+            {
+                // Group by Priority
+                var priorityGroups = ReportIssueForm.issues
+                    .GroupBy(issue => DeterminePriority(issue.Category))
+                    .Select(group => new { Priority = group.Key, Count = group.Count() });
+
+                foreach (var group in priorityGroups)
+                {
+                    ServiceChart.Series["Column"].Points.AddXY(group.Priority, group.Count);
+                }
+            }
         }
         //*************************************END OF CHART*******************************************
 
@@ -259,7 +283,7 @@ namespace PROG_3B_POE
                 var selectedRequest = (ServiceRequest)dgvServiceRequests.SelectedRows[0].DataBoundItem;
 
                 // Get the new status from the DataGridView when the user clicks the button
-                string newStatus = ServiceStatus.DataPropertyName?.ToString();
+                string newStatus = dgvServiceRequests.SelectedRows[0].Cells["ServiceStatus"].Value.ToString();
 
                 if (!string.IsNullOrEmpty(newStatus))
                 {
@@ -304,6 +328,8 @@ namespace PROG_3B_POE
             cbCategorySorting.SelectedIndex = -1;
             dgvServiceRequests.DataSource = requestQueue.ToList();
             DisplayChart();
+            // Displays all requests in the DataGridView
+            UpdateDisplay();
         }
 
         //----------------------------------Sorting
@@ -380,7 +406,45 @@ namespace PROG_3B_POE
                 dgvServiceRequests.DataSource = null;
                 dgvServiceRequests.DataSource = filteredRequests;
             }
-        }       
+        }
+
+        private void dgvServiceRequests_CellValueChanged_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvServiceRequests.Columns[e.ColumnIndex].Name == "StatusColumn")
+            {
+                var selectedRequest = (ServiceRequest)dgvServiceRequests.Rows[e.RowIndex].DataBoundItem;
+                string newStatus = dgvServiceRequests.Rows[e.RowIndex].Cells["StatusColumn"].Value.ToString();
+
+                if (!string.IsNullOrEmpty(newStatus))
+                {
+                    selectedRequest.Status = newStatus;
+                    UpdateRequestStatus(selectedRequest.RequestId, newStatus);
+                    MessageBox.Show($"Status updated to '{newStatus}' for Request ID: {selectedRequest.RequestId}", "Status Updated");
+
+                    // Refresh DataGridView
+                    UpdateDisplay();
+                    // Refresh chart
+                    DisplayChart();
+                }
+            }
+        }
+
+        // Handle selection change to display details in RichTextBox
+        private void dgvServiceRequests_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvServiceRequests.SelectedRows.Count > 0)
+            {
+                var selectedRequest = (ServiceRequest)dgvServiceRequests.SelectedRows[0].DataBoundItem as ServiceRequest;
+                if (selectedRequest != null)
+                {
+                    rtbRequestStatus.Text = $"Request ID: {selectedRequest.RequestId}\n" +
+                                            $"Status: {selectedRequest.Status}\n" +
+                                            $"Priority: {selectedRequest.Priority}\n" +
+                                            $"Description: {selectedRequest.Description}\n" +
+                                            $"Request Date: {selectedRequest.RequestDate}";
+                }
+            }
+        }
     }
 
     //------------------------------------Priority Queue---------------------------------------------------//

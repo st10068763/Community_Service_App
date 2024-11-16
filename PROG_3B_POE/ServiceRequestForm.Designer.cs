@@ -76,6 +76,9 @@
             this.cbChartType = new System.Windows.Forms.ComboBox();
             this.btnLineGraph = new System.Windows.Forms.RadioButton();
             this.btnStakedGraph = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceRequests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceRequestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceChart)).BeginInit();
@@ -115,6 +118,7 @@
             this.dgvServiceRequests.RowHeadersWidth = 51;
             this.dgvServiceRequests.Size = new System.Drawing.Size(744, 279);
             this.dgvServiceRequests.TabIndex = 1;
+            this.dgvServiceRequests.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServiceRequests_CellValueChanged_1);
             // 
             // Request_ID
             // 
@@ -385,7 +389,7 @@
             this.ServiceChart.Legends.Add(legend1);
             this.ServiceChart.Location = new System.Drawing.Point(18, 389);
             this.ServiceChart.Name = "ServiceChart";
-            this.ServiceChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            this.ServiceChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Column";
@@ -418,17 +422,18 @@
             this.cbChartType.FormattingEnabled = true;
             this.cbChartType.Items.AddRange(new object[] {
             "Category",
-            "Status"});
-            this.cbChartType.Location = new System.Drawing.Point(781, 577);
+            "Status",
+            "Priority"});
+            this.cbChartType.Location = new System.Drawing.Point(929, 636);
             this.cbChartType.Name = "cbChartType";
-            this.cbChartType.Size = new System.Drawing.Size(121, 24);
+            this.cbChartType.Size = new System.Drawing.Size(215, 24);
             this.cbChartType.TabIndex = 25;
             this.cbChartType.SelectedIndexChanged += new System.EventHandler(this.cbChartType_SelectedIndexChanged);
             // 
             // btnLineGraph
             // 
             this.btnLineGraph.AutoSize = true;
-            this.btnLineGraph.Location = new System.Drawing.Point(768, 479);
+            this.btnLineGraph.Location = new System.Drawing.Point(925, 567);
             this.btnLineGraph.Name = "btnLineGraph";
             this.btnLineGraph.Size = new System.Drawing.Size(91, 20);
             this.btnLineGraph.TabIndex = 27;
@@ -440,7 +445,7 @@
             // btnStakedGraph
             // 
             this.btnStakedGraph.AutoSize = true;
-            this.btnStakedGraph.Location = new System.Drawing.Point(769, 505);
+            this.btnStakedGraph.Location = new System.Drawing.Point(926, 593);
             this.btnStakedGraph.Name = "btnStakedGraph";
             this.btnStakedGraph.Size = new System.Drawing.Size(73, 20);
             this.btnStakedGraph.TabIndex = 28;
@@ -449,12 +454,45 @@
             this.btnStakedGraph.UseVisualStyleBackColor = true;
             this.btnStakedGraph.CheckedChanged += new System.EventHandler(this.btnStakedGraph_CheckedChanged);
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Orange;
+            this.label5.Location = new System.Drawing.Point(907, 529);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(197, 30);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Graph options";
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.BurlyWood;
+            this.label6.Location = new System.Drawing.Point(770, 567);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(149, 30);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Types of graph";
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.BurlyWood;
+            this.label7.Location = new System.Drawing.Point(777, 636);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 30);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "View by";
+            // 
             // ServiceRequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1179, 733);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnStakedGraph);
             this.Controls.Add(this.btnLineGraph);
             this.Controls.Add(this.cbChartType);
@@ -516,5 +554,8 @@
         private System.Windows.Forms.ComboBox cbChartType;
         private System.Windows.Forms.RadioButton btnLineGraph;
         private System.Windows.Forms.RadioButton btnStakedGraph;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
