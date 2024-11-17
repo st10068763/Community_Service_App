@@ -54,6 +54,7 @@ namespace PROG_3B_POE
             public Image Attachment { get; set; }
             // Default status of the reports is pending
             public string Status { get; set; } = "Pending";
+
         }
         /// <summary>
         /// Method to load the form and set the progress bar to 0
@@ -249,6 +250,10 @@ namespace PROG_3B_POE
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// Method that contains all the mock reports that are added to the list
+        /// </summary>
         public void AddMockEvents()
         {
             List<IssueReport> mockEvents = new List<IssueReport>

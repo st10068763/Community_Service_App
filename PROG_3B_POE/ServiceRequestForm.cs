@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Threading;
 
 namespace PROG_3B_POE
 {
@@ -97,10 +99,12 @@ namespace PROG_3B_POE
         {
             return new ServiceRequest
             {
-                RequestId = Guid.NewGuid(),
+                //RequestId = Guid.NewGuid(),
+                RequestId = issue.Id,
                 Status = issue.Status,
                 Priority = DeterminePriority(issue.Category), 
                 Description = issue.Description,
+                Category = issue.Category,
                 RequestDate = DateTime.Now
             };
         }
@@ -227,7 +231,6 @@ namespace PROG_3B_POE
             // group by priority
             else if (cbChartType.SelectedItem.ToString() == "Priority")
             {
-                // Group by Priority
                 var priorityGroups = ReportIssueForm.issues
                     .GroupBy(issue => DeterminePriority(issue.Category))
                     .Select(group => new { Priority = group.Key, Count = group.Count() });
@@ -238,6 +241,16 @@ namespace PROG_3B_POE
                 }
             }
         }
+
+        //private void ServiceChart_MouseClick(object sender, MouseEventArgs e)
+        //{
+        //    HitTestResult hit = ServiceChart.HitTest(e.X, e.Y);
+        //    if (hit.ChartElementType == ChartElementType.DataPoint)
+        //    {
+        //        string filter = hit.Series.Points[hit.PointIndex].AxisLabel;
+        //        var filteredRequests = requestQueue.Where(r => r.Category == filter).ToList();
+        //    }
+        //}
         //*************************************END OF CHART*******************************************
 
         private void btnTrackRequest_Click_1(object sender, EventArgs e)
@@ -252,6 +265,8 @@ namespace PROG_3B_POE
                                     $"Priority: {request.Priority}\n" +
                                     $"Description: {request.Description}\n" +
                                     $"Request Date: {request.RequestDate}");
+                    // Highlight the tracked request in the DataGridView
+                    HighlightTrackedRequest(requestId);
                 }
                 else
                 {
@@ -264,6 +279,7 @@ namespace PROG_3B_POE
             }
         }
 
+        //-----------------------------------Update request methods
         private void UpdateRequestStatus(Guid requestId, string newStatus)
         {
             // Update status in requestQueue
@@ -274,18 +290,14 @@ namespace PROG_3B_POE
             }
 
             // Update status in BindingList (ReportIssueForm.issues)
-            var correspondingIssue = ReportIssueForm.issues
-                .FirstOrDefault(issue => issue.Id == requestId);
-
+            var correspondingIssue = ReportIssueForm.issues.FirstOrDefault(issue => issue.Id == requestId);
 
             if (correspondingIssue != null)
             {
                 correspondingIssue.Status = newStatus;
             }
-
             // Refresh DataGridView
             UpdateDisplay();
-
             // Update chart
             DisplayChart();
         }
@@ -314,7 +326,7 @@ namespace PROG_3B_POE
                 }
             }
         }
-
+        //----------------------------Search method
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
             string searchText = txtSearch.Text.ToLower();
@@ -349,6 +361,10 @@ namespace PROG_3B_POE
 
         //==========================================================================//
         //----------------------------------Sorting
+        /// <summary>
+        /// Method to sort requests based on the selected criteria such as pending, in progress, resolved, priority
+        /// </summary>
+        /// <param name="criteria"></param>
         private void SortRequests(string criteria)
         {
             var sortedRequests = ReportIssueForm.issues
@@ -376,12 +392,15 @@ namespace PROG_3B_POE
                     MessageBox.Show("Invalid sorting criteria.", "Error");
                     return;
             }
-
             // Update the DataGridView
             dgvServiceRequests.DataSource = null;
             dgvServiceRequests.DataSource = sortedRequests;
         }
-
+        /// <summary>
+        /// Button to show the pending requests
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdBtnPending_CheckedChanged(object sender, EventArgs e)
         {
             if (rdBtnPending.Checked)
@@ -389,7 +408,11 @@ namespace PROG_3B_POE
                 SortRequests(Status.Pending);
             }
         }
-
+        /// <summary>
+        /// Button to show the in progress requests
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdBtnInProgress_CheckedChanged(object sender, EventArgs e)
         {
             if (rdBtnInProgress.Checked)
@@ -397,7 +420,11 @@ namespace PROG_3B_POE
                 SortRequests(Status.InProgress);
             }
         }
-
+        /// <summary>
+        /// Button to show the resolved requests
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rdBtnSolved_CheckedChanged(object sender, EventArgs e)
         {
             if (rdBtnSolved.Checked)
@@ -405,7 +432,11 @@ namespace PROG_3B_POE
                 SortRequests(Status.Resolved);
             }
         }
-
+        /// <summary>
+        /// Button to sort the requests by category
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbCategorySorting_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbCategorySorting.SelectedIndex != -1)
@@ -443,7 +474,20 @@ namespace PROG_3B_POE
                 }
             }
         }
-        
+
+        private void HighlightTrackedRequest(Guid requestId)
+        {
+            foreach (DataGridViewRow row in dgvServiceRequests.Rows)
+            {
+                var request = row.DataBoundItem as ServiceRequest;
+                if (request != null && request.RequestId == requestId)
+                {
+                    row.Selected = true;
+                    dgvServiceRequests.FirstDisplayedScrollingRowIndex = row.Index;
+                    break;
+                }
+            }
+        }
     }
 
     //------------------------------------Priority Queue---------------------------------------------------//
@@ -473,5 +517,4 @@ namespace PROG_3B_POE
 
         public IEnumerable<TElement> UnorderedItems => _elements.Select(e => e.Element);
     }
-
 }

@@ -78,6 +78,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnExportData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceRequests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceRequestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceChart)).BeginInit();
@@ -304,8 +305,8 @@
             this.cbCategorySorting.FormattingEnabled = true;
             this.cbCategorySorting.Items.AddRange(new object[] {
             "Crime",
-            "Road ",
-            "Eletricity",
+            "Road",
+            "Electricity",
             "Safety",
             "Sanitation",
             "Utilities",
@@ -475,12 +476,24 @@
             this.label7.TabIndex = 31;
             this.label7.Text = "View by";
             // 
+            // btnExportData
+            // 
+            this.btnExportData.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnExportData.Location = new System.Drawing.Point(369, 356);
+            this.btnExportData.Name = "btnExportData";
+            this.btnExportData.Size = new System.Drawing.Size(126, 27);
+            this.btnExportData.TabIndex = 32;
+            this.btnExportData.Text = "Export chart data\r\n";
+            this.btnExportData.UseVisualStyleBackColor = true;
+            this.btnExportData.Click += new System.EventHandler(this.btnExportData_Click);
+            // 
             // ServiceRequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1179, 733);
+            this.Controls.Add(this.btnExportData);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -546,5 +559,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnExportData;
     }
 }
