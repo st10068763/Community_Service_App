@@ -32,7 +32,6 @@ namespace PROG_3B_POE
 
         private SortedSet<ServiceRequest> requestQueue;
         ReportIssueForm reportIssueForm = new ReportIssueForm();
-        private static readonly Random random = new Random();
 
         public ServiceRequestForm()
         {
