@@ -558,7 +558,6 @@ namespace PROG_3B_POE
             else
             {
                 // Search events when the button is clicked
-               // SearchEvents();
                 SearchEventsInDictionary(txtSearch.Text);
             }
         }

@@ -46,12 +46,15 @@ namespace PROG_3B_POE
         /// </summary>
         public class IssueReport
         {
+            // Declare the properties of the IssueReport class
+            public Guid Id { get; set; } = Guid.NewGuid();
             public string Location { get; set; }
             public string Category { get; set; }
             public string Description { get; set; }
             public Image Attachment { get; set; }
             // Default status of the reports is pending
             public string Status { get; set; } = "Pending";
+
         }
         /// <summary>
         /// Method to load the form and set the progress bar to 0
@@ -169,6 +172,7 @@ namespace PROG_3B_POE
                 // Success message
                 MessageBox.Show("Your " + CategoryListBx.Text + " issue has been reported.\n" +
                     " Thank you for your feedback.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 // Create a new IssueReport object and populate it with user input
                 IssueReport issue = new IssueReport
                 {
@@ -246,6 +250,10 @@ namespace PROG_3B_POE
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// Method that contains all the mock reports that are added to the list
+        /// </summary>
         public void AddMockEvents()
         {
             List<IssueReport> mockEvents = new List<IssueReport>
@@ -371,7 +379,7 @@ namespace PROG_3B_POE
                     Description = "Sandstorm causing visibility issues on the roads."
                 }
             };
-
+            
             // Add the mock events to the issues list and display them in the flowLayoutPanel
             foreach (var issue in mockEvents)
             {
