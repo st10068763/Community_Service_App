@@ -65,7 +65,7 @@
             this.lbEventName.AutoEllipsis = true;
             this.lbEventName.AutoSize = true;
             this.lbEventName.Font = new System.Drawing.Font("Elephant", 25.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEventName.ForeColor = System.Drawing.Color.Gold;
+            this.lbEventName.ForeColor = System.Drawing.Color.Orange;
             this.lbEventName.Location = new System.Drawing.Point(299, 16);
             this.lbEventName.Name = "lbEventName";
             this.lbEventName.Size = new System.Drawing.Size(281, 54);
@@ -121,7 +121,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
@@ -143,11 +143,11 @@
             // 
             this.label5.AutoEllipsis = true;
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gold;
+            this.label5.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.BurlyWood;
             this.label5.Location = new System.Drawing.Point(41, 250);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 26);
+            this.label5.Size = new System.Drawing.Size(140, 24);
             this.label5.TabIndex = 12;
             this.label5.Text = "About event:";
             // 
@@ -155,11 +155,11 @@
             // 
             this.label1.AutoEllipsis = true;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gold;
+            this.label1.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.BurlyWood;
             this.label1.Location = new System.Drawing.Point(41, 167);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 26);
+            this.label1.Size = new System.Drawing.Size(126, 24);
             this.label1.TabIndex = 11;
             this.label1.Text = "Event time:";
             // 
@@ -167,11 +167,11 @@
             // 
             this.label2.AutoEllipsis = true;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gold;
+            this.label2.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.BurlyWood;
             this.label2.Location = new System.Drawing.Point(41, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 26);
+            this.label2.Size = new System.Drawing.Size(168, 24);
             this.label2.TabIndex = 8;
             this.label2.Text = "Event category:";
             // 
@@ -179,11 +179,11 @@
             // 
             this.label3.AutoEllipsis = true;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gold;
+            this.label3.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.BurlyWood;
             this.label3.Location = new System.Drawing.Point(41, 210);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 26);
+            this.label3.Size = new System.Drawing.Size(109, 24);
             this.label3.TabIndex = 9;
             this.label3.Text = "Location:";
             // 
@@ -191,16 +191,17 @@
             // 
             this.label4.AutoEllipsis = true;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gold;
+            this.label4.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.BurlyWood;
             this.label4.Location = new System.Drawing.Point(41, 122);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 26);
+            this.label4.Size = new System.Drawing.Size(154, 24);
             this.label4.TabIndex = 10;
             this.label4.Text = "Date of Event:";
             // 
             // btnJoin
             // 
+            this.btnJoin.BackColor = System.Drawing.Color.BurlyWood;
             this.btnJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJoin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnJoin.Location = new System.Drawing.Point(361, 296);
@@ -208,12 +209,12 @@
             this.btnJoin.Size = new System.Drawing.Size(197, 36);
             this.btnJoin.TabIndex = 7;
             this.btnJoin.Text = "Join";
-            this.btnJoin.UseVisualStyleBackColor = true;
+            this.btnJoin.UseVisualStyleBackColor = false;
             this.btnJoin.Click += new System.EventHandler(this.btnJoin_Click);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel2.Controls.Add(this.eventImage);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
