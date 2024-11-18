@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Threading;
+using System.IO;
 
 namespace PROG_3B_POE
 {
@@ -378,7 +379,6 @@ namespace PROG_3B_POE
             MessageBox.Show("Filters reset. Displaying all service requests.");
         }
 
-
         //==========================================================================//
         //----------------------------------Sorting
         /// <summary>
@@ -400,9 +400,7 @@ namespace PROG_3B_POE
                 MessageBox.Show($"No service requests found with priority: {priority}");
                 dgvServiceRequests.DataSource = null; // Clear if no matches
             }
-        }
-
-       
+        }       
 
         /// <summary>
         /// Button to sort the requests by category
@@ -485,6 +483,67 @@ namespace PROG_3B_POE
             {
                 FilterByPriority("Low Priority");
             }
-        }        
+        }
+
+        private void btnExportData_Click(object sender, EventArgs e)
+        {
+            if (dgvServiceRequests.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Open a SaveFileDialog to let the user specify the file path
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "CSV files (*.csv)|*.csv|Text files (*.txt)|*.txt|All files (*.*)|*.*"; 
+                saveFileDialog.Title = "Save Service Requests";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Export the data
+                        ExportDataGridViewToCSV(dgvServiceRequests, saveFileDialog.FileName);
+                        MessageBox.Show("Data exported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void ExportDataGridViewToCSV(DataGridView dgv, string filePath)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                // Write column headers
+                for (int i = 0; i < dgv.Columns.Count; i++)
+                {
+                    writer.Write(dgv.Columns[i].HeaderText);
+                    if (i < dgv.Columns.Count - 1)
+                        writer.Write(","); // Separate with commas
+                }
+                writer.WriteLine();
+
+                // Write rows
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    if (!row.IsNewRow) // Skip the "new row" placeholder
+                    {
+                        for (int i = 0; i < dgv.Columns.Count; i++)
+                        {
+                            writer.Write(row.Cells[i].Value?.ToString());
+                            if (i < dgv.Columns.Count - 1)
+                                writer.Write(",");
+                        }
+                        writer.WriteLine();
+                    }
+                }
+            }
+        }
+
     }
 }

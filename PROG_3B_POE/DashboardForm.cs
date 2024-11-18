@@ -17,6 +17,7 @@ namespace PROG_3B_POE
         public DashboardForm()
         {
             InitializeComponent();
+            LoadDashboardData();
         }
         // Method to load data for the dashboard
         private void LoadDashboardData()
@@ -80,7 +81,7 @@ namespace PROG_3B_POE
                     EventCategory = "Entertainment",
                     EventLocation = "Central Park",
                     EventDescription = "Enjoy live music performances",
-                    EventImage = Image.FromFile("path_to_image") // Provide a valid image path
+                    EventImage = Resources.music_event  
                 },
                 // Add more events as needed
             };
@@ -111,7 +112,7 @@ namespace PROG_3B_POE
                 {
                     Description = "Broken water pipe on 5th Avenue",
                     EventCategory = "Water",
-                    ReportImage = Image.FromFile("path_to_image") // Provide a valid image path
+                    ReportImage = Resources.music_event
                 },
                 // Add more reports as needed
             };

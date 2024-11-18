@@ -31,17 +31,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvServiceRequests = new System.Windows.Forms.DataGridView();
             this.Request_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +78,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnStaked = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExportData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceRequests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceRequestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceChart)).BeginInit();
@@ -104,14 +105,14 @@
             this.Priority,
             this.Description,
             this.Request_Date});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvServiceRequests.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvServiceRequests.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvServiceRequests.ImeMode = System.Windows.Forms.ImeMode.AlphaFull;
             this.dgvServiceRequests.Location = new System.Drawing.Point(20, 70);
             this.dgvServiceRequests.Name = "dgvServiceRequests";
@@ -123,8 +124,8 @@
             // Request_ID
             // 
             this.Request_ID.DataPropertyName = "RequestId";
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            this.Request_ID.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.Request_ID.DefaultCellStyle = dataGridViewCellStyle1;
             this.Request_ID.HeaderText = "Request ID";
             this.Request_ID.MinimumWidth = 6;
             this.Request_ID.Name = "Request_ID";
@@ -134,8 +135,8 @@
             // ServiceStatus
             // 
             this.ServiceStatus.DataPropertyName = "Status";
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.ServiceStatus.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.ServiceStatus.DefaultCellStyle = dataGridViewCellStyle2;
             this.ServiceStatus.HeaderText = "Service Status";
             this.ServiceStatus.Items.AddRange(new object[] {
             "In progress",
@@ -159,8 +160,8 @@
             // Priority
             // 
             this.Priority.DataPropertyName = "Priority";
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            this.Priority.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.Priority.DefaultCellStyle = dataGridViewCellStyle3;
             this.Priority.HeaderText = "Priority";
             this.Priority.MinimumWidth = 6;
             this.Priority.Name = "Priority";
@@ -170,9 +171,9 @@
             // Description
             // 
             this.Description.DataPropertyName = "Description";
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Description.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Description.DefaultCellStyle = dataGridViewCellStyle4;
             this.Description.HeaderText = "Description";
             this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
@@ -182,9 +183,9 @@
             // Request_Date
             // 
             this.Request_Date.DataPropertyName = "RequestDate";
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Request_Date.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Request_Date.DefaultCellStyle = dataGridViewCellStyle5;
             this.Request_Date.HeaderText = "Request Date";
             this.Request_Date.MinimumWidth = 6;
             this.Request_Date.Name = "Request_Date";
@@ -374,29 +375,29 @@
             // 
             // ServiceChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.ServiceChart.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.ServiceChart.ChartAreas.Add(chartArea1);
             this.ServiceChart.Cursor = System.Windows.Forms.Cursors.Cross;
-            legend3.Name = "Legend1";
-            this.ServiceChart.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.ServiceChart.Legends.Add(legend1);
             this.ServiceChart.Location = new System.Drawing.Point(18, 389);
             this.ServiceChart.Name = "ServiceChart";
             this.ServiceChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Column";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series8.Legend = "Legend1";
-            series8.Name = "Spine";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-            series9.Legend = "Legend1";
-            series9.Name = "Area";
-            series9.YValuesPerPoint = 6;
-            this.ServiceChart.Series.Add(series7);
-            this.ServiceChart.Series.Add(series8);
-            this.ServiceChart.Series.Add(series9);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Column";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "Spine";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series3.Legend = "Legend1";
+            series3.Name = "Area";
+            series3.YValuesPerPoint = 6;
+            this.ServiceChart.Series.Add(series1);
+            this.ServiceChart.Series.Add(series2);
+            this.ServiceChart.Series.Add(series3);
             this.ServiceChart.Size = new System.Drawing.Size(746, 322);
             this.ServiceChart.TabIndex = 23;
             this.ServiceChart.Text = "Service Chart";
@@ -491,12 +492,24 @@
             this.panel1.Size = new System.Drawing.Size(681, 32);
             this.panel1.TabIndex = 34;
             // 
+            // btnExportData
+            // 
+            this.btnExportData.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnExportData.Location = new System.Drawing.Point(334, 353);
+            this.btnExportData.Name = "btnExportData";
+            this.btnExportData.Size = new System.Drawing.Size(100, 30);
+            this.btnExportData.TabIndex = 35;
+            this.btnExportData.Text = "Export data";
+            this.btnExportData.UseVisualStyleBackColor = true;
+            this.btnExportData.Click += new System.EventHandler(this.btnExportData_Click);
+            // 
             // ServiceRequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1179, 733);
+            this.Controls.Add(this.btnExportData);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnStaked);
             this.Controls.Add(this.label7);
@@ -566,5 +579,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton btnStaked;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnExportData;
     }
 }
