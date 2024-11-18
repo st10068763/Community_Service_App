@@ -6,43 +6,23 @@ namespace PROG_3B_POE
     partial class DashboardForm
     {
         private FlowLayoutPanel flowLayoutPanel1;
-        private Panel pnlUpcomingEvents;
-        private Panel pnlAnnouncements;
-        private Panel pnlUserStats;
-        private Panel pnlQuickActions;
-        private Label lblUpcomingEvents;
-        private Label lblAnnouncements;
-        private Label lblUserStats;
-        private Label lblQuickActions;
-        private Button btnJoinEvent;
 
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlUpcomingEvents = new System.Windows.Forms.Panel();
-            this.lblUpcomingEvents = new System.Windows.Forms.Label();
-            this.pnlAnnouncements = new System.Windows.Forms.Panel();
-            this.lblAnnouncements = new System.Windows.Forms.Label();
-            this.pnlUserStats = new System.Windows.Forms.Panel();
-            this.lblUserStats = new System.Windows.Forms.Label();
-            this.pnlQuickActions = new System.Windows.Forms.Panel();
-            this.lblQuickActions = new System.Windows.Forms.Label();
-            this.btnJoinEvent = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.flowLayoutPanel1.SuspendLayout();
-            this.pnlUpcomingEvents.SuspendLayout();
-            this.pnlAnnouncements.SuspendLayout();
-            this.pnlUserStats.SuspendLayout();
-            this.pnlQuickActions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.DarkGray;
-            this.flowLayoutPanel1.Controls.Add(this.pnlUpcomingEvents);
-            this.flowLayoutPanel1.Controls.Add(this.pnlAnnouncements);
-            this.flowLayoutPanel1.Controls.Add(this.pnlUserStats);
-            this.flowLayoutPanel1.Controls.Add(this.pnlQuickActions);
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.flowLayoutPanel1.Controls.Add(this.chart1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -50,108 +30,24 @@ namespace PROG_3B_POE
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1260, 739);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // pnlUpcomingEvents
+            // chart1
             // 
-            this.pnlUpcomingEvents.BackColor = System.Drawing.Color.BurlyWood;
-            this.pnlUpcomingEvents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlUpcomingEvents.Controls.Add(this.lblUpcomingEvents);
-            this.pnlUpcomingEvents.Location = new System.Drawing.Point(23, 23);
-            this.pnlUpcomingEvents.Name = "pnlUpcomingEvents";
-            this.pnlUpcomingEvents.Padding = new System.Windows.Forms.Padding(15);
-            this.pnlUpcomingEvents.Size = new System.Drawing.Size(350, 250);
-            this.pnlUpcomingEvents.TabIndex = 0;
-            // 
-            // lblUpcomingEvents
-            // 
-            this.lblUpcomingEvents.AutoSize = true;
-            this.lblUpcomingEvents.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblUpcomingEvents.ForeColor = System.Drawing.Color.White;
-            this.lblUpcomingEvents.Location = new System.Drawing.Point(0, 0);
-            this.lblUpcomingEvents.Name = "lblUpcomingEvents";
-            this.lblUpcomingEvents.Size = new System.Drawing.Size(240, 37);
-            this.lblUpcomingEvents.TabIndex = 0;
-            this.lblUpcomingEvents.Text = "Upcoming Events";
-            // 
-            // pnlAnnouncements
-            // 
-            this.pnlAnnouncements.BackColor = System.Drawing.Color.BurlyWood;
-            this.pnlAnnouncements.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlAnnouncements.Controls.Add(this.lblAnnouncements);
-            this.pnlAnnouncements.Location = new System.Drawing.Point(379, 23);
-            this.pnlAnnouncements.Name = "pnlAnnouncements";
-            this.pnlAnnouncements.Padding = new System.Windows.Forms.Padding(15);
-            this.pnlAnnouncements.Size = new System.Drawing.Size(350, 250);
-            this.pnlAnnouncements.TabIndex = 1;
-            // 
-            // lblAnnouncements
-            // 
-            this.lblAnnouncements.AutoSize = true;
-            this.lblAnnouncements.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblAnnouncements.ForeColor = System.Drawing.Color.White;
-            this.lblAnnouncements.Location = new System.Drawing.Point(0, 0);
-            this.lblAnnouncements.Name = "lblAnnouncements";
-            this.lblAnnouncements.Size = new System.Drawing.Size(318, 37);
-            this.lblAnnouncements.TabIndex = 0;
-            this.lblAnnouncements.Text = "Recent Announcements";
-            // 
-            // pnlUserStats
-            // 
-            this.pnlUserStats.BackColor = System.Drawing.Color.BurlyWood;
-            this.pnlUserStats.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlUserStats.Controls.Add(this.lblUserStats);
-            this.pnlUserStats.Location = new System.Drawing.Point(735, 23);
-            this.pnlUserStats.Name = "pnlUserStats";
-            this.pnlUserStats.Padding = new System.Windows.Forms.Padding(15);
-            this.pnlUserStats.Size = new System.Drawing.Size(350, 250);
-            this.pnlUserStats.TabIndex = 2;
-            // 
-            // lblUserStats
-            // 
-            this.lblUserStats.AutoSize = true;
-            this.lblUserStats.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblUserStats.ForeColor = System.Drawing.Color.White;
-            this.lblUserStats.Location = new System.Drawing.Point(0, 0);
-            this.lblUserStats.Name = "lblUserStats";
-            this.lblUserStats.Size = new System.Drawing.Size(197, 37);
-            this.lblUserStats.TabIndex = 0;
-            this.lblUserStats.Text = "Your Statistics";
-            // 
-            // pnlQuickActions
-            // 
-            this.pnlQuickActions.BackColor = System.Drawing.Color.BurlyWood;
-            this.pnlQuickActions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlQuickActions.Controls.Add(this.lblQuickActions);
-            this.pnlQuickActions.Controls.Add(this.btnJoinEvent);
-            this.pnlQuickActions.Location = new System.Drawing.Point(23, 279);
-            this.pnlQuickActions.Name = "pnlQuickActions";
-            this.pnlQuickActions.Padding = new System.Windows.Forms.Padding(15);
-            this.pnlQuickActions.Size = new System.Drawing.Size(350, 250);
-            this.pnlQuickActions.TabIndex = 3;
-            // 
-            // lblQuickActions
-            // 
-            this.lblQuickActions.AutoSize = true;
-            this.lblQuickActions.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblQuickActions.ForeColor = System.Drawing.Color.White;
-            this.lblQuickActions.Location = new System.Drawing.Point(0, 0);
-            this.lblQuickActions.Name = "lblQuickActions";
-            this.lblQuickActions.Size = new System.Drawing.Size(192, 37);
-            this.lblQuickActions.TabIndex = 0;
-            this.lblQuickActions.Text = "Quick Actions";
-            // 
-            // btnJoinEvent
-            // 
-            this.btnJoinEvent.BackColor = System.Drawing.Color.White;
-            this.btnJoinEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJoinEvent.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnJoinEvent.ForeColor = System.Drawing.Color.Black;
-            this.btnJoinEvent.Location = new System.Drawing.Point(15, 50);
-            this.btnJoinEvent.Name = "btnJoinEvent";
-            this.btnJoinEvent.Size = new System.Drawing.Size(150, 50);
-            this.btnJoinEvent.TabIndex = 1;
-            this.btnJoinEvent.Text = "Join Event";
-            this.btnJoinEvent.UseVisualStyleBackColor = false;
-            this.btnJoinEvent.Click += new System.EventHandler(this.btnJoinEvent_Click_1);
+            this.chart1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.chart1.BorderlineColor = System.Drawing.Color.MidnightBlue;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(23, 23);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(928, 406);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
             // 
             // DashboardForm
             // 
@@ -163,16 +59,11 @@ namespace PROG_3B_POE
             this.Name = "DashboardForm";
             this.Text = "Dashboard";
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.pnlUpcomingEvents.ResumeLayout(false);
-            this.pnlUpcomingEvents.PerformLayout();
-            this.pnlAnnouncements.ResumeLayout(false);
-            this.pnlAnnouncements.PerformLayout();
-            this.pnlUserStats.ResumeLayout(false);
-            this.pnlUserStats.PerformLayout();
-            this.pnlQuickActions.ResumeLayout(false);
-            this.pnlQuickActions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
+
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

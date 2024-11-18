@@ -69,10 +69,6 @@ namespace PROG_3B_POE
         }
 
         //--------------------------------------------//
-
-
-
-
         /// <summary>
         /// Method to display the recommended events
         /// </summary>
@@ -157,7 +153,9 @@ namespace PROG_3B_POE
             }
         }
 
-
+        /// <summary>
+        /// Method to display prioritized events
+        /// </summary>
         private void DisplayPrioritizedEvents()
         {
             // Clear existing controls in the flow layout
@@ -201,19 +199,6 @@ namespace PROG_3B_POE
                 }
             }
         }
-
-        private List<string> GetPrioritizedEventMessages()
-        {
-            // Sample implementation: Replace this with actual logic to fetch prioritized messages
-            List<string> prioritizedMessages = new List<string>();
-
-            prioritizedMessages.Add("Event 1: High priority");
-            prioritizedMessages.Add("Event 2: Medium priority");
-
-            // Return the list of prioritized messages
-            return prioritizedMessages;
-        }
-
 
 
         private void PrioritizeEvents()
@@ -356,7 +341,6 @@ namespace PROG_3B_POE
             {
                 AddMockEvents();
             }
-
             // Prioritize the events after loading
             PrioritizeEvents();
 
@@ -485,36 +469,7 @@ namespace PROG_3B_POE
             DisplayFilteredEvents(DateFilter);
         }
         //----------------------------------------------Search function -------------------------------------------------//
-        /// <summary>
-        /// Method to search for events based on the search input
-        /// </summary>
-        private void SearchEvents()
-        {
-            // Get the search input from the text box
-            string searchInput = txtSearch.Text.ToLower().Trim();
-
-            if (string.IsNullOrWhiteSpace(searchInput))
-            {
-                MessageBox.Show("Please enter a search term.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            // Search in the list based on event name, description, or location (any match)
-            var searchedEvents = eventsList.Where(x =>
-                x.EventName.ToLower().Contains(searchInput) ||
-                x.EventDescription.ToLower().Contains(searchInput) ||
-                x.EventLocation.ToLower().Contains(searchInput)).ToList();
-
-            // Display the filtered search results
-            DisplayFilteredEvents(searchedEvents);
-
-            // Check if no events are found
-            if (searchedEvents.Count == 0)
-            {
-                MessageBox.Show("No events found matching the search criteria.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
+       
         /// <summary>
         /// Method to display the filtered events in the flow layout panel
         /// </summary>
@@ -595,12 +550,6 @@ namespace PROG_3B_POE
             DisplayUpcomingEvents();
         }
 
-        //-------------------Toast message
-        private void ShowToastMessage(string message)
-        {
-            ToolTip toast = new ToolTip();
-            toast.Show(message, this, this.Location.X + 50, this.Location.Y + 50, 30000); // Display for 3 minutes
-        }
 
         private void ClearFilters()
         {

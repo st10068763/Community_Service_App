@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PROG_3B_POE
 {
@@ -16,116 +17,137 @@ namespace PROG_3B_POE
         public DashboardForm()
         {
             InitializeComponent();
+            LoadDashboardData();
+        }
+        // Method to load data for the dashboard
+        private void LoadDashboardData()
+        {
+            try
+            {
+                // Load chart data
+                PopulateReportChart();
+
+                // Load events
+                LoadEvents();
+
+                // Load recent reports
+                LoadRecentReports();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading dashboard data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void DashboardForm_Load(object sender, EventArgs e)
+        // Method to populate the chart
+        private void PopulateReportChart()
         {
-            LoadUserStatistics();
-            LoadUpcomingEvents();
-            LoadRecentAnnouncements();
-        }       
+            // Mock data for chart; replace with actual data fetching logic
+            var reportData = new Dictionary<string, int>
+            {
+                { "Infrastructure", 12 },
+                { "Sanitation", 8 },
+                { "Water", 15 },
+                { "Electricity", 5 }
+            };
 
-        // method to load user statistics
-        private void LoadUserStatistics()
-        {
-            // Simulated data for user statistics
-            string stats = "Events Attended: 5\nIssues Reported: 3\nEvents Joined: 2";
-            lblUserStats.Text = stats;
+            chart1.Series.Clear();
+            Series series = new Series("Reports")
+            {
+                ChartType = SeriesChartType.Bar,
+                Color = Color.CornflowerBlue
+            };
+
+            foreach (var item in reportData)
+            {
+                series.Points.AddXY(item.Key, item.Value);
+            }
+
+            chart1.Series.Add(series);
+            chart1.ChartAreas[0].AxisX.Title = "Categories";
+            chart1.ChartAreas[0].AxisY.Title = "Number of Reports";
         }
 
-        private void LoadUpcomingEvents()
+        // Method to load events into EventsList
+        private void LoadEvents()
         {
-            // Simulated data for upcoming events
-            string events = "Event 1: Tech Conference - 20 Oct 2024\nEvent 2: Music Festival - 25 Oct 2024";
-            lblUpcomingEvents.Text = events;
-        }
-        private void LoadRecentAnnouncements()
-        {
-            // Simulated data for recent announcements
-            string announcements = "Announcement 1: New policy updates\nAnnouncement 2: Office closure notice";
-            lblAnnouncements.Text = announcements;
-        }
+            // Replace with actual data fetching logic
+            var events = new List<EventDetails>
+            {
+                new EventDetails
+                {
+                    EventName = "Music Festival",
+                    EventDate = DateTime.Now.AddDays(2),
+                    EventCategory = "Entertainment",
+                    EventLocation = "Central Park",
+                    EventDescription = "Enjoy live music performances",
+                    EventImage = Resources.music_event  
+                },
+                // Add more events as needed
+            };
 
-        /// <summary>
-        /// Handles the click event of the Join Event button.
-        /// Opens the Join Event form where the user can enter their details to enroll in an event.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnJoinEvent_Click(object sender, EventArgs e)
-        {
-           
+            foreach (var ev in events)
+            {
+                var eventControl = new EventsList
+                {
+                    EventName = ev.EventName,
+                    EventDate = ev.EventDate,
+                    EventCategory = ev.EventCategory,
+                    EventLocation = ev.EventLocation,
+                    EventDescription = ev.EventDescription,
+                    EventImage = ev.EventImage
+                };
 
-        }
-
-        /// <summary>
-        /// Handles the click event of the Report Issue button.
-        /// Opens the Report Issue form where the user can report any issues.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnReportIssue_Click(object sender, EventArgs e)
-        {
-           
+                flowLayoutPanel1.Controls.Add(eventControl);
+            }
         }
 
-        /// <summary>
-        /// Handles the click event of the Create Event button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        // Method to load recent reports
+        private void LoadRecentReports()
         {
-           
+            // Replace with actual data fetching logic
+            var reports = new List<ReportDetails>
+            {
+                new ReportDetails
+                {
+                    Description = "Broken water pipe on 5th Avenue",
+                    EventCategory = "Water",
+                    ReportImage = Resources.music_event
+                },
+                // Add more reports as needed
+            };
+
+            foreach (var report in reports.Take(5))
+            {
+                var reportControl = new ReportControl
+                {
+                    Description = report.Description,
+                    EventCategory = report.EventCategory,
+                    ReportImage = report.ReportImage
+                };
+
+                flowLayoutPanel1.Controls.Add(reportControl);
+            }
         }
-
-        /// <summary>
-        /// Handles the click event of the Create Event button
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnCreateEvent_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void btnJoinEvent_Click_1(object sender, EventArgs e)
-        {
-            // Create a new form to host the JoiningForm UserControl
-            Form hostForm = new Form();
-
-            // Create and initialize the JoiningForm UserControl
-            JoiningForm joiningForm = new JoiningForm();
-            // Set properties for the host form
-            hostForm.Text = "Join Event";
-            // Center the form on the screen
-            hostForm.StartPosition = FormStartPosition.CenterScreen;
-            // Set the size of the form 
-            hostForm.Size = new Size(900, 300);
-            // Added the JoiningForm to the host form
-            hostForm.Controls.Add(joiningForm);
-
-            // Show the host form as a modal dialog (centered on the screen)
-            hostForm.ShowDialog();
-        }
-
-        //private void btnReportIssue_Click_1(object sender, EventArgs e)
-        //{
-        //    // Open the report issue form
-        //    using (var reportForm = new ReportIssueForm())
-        //    {
-        //        if (reportForm.ShowDialog() == DialogResult.OK)
-        //        {
-        //            // Handle the form submission and report the issue
-        //            string issueDetails = reportForm.Description;
-        //            string location = reportForm.Location;
-
-        //            MessageBox.Show($"Issue reported successfully:\nDetails: {issueDetails}\nLocation: {location}",
-        //                            "Issue Reported",
-        //                            MessageBoxButtons.OK,
-        //                            MessageBoxIcon.Information);
-        //        }
-        //    }
-        //}
     }
+
+    // Mock data classes for events and reports
+    public class EventDetails
+    {
+        public string EventName { get; set; }
+        public DateTime EventDate { get; set; }
+        public string EventCategory { get; set; }
+        public string EventLocation { get; set; }
+        public string EventDescription { get; set; }
+        public Image EventImage { get; set; }
+    }
+
+    public class ReportDetails
+    {
+        public string Description { get; set; }
+        public string EventCategory { get; set; }
+        public Image ReportImage { get; set; }
+    }
+
 }
+
