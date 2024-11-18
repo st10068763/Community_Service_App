@@ -99,9 +99,13 @@ namespace PROG_3B_POE
 
         public ServiceRequestForm()
         {
-            InitializeComponent();
+            // Initialize binary search tree and load data before initializing components
+            bst = new BinarySearchTree<ServiceRequest>();
             LoadIssues();
+            InitializeComponent();
+            
             DisplayTreeData();
+            DisplayChart();
         }
 
         private void LoadIssues()
@@ -185,71 +189,89 @@ namespace PROG_3B_POE
         }
 
         //-------------------Changes the graph type based on the radio button selected
-        /// <summary>
-        /// Button to display the chart as a line graph
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnLineGraph_CheckedChanged(object sender, EventArgs e)
         {
-            if (btnLineGraph.Checked)
-            {
-                ServiceChart.Series[0].ChartType = SeriesChartType.Line;
-            }
+            if (btnLineGraph.Checked) DisplayChart();
         }
-        /// <summary>
-        /// Button to display the chart as a bar graph
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void btnStakedGraph_CheckedChanged(object sender, EventArgs e)
         {
-            if (btnStakedGraph.Checked)
-            {
-                ServiceChart.Series[0].ChartType = SeriesChartType.StackedColumn;
-            }
+            if (btnStakedGraph.Checked) DisplayChart();
         }
 
-        /// <summary>
-        /// Method to display the chart with the number of requests per category
-        /// </summary>
+        private void btnStaked_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnStaked.Checked) DisplayChart();
+        }
+
+
         private void DisplayChart()
         {
-            ServiceChart.Series["Column"].Points.Clear();
-
-            if (cbChartType.SelectedItem.ToString() == "Category")
+            if (cbChartType.SelectedItem == null)
             {
-                var categoryGroups = bst.InOrderTraversal()
-                    .GroupBy(r => r.Category)
-                    .Select(g => new { g.Key, Count = g.Count() });
+                cbChartType.SelectedIndex = 0;
+            }           
+
+            if (cbChartType.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a chart type.");
+                return;
+            }
+
+            if (bst == null || !bst.InOrderTraversal().Any())
+            {
+                MessageBox.Show("No data available for chart.");
+                return;
+            }
+
+            // Clear previous series and add a new one
+            ServiceChart.Series.Clear();
+            var series = new Series("Service Requests")
+            {
+                ChartType = SeriesChartType.Column // Default chart type
+            };
+
+            // Determine the selected chart type, the chart type will changed based on the user choice
+            if (btnLineGraph.Checked) series.ChartType = SeriesChartType.Spline;
+            if (btnStakedGraph.Checked) series.ChartType = SeriesChartType.StackedColumn;
+            if (btnStaked.Checked) series.ChartType = SeriesChartType.Area;
+
+            ServiceChart.Series.Add(series);
+
+            // Populate data based on the selected type
+            string chartType = cbChartType.SelectedItem.ToString();
+            var data = bst.InOrderTraversal();
+
+            if (chartType == "Category")
+            {
+                var categoryGroups = data.GroupBy(r => r.Category ?? "Unknown")
+                                          .Select(g => new { g.Key, Count = g.Count() });
 
                 foreach (var group in categoryGroups)
                 {
-                    ServiceChart.Series["Column"].Points.AddXY(group.Key, group.Count);
+                    series.Points.AddXY(group.Key, group.Count);
                 }
             }
-            else if (cbChartType.SelectedItem.ToString() == "Status")
+            else if (chartType == "Status")
             {
-                var statusGroups = bst.InOrderTraversal()
-                    .GroupBy(r => r.Status)
-                    .Select(g => new { g.Key, Count = g.Count() });
+                var statusGroups = data.GroupBy(r => r.Status ?? "Unknown")
+                                        .Select(g => new { g.Key, Count = g.Count() });
 
                 foreach (var group in statusGroups)
                 {
-                    ServiceChart.Series["Column"].Points.AddXY(group.Key, group.Count);
+                    series.Points.AddXY(group.Key, group.Count);
                 }
             }
-            else if (cbChartType.SelectedItem.ToString() == "Priority")
+            else if (chartType == "Priority")
             {
-                var priorityGroups = bst.InOrderTraversal()
-                    .GroupBy(r => r.Priority)
-                    .Select(g => new { g.Key, Count = g.Count() });
+                var priorityGroups = data.GroupBy(r => r.Priority ?? "Unknown")
+                                          .Select(g => new { g.Key, Count = g.Count() });
 
                 foreach (var group in priorityGroups)
                 {
-                    ServiceChart.Series["Column"].Points.AddXY(group.Key, group.Count);
+                    series.Points.AddXY(group.Key, group.Count);
                 }
-            }        
+            }
         }
 
         //*************************************END OF CHART*******************************************
@@ -294,7 +316,6 @@ namespace PROG_3B_POE
                 DisplayChart();
             }
         }
-
 
         //----------------------------Search method
         private void btnSearch_Click_1(object sender, EventArgs e)
@@ -348,9 +369,9 @@ namespace PROG_3B_POE
             txtSearch.Clear();
             // resets all the buttons to unchecked
             cbCategorySorting.SelectedIndex = -1; 
-            rdBtnInProgress.Checked = false;
-            rdBtnPending.Checked = false;
-            rdBtnSolved.Checked = false;
+            rdBtnMediumPriority.Checked = false;
+            rdBtnHighPriority.Checked = false;
+            rdBtnLowPriority.Checked = false;
 
             // Reload all service requests into the DataGridView
             dgvServiceRequests.DataSource = bst.InOrderTraversal().ToList();
@@ -361,78 +382,27 @@ namespace PROG_3B_POE
         //==========================================================================//
         //----------------------------------Sorting
         /// <summary>
-        /// Method to sort requests based on the selected criteria such as pending, in progress, resolved, priority
+        /// Filters the service requests by priority and updates the DataGridView.
         /// </summary>
-        /// <param name="criteria"></param>
-        private void SortRequests(string criteria)
+        /// <param name="priority">The priority to filter by.</param>
+        private void FilterByPriority(string priority)
         {
-            var sortedRequests = ReportIssueForm.issues
-                .Select(ConvertIssueToRequest) // Convert all issues to service requests
+            var filteredRequests = bst.InOrderTraversal()
+                .Where(request => request.Priority == priority)
                 .ToList();
 
-            switch (criteria)
+            if (filteredRequests.Any())
             {
-                case "Priority":
-                    sortedRequests = sortedRequests.OrderBy(r => r.Priority).ToList();
-                    break;
-                case "Request Date":
-                    sortedRequests = sortedRequests.OrderBy(r => r.RequestDate).ToList();
-                    break;
-                case "Pending":
-                    sortedRequests = sortedRequests.Where(r => r.Status == Status.Pending).ToList();
-                    break;
-                case "In Progress":
-                    sortedRequests = sortedRequests.Where(r => r.Status == Status.InProgress).ToList();
-                    break;
-                case "Resolved":
-                    sortedRequests = sortedRequests.Where(r => r.Status == Status.Resolved).ToList();
-                    break;
-                default:
-                    MessageBox.Show("Invalid sorting criteria.", "Error");
-                    return;
+                dgvServiceRequests.DataSource = filteredRequests;
             }
-            // Update the DataGridView
-            // Reload all service requests into the DataGridView
-            dgvServiceRequests.DataSource = bst.InOrderTraversal().ToList();
-        }
-        /// <summary>
-        /// Button to show the pending requests
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void rdBtnPending_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdBtnPending.Checked)
+            else
             {
-                SortRequests(Status.Pending);
+                MessageBox.Show($"No service requests found with priority: {priority}");
+                dgvServiceRequests.DataSource = null; // Clear if no matches
             }
         }
 
-        /// <summary>
-        /// Button to show the in-progress requests
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void rdBtnInProgress_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdBtnInProgress.Checked)
-            {
-                SortRequests(Status.InProgress);
-            }
-        }
-
-        /// <summary>
-        /// Button to show the resolved requests
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void rdBtnSolved_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdBtnSolved.Checked)
-            {
-                SortRequests(Status.Resolved);
-            }
-        }
+       
 
         /// <summary>
         /// Button to sort the requests by category
@@ -444,14 +414,19 @@ namespace PROG_3B_POE
             if (cbCategorySorting.SelectedIndex != -1)
             {
                 string selectedCategory = cbCategorySorting.SelectedItem.ToString();
+                var filteredRequests = bst.InOrderTraversal()
+                                          .Where(request => request.Category == selectedCategory)
+                                          .ToList();
 
-                var filteredRequests = ReportIssueForm.issues
-                    .Where(issue => issue.Category == selectedCategory)
-                    .Select(ConvertIssueToRequest)
-                    .ToList();
-
-                dgvServiceRequests.DataSource = null;
-                dgvServiceRequests.DataSource = filteredRequests;
+                if (filteredRequests.Any())
+                {
+                    dgvServiceRequests.DataSource = filteredRequests;
+                }
+                else
+                {
+                    MessageBox.Show("No requests found for the selected category.");
+                    dgvServiceRequests.DataSource = null; // Clear if no results
+                }
             }
         }
 
@@ -488,6 +463,28 @@ namespace PROG_3B_POE
             }
         }
 
-    }
+        private void rdBtnHighPriority_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdBtnHighPriority.Checked)
+            {
+                FilterByPriority("High Priority");
+            }
+        }
 
+        private void rdBtnMediumPriority_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdBtnMediumPriority.Checked)
+            {
+                FilterByPriority("Medium Priority");
+            }
+        }
+
+        private void rdBtnLowPriority_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdBtnLowPriority.Checked)
+            {
+                FilterByPriority("Low Priority");
+            }
+        }        
+    }
 }
