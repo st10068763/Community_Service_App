@@ -79,6 +79,7 @@
             this.btnStaked = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExportData = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServiceRequests)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceRequestBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceChart)).BeginInit();
@@ -119,6 +120,7 @@
             this.dgvServiceRequests.RowHeadersWidth = 51;
             this.dgvServiceRequests.Size = new System.Drawing.Size(744, 279);
             this.dgvServiceRequests.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.dgvServiceRequests, "Shows all the reports ");
             this.dgvServiceRequests.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServiceRequests_CellValueChanged_1);
             // 
             // Request_ID
@@ -207,6 +209,7 @@
             this.txtRequestID.Name = "txtRequestID";
             this.txtRequestID.Size = new System.Drawing.Size(244, 22);
             this.txtRequestID.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.txtRequestID, "Enter the report ID here to be searched");
             // 
             // lblRequestID
             // 
@@ -226,6 +229,8 @@
             this.btnTrackRequest.Size = new System.Drawing.Size(112, 30);
             this.btnTrackRequest.TabIndex = 4;
             this.btnTrackRequest.Text = "Track";
+            this.toolTip1.SetToolTip(this.btnTrackRequest, "Tracks the report after the user insert a valid report ID in the report ID textbo" +
+        "x");
             this.btnTrackRequest.UseVisualStyleBackColor = true;
             this.btnTrackRequest.Click += new System.EventHandler(this.btnTrackRequest_Click_1);
             // 
@@ -259,6 +264,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(244, 22);
             this.txtSearch.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.txtSearch, "Enter your search key here");
             // 
             // btnSearch
             // 
@@ -268,6 +274,7 @@
             this.btnSearch.Size = new System.Drawing.Size(116, 30);
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Text = "Search";
+            this.toolTip1.SetToolTip(this.btnSearch, "Searchs for the report");
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
@@ -309,6 +316,7 @@
             this.cbCategorySorting.Name = "cbCategorySorting";
             this.cbCategorySorting.Size = new System.Drawing.Size(215, 24);
             this.cbCategorySorting.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.cbCategorySorting, "Sorts the data chart by category selected");
             this.cbCategorySorting.SelectedIndexChanged += new System.EventHandler(this.cbCategorySorting_SelectedIndexChanged);
             // 
             // label3
@@ -337,6 +345,7 @@
             this.rdBtnHighPriority.Size = new System.Drawing.Size(56, 20);
             this.rdBtnHighPriority.TabIndex = 19;
             this.rdBtnHighPriority.Text = "High";
+            this.toolTip1.SetToolTip(this.rdBtnHighPriority, "Shows all High priority reports");
             this.rdBtnHighPriority.UseVisualStyleBackColor = true;
             this.rdBtnHighPriority.CheckedChanged += new System.EventHandler(this.rdBtnHighPriority_CheckedChanged);
             // 
@@ -348,6 +357,7 @@
             this.rdBtnMediumPriority.Size = new System.Drawing.Size(76, 20);
             this.rdBtnMediumPriority.TabIndex = 20;
             this.rdBtnMediumPriority.Text = "Medium";
+            this.toolTip1.SetToolTip(this.rdBtnMediumPriority, "Shows all Medium priority reports");
             this.rdBtnMediumPriority.UseVisualStyleBackColor = true;
             this.rdBtnMediumPriority.CheckedChanged += new System.EventHandler(this.rdBtnMediumPriority_CheckedChanged);
             // 
@@ -359,6 +369,7 @@
             this.rdBtnLowPriority.Size = new System.Drawing.Size(52, 20);
             this.rdBtnLowPriority.TabIndex = 21;
             this.rdBtnLowPriority.Text = "Low";
+            this.toolTip1.SetToolTip(this.rdBtnLowPriority, "Shows all Low priority reports");
             this.rdBtnLowPriority.UseVisualStyleBackColor = true;
             this.rdBtnLowPriority.CheckedChanged += new System.EventHandler(this.rdBtnLowPriority_CheckedChanged);
             // 
@@ -370,6 +381,7 @@
             this.btnReset.Size = new System.Drawing.Size(100, 30);
             this.btnReset.TabIndex = 22;
             this.btnReset.Text = "Reset sorting";
+            this.toolTip1.SetToolTip(this.btnReset, "Resets the sorting option and shows all the reports");
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
@@ -401,6 +413,7 @@
             this.ServiceChart.Size = new System.Drawing.Size(746, 322);
             this.ServiceChart.TabIndex = 23;
             this.ServiceChart.Text = "Service Chart";
+            this.toolTip1.SetToolTip(this.ServiceChart, "Graph chart with the represented data of the reports");
             // 
             // cbChartType
             // 
@@ -413,6 +426,7 @@
             this.cbChartType.Name = "cbChartType";
             this.cbChartType.Size = new System.Drawing.Size(162, 24);
             this.cbChartType.TabIndex = 25;
+            this.toolTip1.SetToolTip(this.cbChartType, "Filters the graph by status, category or priority");
             this.cbChartType.SelectedIndexChanged += new System.EventHandler(this.cbChartType_SelectedIndexChanged);
             // 
             // btnLineGraph
@@ -477,9 +491,10 @@
             this.btnStaked.AutoSize = true;
             this.btnStaked.Location = new System.Drawing.Point(797, 536);
             this.btnStaked.Name = "btnStaked";
-            this.btnStaked.Size = new System.Drawing.Size(132, 20);
+            this.btnStaked.Size = new System.Drawing.Size(115, 20);
             this.btnStaked.TabIndex = 33;
-            this.btnStaked.Text = "Staked bar graph";
+            this.btnStaked.Text = "Areabar graph";
+            this.toolTip1.SetToolTip(this.btnStaked, "Set the chart to Area graph");
             this.btnStaked.UseVisualStyleBackColor = true;
             this.btnStaked.CheckedChanged += new System.EventHandler(this.btnStaked_CheckedChanged);
             // 
@@ -500,6 +515,7 @@
             this.btnExportData.Size = new System.Drawing.Size(100, 30);
             this.btnExportData.TabIndex = 35;
             this.btnExportData.Text = "Export data";
+            this.toolTip1.SetToolTip(this.btnExportData, "Button to download the selected data from the gridview");
             this.btnExportData.UseVisualStyleBackColor = true;
             this.btnExportData.Click += new System.EventHandler(this.btnExportData_Click);
             // 
@@ -580,5 +596,6 @@
         private System.Windows.Forms.RadioButton btnStaked;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExportData;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
